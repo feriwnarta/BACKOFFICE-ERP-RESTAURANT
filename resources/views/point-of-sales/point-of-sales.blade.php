@@ -4,8 +4,10 @@
     @include('partials.sidebar')
 @endsection
 
+
+@section('navbar')
+@endsection
+
 @section('content')
-    @section('navbar')
-    asd
-    @endsection
+
 @endsection

@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('point-of-sales.point-of-sales');
+    return view('main');
+});
+
+Route::get('test', function () {
+    return 'asd';
 });
