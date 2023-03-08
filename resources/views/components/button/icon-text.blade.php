@@ -1,4 +1,6 @@
 {{--
+    BUTTON ICON TEXT NORMAL
+
     Component button ini digunakan untuk membuat button menu sidebar, memiliki beberapa atribute mulai dari
 
     class = untuk memberikan nama kelas pada element html
@@ -9,12 +11,12 @@
 
  --}}
 
-<button class="btn {{ $class }} button-icon-text description-1-medium" type="button" data-bs-toggle="{{$toggle}}" data-bs-target="#{{$idTarget}}" aria-expanded="false" aria-controls="{{$idTarget}}"  onclick= " {{ ($link == '') ? '' : "changeContent('$link', '$method')"  }}">
+<button class="btn {{ $class }} button-icon-text description-1-medium" type="button" data-bs-toggle="{{$toggle}}" data-bs-target="#{{$idTarget}}" aria-expanded="false" aria-controls="{{$idTarget}}"  onclick= " {{ ($link == '') ? '' : "changeContent('$link', '$method', '$class')"  }}">
     <i class="{{$icon}}"></i>
     {{$text}}
 </button>
 
-<div class="collapse multi-collapse" id="{{$idTarget}}">
+<div class="collapse" id="{{$idTarget}}">
     {{$slot}}
 </div>
 

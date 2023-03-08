@@ -1,6 +1,3 @@
-
-
-
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -21,4 +18,13 @@
 
 .button-menu {
     margin-top: 48px;
+}
+
+
+.inner-menu-active {
+    background-color: #FFF7F2;
+}
+
+.active {
+    color: #F16622;
 }

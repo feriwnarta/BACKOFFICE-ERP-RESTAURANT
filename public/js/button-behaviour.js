@@ -1,13 +1,38 @@
 
-function changeContent(url, method) {
-    let content;
+function changeContent(url, method, tag) {
 
+    // hapus kelas aktif menu terlebih dahulu
+    $('.button-menu .button-icon-text').each(function () {
+        $(this).removeClass('active');
+    });
+
+
+    // hapus collapse menu yang terbuka terlebih dahulu
+    $('.button-menu .button-icon-text').each(function () {
+        $(this).click(function () {
+            var targetSidebar = $(this).data('bs-target');
+
+            $('.button-menu div').each(function(){
+                if ($(this).attr('id') !== targetSidebar) {
+                    $(this).removeClass('show') // Hapus class 'show' dari sidebar yang tidak dituju
+                }
+            });
+        });
+    });
+
+    tag = '.' + tag;
+
+    // menambahkan kelas aktif di element button icon text
+    $(tag).addClass('active');
+
+
+
+    // ajax setup laravel csrf token sebelum mengirim request
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-
 
     $.ajax(
         {
@@ -17,21 +42,21 @@ function changeContent(url, method) {
             contentType:false,
             cache: false,
             async: false,
-            beforeSend: function(){
-                $("#progress-bar").width("10%");
+            beforeSend: function() {
+                $("#progress-bar").css('display', 'block');
+                $("#progress-bar").css('width', '20%');
             },
             success: function (response) {
-
-                $('#page').html('asdasd');
+                $('#page').html(response);
             },
             complete: function(){
-                $("#progress-bar").width('100%')
-                $("#progress-bar").fadeOut(500);
+                $("#progress-bar").width('100%');
+                $('#progress-bar').fadeOut('0%');
             },
         }
-    );
-
-
+    ).done(function () {
+    });
 
 
 }
+

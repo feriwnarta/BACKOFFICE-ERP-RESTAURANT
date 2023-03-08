@@ -1,3 +1,7 @@
+/* ---------------------------------------------------
+    ICON SIDE BAR
+----------------------------------------------------- */
+
 .dashboard-icon {
     display: inline-block;
     width: 1rem;
@@ -5,7 +9,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 0.5em;
-    background-image: url(../img/dashboard-icon.png);
+    background-image: url(../img/icons/dashboard-icon.png);
     vertical-align: middle;
 }
 
@@ -17,6 +21,83 @@
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 0.5em;
-    background-image: url(../img/pos-icon.png);
+    background-image: url(../img/icons/pos-icon.png);
+    vertical-align: middle;
+}
+
+.ingredients-icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 0.5em;
+    background-image: url(../img/icons/ingredients.png);
+    vertical-align: middle;
+}
+
+.inventory-icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 0.5em;
+    background-image: url(../img/icons/inventory.png);
+    vertical-align: middle;
+}
+
+.central-kitchen-icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 0.5em;
+    background-image: url(../img/icons/central-kitchen-icon.png);
+    vertical-align: middle;
+}
+
+.purchasing-icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 0.5em;
+    background-image: url(../img/icons/purchasing-icon.png);
+    vertical-align: middle;
+}
+
+.accounting-icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 0.5em;
+    background-image: url(../img/icons/accounting-icon.png);
+    vertical-align: middle;
+}
+
+.finance-icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 0.5em;
+    background-image: url(../img/icons/finance-icon.png);
+    vertical-align: middle;
+}
+
+.report-icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 0.5em;
+    background-image: url(../img/icons/report-icon.png);
     vertical-align: middle;
 }
