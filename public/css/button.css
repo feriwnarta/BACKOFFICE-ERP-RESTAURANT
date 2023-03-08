@@ -22,7 +22,7 @@
     color: #F16622;
 }
 
-.button-text-only-text {
+.button-sidebar-text-only-text {
     margin-top: .5rem;
     border-radius: 6px;
     color: #F16622;
@@ -31,4 +31,9 @@
     min-width: 100%;
     max-width: 100%;
     gap: 10px;
+}
+
+
+.button-sidebar-text-only-text:focus {
+    color: #F16622;
 }

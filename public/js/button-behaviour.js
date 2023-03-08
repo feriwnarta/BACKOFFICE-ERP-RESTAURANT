@@ -3,7 +3,7 @@ function changeContent(url, method, tag) {
 
     // hapus kelas aktif menu terlebih dahulu
     $('.button-menu .button-icon-text').each(function () {
-        $(this).removeClass('active');
+        $(this).removeClass('active')
     });
 
 
@@ -26,7 +26,27 @@ function changeContent(url, method, tag) {
     $(tag).addClass('active');
 
 
+    // ubah content main
+    contentRequest(url, method);
 
+}
+
+function changeContentInnerChild(url, method, tag) {
+    // behaviour button inner child
+    tag = '#' + tag;
+
+    $('.show .btn').each(function () {
+        $(this).removeClass('inner-menu-active');
+    });
+
+    $(tag).addClass('inner-menu-active');
+
+    contentRequest(url, method);
+
+}
+
+
+function contentRequest(url, method) {
     // ajax setup laravel csrf token sebelum mengirim request
     $.ajaxSetup({
         headers: {
@@ -53,10 +73,12 @@ function changeContent(url, method, tag) {
                 $("#progress-bar").width('100%');
                 $('#progress-bar').fadeOut('0%');
             },
+            error: function (error) {
+
+            },
         }
     ).done(function () {
+
     });
-
-
 }
 
