@@ -1,13 +1,5 @@
-@extends('layouts.app')
+@include('components.navbar.navbar')
 
-@section('sidebar')
-    @include('partials.sidebar')
-@endsection
+<div id="progress-bar"></div>
 
-
-@section('navbar')
-@endsection
-
-@section('content')
-
-@endsection
+<h1>Point Of Sales</h1>

@@ -22,7 +22,7 @@ Route::get('test1', function () {
 });
 
 Route::get('test2', function () {
-    return 'test2';
+    return view('point-of-sales.point-of-sales');
 });
 
 Route::get('test3', function () {

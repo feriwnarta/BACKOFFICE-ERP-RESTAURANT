@@ -25,9 +25,6 @@
 
 
     <div id="content">
-        @yield('navbar')
-        @yield('loader')
-
         <div id="page">
             @yield('page')
         </div>

@@ -18,12 +18,6 @@ html {
     align-items: stretch;
 }
 
-/*-----------------------------------------------------
-   END WRAPPER STYLE
--------------------------------------------------------*/
-
-
-
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
@@ -33,12 +27,6 @@ html {
     min-height: 100vh;
     transition: all 0.3s;
 }
-
-/* ---------------------------------------------------
-    END CONTENT STYLE
------------------------------------------------------ */
-
-
 
 /* ---------------------------------------------------
     PROGRESS BAR STYLE
@@ -51,7 +39,35 @@ html {
     transition: width 0.5s ease-in-out;
 }
 
+
 /* ---------------------------------------------------
-    END PROGRESS BAR STYLE
+    NAVBAR STYLE
 ----------------------------------------------------- */
+.content-navbar {
+    padding: 2rem 1.25rem 1.87rem 1.25rem;
+}
+
+.navbar-title {
+    font-family: 'Poppins Bold';
+    color: #F16622;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.navbar-subtitle {
+    padding-left: 1rem;
+    font-family: 'Poppins Regular';
+    font-style: normal;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+#divider {
+    max-width: 100%;
+    border: 1px solid #E0E0E0;
+
+}
+
+
+
 
