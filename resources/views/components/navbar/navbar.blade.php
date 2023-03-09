@@ -12,6 +12,7 @@
             </form>
 
             {{-- Button Navbar --}}
+            <x-button.dropdown-no-icon id="all-status" class="btn-nav" text="All Status"></x-button.dropdown-no-icon>
             <x-button.text-only-primary id="create-recipes-btn" class="btn-nav" text="Create Recipes"></x-button.text-only-primary>
             <x-button.icon-text-outlined id="pilih-tanggal-btn" class="btn-nav" text="Pilih Tanggal" icon="calendar-icon"></x-button.icon-text-outlined>
         </div>
