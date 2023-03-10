@@ -72,9 +72,11 @@ function contentRequest(url, method) {
                 $("#progress-bar").width('100%');
                 $('#progress-bar').fadeOut('0%');
             },
-            error: function (error) {
-
-            },
+            error: function(statusCode, errorThrown) {
+                // if (statusCode.status == 0) {
+                //     alert("you're offline");
+                // }
+            }
         }
     ).done(function () {
         changeWidthTitle();

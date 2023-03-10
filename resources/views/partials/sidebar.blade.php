@@ -41,16 +41,14 @@
             </x-button.icon-text>
 
             {{-- Central Kitchen Menu --}}
-            <x-button.icon-text class="central-kitchen-btn" icon="central-kitchen-icon" text="Central Kitchen" toggle="collapse" idTarget="centralKitchenCollapse" link="http://127.0.0.1:8000/test3" method="GET">
-                <x-button.text-only @class('inner-menu-active') id="library-central-kitchen-btn" variant="text" text="Library" link="" method="" method=""></x-button.text-only>
-                <x-button.text-only @class('') id="category-central-kitchen-btn" variant="text" text="Category" link="" method=""></x-button.text-only>
-                <x-button.text-only @class('') id="recipes-central-kitchen-btn" variant="text" text="Recipes" link="" method=""></x-button.text-only>
+            <x-button.icon-text class="central-kitchen-btn" icon="central-kitchen-icon" text="Central Kitchen" toggle="collapse" idTarget="centralKitchenCollapse" link="{{ url()->current() }}/central-kitchen/stock" method="GET">
+                <x-button.text-only @class('inner-menu-active') id="stock-central-kitchen-btn" variant="text" text="Stock" link="{{ url()->current() }}/central-kitchen/stock" method="GET"></x-button.text-only>
             </x-button.icon-text>
 
             {{-- Purchasing Menu --}}
-            <x-button.icon-text class="purchasing-btn" icon="purchasing-icon" text="Purchasing" toggle="collapse" idTarget="purchasingCollapse" link="http://127.0.0.1:8000/test3" method="GET">
-                <x-button.text-only @class('') id="supplier-purchasing-btn" variant="text" text="Supplier" link="" method=""></x-button.text-only>
-                <x-button.text-only @class('') id="purchase-order-purchasing-btn" variant="text" text="Purchase Order" link="" method=""></x-button.text-only>
+            <x-button.icon-text class="purchasing-btn" icon="purchasing-icon" text="Purchasing" toggle="collapse" idTarget="purchasingCollapse" link="{{ url()->current() }}/purchasing/supplier" method="GET">
+                <x-button.text-only @class('inner-menu-active') id="supplier-purchasing-btn" variant="text" text="Supplier" link="{{ url()->current() }}/purchasing/supplier" method="GET"></x-button.text-only>
+                <x-button.text-only @class('') id="purchase-order-purchasing-btn" variant="text" text="Purchase Order" link="{{ url()->current() }}/purchasing/purchase-order" method="GET"></x-button.text-only>
             </x-button.icon-text>
 
             {{-- Accounting Menu --}}
