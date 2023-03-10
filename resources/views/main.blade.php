@@ -8,11 +8,20 @@
 
 
 @section('page')
-    @include('components.navbar.navbar')
 
-    <div id="progress-bar"></div>
+{{--    <x-navbar.navbar>--}}
+{{--        <x-slot:title>--}}
+{{--            --}}{{-- <div class="navbar-title">Menu</div> --}}
+{{--            --}}{{-- <div class="navbar-subtitle">Semi-Finished Recipes</div> --}}
+{{--        </x-slot:title>--}}
 
-    <h1>Dashboard</h1>
+{{--        asd--}}
+{{--    </x-navbar.navbar>--}}
+
+{{--    <div id="progress-bar"></div>--}}
+
+    <h1>{{ url()->current() }}</h1>
+
 @endsection
 
 {{--@section('loader')--}}

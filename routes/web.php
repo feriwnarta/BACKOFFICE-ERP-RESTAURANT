@@ -21,10 +21,27 @@ Route::get('test1', function () {
     return 'test1';
 });
 
-Route::get('test2', function () {
-    return view('point-of-sales.point-of-sales');
+// Routes Untuk Menu POS
+Route::controller(\App\Http\Controllers\PosController::class)->group(function () {
+    Route::get('pos/menu', 'menu');
+    Route::get('pos/category', 'category');
 });
 
-Route::get('test3', function () {
-    return 'test3';
+// Routes Untuk Menu Ingredients
+Route::controller(\App\Http\Controllers\IngredientsController::class)->group(function () {
+    Route::get('ingredients/library', 'library');
+    Route::get('ingredients/category', 'category');
+    Route::get('ingredients/recipes', 'recipes');
 });
+
+// Routes Untuk Menu inventory
+Route::controller(\App\Http\Controllers\InventoryController::class)->group(function () {
+    Route::get('inventory/summary', 'summary');
+    Route::get('inventory/stock-opname', 'stockOpname');
+});
+
+// Routes Untuk Menu Central Kitchen
+Route::controller(\App\Http\Controllers\CentralKitchenController::class)->group(function () {
+   Route::get('central-kitchen/stock', 'stock');
+});
+

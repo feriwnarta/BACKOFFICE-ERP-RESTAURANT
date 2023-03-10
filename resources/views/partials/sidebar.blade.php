@@ -20,24 +20,24 @@
             </x-button.icon-text>
 
             {{-- Pos Menu --}}
-            <x-button.icon-text class="pos-btn" icon="pos-icon" text="Point of Sales" toggle="collapse" idTarget="posCollapse" link="http://127.0.0.1:8000/test2" method="GET">
-                <x-button.text-only @class('inner-menu-active') id="menu-pos-btn" variant="text" text="Menu" link="" method=""></x-button.text-only>
-                <x-button.text-only @class('') id="category-pos-btn" variant="text" text="Category" link="" method=""></x-button.text-only>
+            <x-button.icon-text class="pos-btn" icon="pos-icon" text="Point of Sales" toggle="collapse" idTarget="posCollapse" link="{{ url()->current() }}/pos/menu" method="GET">
+                <x-button.text-only @class('inner-menu-active') id="menu-pos-btn" variant="text" text="Menu" link="{{ url()->current() }}pos/menu" method="GET"></x-button.text-only>
+                <x-button.text-only @class('') id="category-pos-btn" variant="text" text="Category" link="{{ url()->current() }}/pos/category" method="GET"></x-button.text-only>
             </x-button.icon-text>
 
 
             {{-- Ingridients Menu --}}
-            <x-button.icon-text class="ingredients-btn" icon="ingredients-icon" text="Ingredients" toggle="collapse" idTarget="ingridientsCollapse" link="http://127.0.0.1:8000/test3" method="GET">
-                <x-button.text-only @class('inner-menu-active') id="library-ingredients-btn" variant="text" text="Library" link="" method=""></x-button.text-only>
-                <x-button.text-only @class('') id="category-ingredients-btn" variant="text" text="Category" link="" method=""></x-button.text-only>
-                <x-button.text-only @class('') id="recipes-ingredients-btn" variant="text" text="Recipes" link="" method=""></x-button.text-only>
+            <x-button.icon-text class="ingredients-btn" icon="ingredients-icon" text="Ingredients" toggle="collapse" idTarget="ingridientsCollapse" link="{{ url()->current() }}/ingredients/library" method="GET">
+                <x-button.text-only @class('inner-menu-active') id="library-ingredients-btn" variant="text" text="Library" link="{{ url()->current() }}/ingredients/library" method=""></x-button.text-only>
+                <x-button.text-only @class('') id="category-ingredients-btn" variant="text" text="Category" link="{{ url()->current() }}/ingredients/category" method="GET"></x-button.text-only>
+                <x-button.text-only @class('') id="recipes-ingredients-btn" variant="text" text="Recipes" link="{{ url()->current() }}/ingredients/recipes" method="GET"></x-button.text-only>
             </x-button.icon-text>
 
 
             {{-- Inventory Kitchen Menu --}}
-            <x-button.icon-text class="inventory-btn" icon="inventory-icon" text="Inventory" toggle="collapse" idTarget="inventoryCollapse" link="http://127.0.0.1:8000/test3" method="GET">
-                <x-button.text-only @class('inner-menu-active') id="summary-inventory-btn" variant="text" text="Summary" link="" method=""></x-button.text-only>
-                <x-button.text-only @class('') id="stock-opname-inventory-btn" variant="text" text="Stock Opname" link="" method=""></x-button.text-only>
+            <x-button.icon-text class="inventory-btn" icon="inventory-icon" text="Inventory" toggle="collapse" idTarget="inventoryCollapse" link="{{ url()->current() }}/inventory/summary" method="GET">
+                <x-button.text-only @class('inner-menu-active') id="summary-inventory-btn" variant="text" text="Summary" link="{{ url()->current() }}/inventory/summary" method="GET"></x-button.text-only>
+                <x-button.text-only @class('') id="stock-opname-inventory-btn" variant="text" text="Stock Opname" link="{{ url()->current() }}/inventory/stock-opname" method="GET"></x-button.text-only>
             </x-button.icon-text>
 
             {{-- Central Kitchen Menu --}}

@@ -65,7 +65,12 @@ html {
 #divider {
     max-width: 100%;
     border: 1px solid #E0E0E0;
+}
 
+#title-divider {
+    margin-left: 1.25rem;
+    height: 3px;
+    background-color: #F16622;
 }
 
 /* clears the ‘X’ from Internet Explorer */

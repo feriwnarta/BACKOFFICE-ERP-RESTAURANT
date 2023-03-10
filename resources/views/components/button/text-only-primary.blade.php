@@ -1,3 +1,1 @@
-
-
-<button type="button" class="btn btn-icon-text-primary {{ $class }}" id="{{ $id }}"> {{ $text }} </button>
+<button type="button" class="btn btn-text-only-primary {{ $class }}" id="{{ $id }}"> {{ $text }} </button>

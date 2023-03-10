@@ -45,7 +45,6 @@ function changeContentInnerChild(url, method, tag) {
 
 }
 
-
 function contentRequest(url, method) {
     // ajax setup laravel csrf token sebelum mengirim request
     $.ajaxSetup({
@@ -78,7 +77,16 @@ function contentRequest(url, method) {
             },
         }
     ).done(function () {
-
+        changeWidthTitle();
     });
+
+
 }
 
+function changeWidthTitle() {
+    let widthTitleNavbar = $('.navbar-title').width();
+
+    $('#title-divider').width(widthTitleNavbar);
+
+
+}
