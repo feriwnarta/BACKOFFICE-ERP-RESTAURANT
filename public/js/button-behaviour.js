@@ -9,8 +9,10 @@ function changeContent(url, method, tag) {
 
     // hapus collapse menu yang terbuka terlebih dahulu
     $('.button-menu .button-icon-text').each(function () {
+        ///! BENERIN DISINI
         $(this).click(function () {
             var targetSidebar = $(this).data('bs-target');
+            
 
             $('.button-menu div').each(function(){
                 if ($(this).attr('id') !== targetSidebar) {
@@ -44,7 +46,6 @@ function changeContentInnerChild(url, method, tag) {
     contentRequest(url, method);
 
 }
-
 function contentRequest(url, method) {
     // ajax setup laravel csrf token sebelum mengirim request
     $.ajaxSetup({
@@ -80,6 +81,8 @@ function contentRequest(url, method) {
         }
     ).done(function () {
         changeWidthTitle();
+        dataTableInit();
+        window.history.pushState(null, null, url); 
     });
 
 
