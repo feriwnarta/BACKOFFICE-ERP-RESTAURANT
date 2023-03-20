@@ -15,7 +15,7 @@
         <div id="nav-action-button" class="d-flex flex-row align-items-center">
 
             <form class="d-flex">
-                <input class="form-control search-bar clear" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control clear search-bar" type="search" placeholder="Search" aria-label="Search">
             </form>
 
             {{-- Button Navbar --}}

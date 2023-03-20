@@ -38,6 +38,7 @@ Route::controller(\App\Http\Controllers\IngredientsController::class)->group(fun
 Route::controller(\App\Http\Controllers\InventoryController::class)->group(function () {
     Route::get('inventory/summary', 'summary');
     Route::get('inventory/stock-opname', 'stockOpname');
+    Route::get('inventory/stock-opname', 'stockOpname');
 });
 
 // Routes Untuk Menu Central Kitchen
