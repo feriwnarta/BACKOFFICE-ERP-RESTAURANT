@@ -97,3 +97,14 @@ function changeWidthTitle() {
 
     $("#title-divider").width(widthTitleNavbar);
 }
+
+// berikan nav title ke button navbar yang diklik
+function switchNavTitle(idOnInit, idBeforeInit) {
+
+    
+    $(`#${idOnInit}`).removeClass('navbar-subtitle');
+    $(`#${idOnInit}`).addClass('navbar-title');
+
+    $(`#${idBeforeInit}`).removeClass('navbar-title');
+    $(`#${idBeforeInit}`).addClass('navbar-subtitle');
+}

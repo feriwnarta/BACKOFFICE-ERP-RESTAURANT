@@ -3,6 +3,7 @@
     outline: none;
 }
 
+
 /*.btn:focus{*/
 /*    box-shadow: 0 0 0 .25rem rgba(241, 102, 34, 0.2); !*menambahkan shadow baru pada focus*!*/
 /*}*/
@@ -149,9 +150,7 @@
 }
 
 
-.btn-text-only-primary:focus {
-
-}
+.btn-text-only-primary:focus {}
 
 
 .btn-text-only-secondary {
@@ -175,5 +174,19 @@
 }
 
 .btn-text-only-secondary:hover {
+    color: #B24109;
+}
+
+
+/* ---------------------------------------------------
+    Button Only text
+    Variant = text
+----------------------------------------------------- */
+.text-only-text {
+    align-items: center;
+    padding: 0px !important;
+}
+
+.text-only-text:hover {
     color: #B24109;
 }

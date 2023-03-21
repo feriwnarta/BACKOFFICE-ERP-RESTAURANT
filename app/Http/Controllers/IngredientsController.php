@@ -17,4 +17,16 @@ class IngredientsController extends Controller
     public function recipes(Request $request) {
         return view('ingredients.ingredients-recipes');
     }
+
+    public function createIngredients(Request $request) {
+        return view('ingredients.create-ingredients');
+    }
+
+    public function createCategory(Request $request) {
+        return view('ingredients.create-category');
+    }
+
+    public function createRecipes(Request $request) {
+        return view('ingredients.create-recipes');
+    }
 }

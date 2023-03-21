@@ -11,7 +11,7 @@
         <div class="navbar-title">Category Ingredients</div>
     </x-slot:title>
 
-    <x-button.icon-text-primary id="create-category-ingredients-btn" class="btn-nav" icon="plus-icon" text="Create Category Ingredients" onClick="contentRequest('{{ url('/') }}/pos/create-menu', 'GET')"></x-button.icon-text-primary>
+    <x-button.icon-text-primary id="create-category-ingredients-btn" class="btn-nav" icon="plus-icon" text="Create Category Ingredients" onClick="contentRequest('{{ url('/') }}/ingredients/category/create-category', 'GET')"></x-button.icon-text-primary>
 </x-navbar.navbar>
 
 

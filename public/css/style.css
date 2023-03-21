@@ -66,7 +66,8 @@ html {
 }
 
 .navbar-subtitle {
-    padding-left: 1rem;
+    margin-left: 1rem;
+    padding: 0px;
     font-family: 'Poppins Regular';
     font-style: normal;
     font-size: 1.25rem;
@@ -115,6 +116,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .btn-nav {
     margin-left: 1rem;
 }
+
+
+/* button di nav */
+
 
 
 

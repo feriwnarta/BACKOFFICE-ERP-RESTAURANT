@@ -34,6 +34,9 @@ Route::controller(\App\Http\Controllers\IngredientsController::class)->group(fun
     Route::get('ingredients/library', 'library');
     Route::get('ingredients/category', 'category');
     Route::get('ingredients/recipes', 'recipes');
+    Route::get('ingredients/library/create-ingredients', 'createIngredients');
+    Route::get('ingredients/category/create-category', 'createCategory');
+    Route::get('ingredients/recipes/create-recipes', 'createRecipes');
 });
 
 // Routes Untuk Menu inventory
