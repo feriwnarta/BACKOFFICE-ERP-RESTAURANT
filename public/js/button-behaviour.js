@@ -1,51 +1,9 @@
-
 function changeContent(url, method, tag) {
-
-    // hapus kelas aktif menu terlebih dahulu
-    $('.button-menu .button-icon-text').each(function () {
-        $(this).removeClass('active')
-    });
-
-
-    // hapus collapse menu yang terbuka terlebih dahulu
-    $('.button-menu .button-icon-text').each(function () {
-        $(this).click(function () {
-            var targetSidebar = $(this).data('bs-target');
-
-            $('.button-menu div').each(function(){
-                if ($(this).attr('id') !== targetSidebar) {
-                    $(this).removeClass('show') // Hapus class 'show' dari sidebar yang tidak dituju
-                }
-            });
-        });
-    });
-
-    tag = '.' + tag;
-
-    // menambahkan kelas aktif di element button icon text
-    $(tag).addClass('active');
-
-
-    window.location.path=url;
-    // ubah content main
-    // contentRequest(url, method);
-
+    window.location.pathname=url;
 }
 
 function changeContentInnerChild(url, method, tag) {
-    // behaviour button inner child
-    tag = '#' + tag;
-
-    $('.show .btn').each(function () {
-        $(this).removeClass('inner-menu-active');
-    });
-
-    $(tag).addClass('inner-menu-active');
-
-    window.location.href=url;
-
-    // contentRequest(url, method);
-
+    window.location.pathname=url;
 }
 
 function contentRequest(url, method) {
@@ -90,9 +48,4 @@ function contentRequest(url, method) {
 
 }
 
-function changeWidthTitle() {
-    let widthTitleNavbar = $('.navbar-title').width();
 
-    $('#title-divider').width(widthTitleNavbar);
-
-}

@@ -1,3 +1,13 @@
+@extends('layouts.app')
+
+
+@section('sidebar')
+    @include('partials.sidebar')
+@endsection
+
+
+
+@section('page')
 <x-navbar.navbar>
     <x-slot:title>
         <div class="navbar-title">Menu</div>
@@ -10,4 +20,4 @@
 </x-navbar.navbar>
 
 <div id="progress-bar"></div>
-
+@endsection

@@ -1,3 +1,5 @@
+
+
 <x-navbar.navbar search="false">
     <x-slot:title>
         <div class="navbar-title">Category</div>

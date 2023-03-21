@@ -17,8 +17,6 @@
 
 </x-navbar.navbar>
 
-<div id="progress-bar"></div>
-
 
 <div id="content-loaded">
     <div class="">
@@ -56,5 +54,4 @@
 </div>
 
 
-<script src="{{asset('js/script.js')}}"></script>
 @endsection

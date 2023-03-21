@@ -1,3 +1,12 @@
+@extends('layouts.app')
+
+
+@section('sidebar')
+    @include('partials.sidebar')
+@endsection
+
+
+@section('page')
 <x-navbar.navbar>
     <x-slot:title>
         <div class="navbar-title">Summary</div>
@@ -11,10 +20,12 @@
         <li><a class="dropdown-item" href="#">Something else here</a></li>
     </x-button.dropdown-no-icon>
 
-    <x-button.text-only-primary id="export-btn" class="btn-nav" text="Export"></x-button.text-only-primary>
+    <x-button.text-only-primary id="export-btn" class="btn-nav" text="Export" onClick=""></x-button.text-only-primary>
 
 
 </x-navbar.navbar>
 
 <div id="progress-bar"></div>
+
+@endsection
 
