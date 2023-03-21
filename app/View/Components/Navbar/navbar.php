@@ -9,13 +9,16 @@ use Illuminate\View\Component;
 class navbar extends Component
 {
 
+    public string $search;
+
     /**
-     * Create a new component instance.
+     * @param bool $search
      */
-    public function __construct()
+    public function __construct(string $search = "true")
     {
-        //
+        $this->search = $search;
     }
+
 
     /**
      * Get the view / contents that represent the component.

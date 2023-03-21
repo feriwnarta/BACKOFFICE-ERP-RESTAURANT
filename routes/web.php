@@ -25,6 +25,8 @@ Route::get('test1', function () {
 Route::controller(\App\Http\Controllers\PosController::class)->group(function () {
     Route::get('pos/menu', 'menu');
     Route::get('pos/category', 'category');
+    Route::get('pos/create-menu', 'createMenu');
+    Route::get('pos/create-category', 'createCategory');
 });
 
 // Routes Untuk Menu Ingredients
@@ -37,7 +39,6 @@ Route::controller(\App\Http\Controllers\IngredientsController::class)->group(fun
 // Routes Untuk Menu inventory
 Route::controller(\App\Http\Controllers\InventoryController::class)->group(function () {
     Route::get('inventory/summary', 'summary');
-    Route::get('inventory/stock-opname', 'stockOpname');
     Route::get('inventory/stock-opname', 'stockOpname');
 });
 

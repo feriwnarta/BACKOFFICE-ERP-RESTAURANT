@@ -11,16 +11,18 @@ class TextOnlyPrimary extends Component
     public string $id;
     public string $class;
     public string $text;
+    public string $onClick;
 
     /**
      * @param string $id
      * @param string $text
      */
-    public function __construct(string $id, string $class, string $text)
+    public function __construct(string $id, string $class, string $text, string $onClick)
     {
         $this->id = $id;
         $this->class = $class;
         $this->text = $text;
+        $this->onClick = $onClick;
     }
 
 

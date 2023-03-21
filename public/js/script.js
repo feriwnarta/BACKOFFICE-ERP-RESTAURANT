@@ -1,37 +1,20 @@
-$(window).on('load', function(){
-    let html = sessionStorage.getItem('html');
+// $(window).on('load', function(){
+//     let html = sessionStorage.getItem('html');
 
-    if(html != null && html != undefined) {
+//     if(html != null && html != undefined) {
 
-        let currentPage = $('#page').html();
-
-        let replaceHtml = `
-            <div class="wrapper">
-            <nav id="sidebar">
-                ${html}
-            </nav>
-            <div id="content">
-                <div id="page">
-                ${currentPage}
-                </div>
-            </div>
-            </div>
-        `;
-
-
-        $('.wrapper').html(replaceHtml);
-
-        dataTableInit();
-
-        // $('body').replaceWith(replaceHtml);
+//         let currentPage = $('#page').html();
         
+//         var newDoc = document.open("text/html", "replace");
+//         newDoc.write(html);
+//         newDoc.close();
 
-        // var newDoc = document.open("text/html", "replace");
-        // newDoc.write(html);
-        // newDoc.close();
-    }
+
+//         $('#page').html(currentPage);
+
+//     }
     
-});
+// });
 
 // Data Table
 function dataTableInit() {
@@ -47,13 +30,14 @@ function dataTableInit() {
 }
 
 
-window.addEventListener("beforeunload", function (event) {
+
+// window.addEventListener("beforeunload", function (event) {
 
   
-    let html = $('#sidebar').html();
+//     let html = $('html').html();
     
 
-    this.sessionStorage.setItem('html', html);
+//     this.sessionStorage.setItem('html', html);
   
     
-  });
+//   });

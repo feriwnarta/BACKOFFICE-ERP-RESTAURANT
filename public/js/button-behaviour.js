@@ -9,10 +9,8 @@ function changeContent(url, method, tag) {
 
     // hapus collapse menu yang terbuka terlebih dahulu
     $('.button-menu .button-icon-text').each(function () {
-        ///! BENERIN DISINI
         $(this).click(function () {
             var targetSidebar = $(this).data('bs-target');
-            
 
             $('.button-menu div').each(function(){
                 if ($(this).attr('id') !== targetSidebar) {
@@ -28,8 +26,9 @@ function changeContent(url, method, tag) {
     $(tag).addClass('active');
 
 
+    window.location.path=url;
     // ubah content main
-    contentRequest(url, method);
+    // contentRequest(url, method);
 
 }
 
@@ -43,9 +42,12 @@ function changeContentInnerChild(url, method, tag) {
 
     $(tag).addClass('inner-menu-active');
 
-    contentRequest(url, method);
+    window.location.href=url;
+
+    // contentRequest(url, method);
 
 }
+
 function contentRequest(url, method) {
     // ajax setup laravel csrf token sebelum mengirim request
     $.ajaxSetup({
@@ -71,7 +73,7 @@ function contentRequest(url, method) {
             },
             complete: function(){
                 $("#progress-bar").width('100%');
-                $('#progress-bar').fadeOut('0%');
+                $('#progress-bar').animate({opacity: 0}, 'slow');
             },
             error: function(statusCode, errorThrown) {
                 // if (statusCode.status == 0) {
@@ -82,7 +84,7 @@ function contentRequest(url, method) {
     ).done(function () {
         changeWidthTitle();
         dataTableInit();
-        window.history.pushState(null, null, url); 
+        // window.history.pushState(null, null, url); // -> untuk menyimpan url jquery ke history browser
     });
 
 
@@ -92,6 +94,5 @@ function changeWidthTitle() {
     let widthTitleNavbar = $('.navbar-title').width();
 
     $('#title-divider').width(widthTitleNavbar);
-
 
 }

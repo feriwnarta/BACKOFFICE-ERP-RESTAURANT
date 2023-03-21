@@ -14,9 +14,11 @@
 
         <div id="nav-action-button" class="d-flex flex-row align-items-center">
 
-            <form class="d-flex">
-                <input class="form-control clear search-bar" type="search" placeholder="Search" aria-label="Search">
-            </form>
+            @if($search == 'true')
+                <form class="d-flex">
+                    <input class="form-control search-bar clear" type="search" placeholder="Search" aria-label="Search">
+                </form>
+            @endif
 
             {{-- Button Navbar --}}
             {{--  Contoh --}}

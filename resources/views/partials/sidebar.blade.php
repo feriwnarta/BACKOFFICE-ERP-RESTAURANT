@@ -16,12 +16,12 @@
         <div class="button-menu")>
 
             {{-- Dashboard Menu --}}
-            <x-button.icon-text class="dashboard-btn active" icon="dashboard-icon" text="Dashboard" toggle="none" idTarget="dashboardCollapse" link="http://127.0.0.1:8000/test1" method="GET">
+            <x-button.icon-text class="dashboard-btn active" icon="dashboard-icon" text="Dashboard" toggle="none" idTarget="dashboardCollapse" link="{{ url()->current() }}/test1" method="GET">
             </x-button.icon-text>
 
             {{-- Pos Menu --}}
             <x-button.icon-text class="pos-btn" icon="pos-icon" text="Point of Sales" toggle="collapse" idTarget="posCollapse" link="{{ url()->current() }}/pos/menu" method="GET">
-                <x-button.text-only @class('inner-menu-active') id="menu-pos-btn" variant="text" text="Menu" link="{{ url()->current() }}pos/menu" method="GET"></x-button.text-only>
+                <x-button.text-only @class('inner-menu-active') id="menu-pos-btn" variant="text" text="Menu" link="{{ url()->current() }}/pos/menu" method="GET"></x-button.text-only>
                 <x-button.text-only @class('') id="category-pos-btn" variant="text" text="Category" link="{{ url()->current() }}/pos/category" method="GET"></x-button.text-only>
             </x-button.icon-text>
 

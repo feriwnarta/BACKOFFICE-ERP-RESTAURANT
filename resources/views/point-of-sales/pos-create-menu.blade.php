@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-
 <x-navbar.navbar search="false">
     <x-slot:title>
         <div class="navbar-title">Create Menu</div>
