@@ -29,4 +29,13 @@ class IngredientsController extends Controller
     public function createRecipes(Request $request) {
         return view('ingredients.create-recipes');
     }
+
+    public function semiFinishedRecipes(Request $request) {
+        return view('ingredients.semi-finished-recipes');
+    }
+
+    public function createSemiFinishedRecipes(Request $request) {
+        return view('ingredients.create-semi-finished-recipes');
+    }
+
 }

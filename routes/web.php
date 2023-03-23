@@ -25,8 +25,8 @@ Route::get('test1', function () {
 Route::controller(\App\Http\Controllers\PosController::class)->group(function () {
     Route::get('pos/menu', 'menu');
     Route::get('pos/category', 'category');
-    Route::get('pos/create-menu', 'createMenu');
-    Route::get('pos/create-category', 'createCategory');
+    Route::get('pos/menu/create-menu', 'createMenu');
+    Route::get('pos/category/create-category', 'createCategory');
 });
 
 // Routes Untuk Menu Ingredients
@@ -37,6 +37,8 @@ Route::controller(\App\Http\Controllers\IngredientsController::class)->group(fun
     Route::get('ingredients/library/create-ingredients', 'createIngredients');
     Route::get('ingredients/category/create-category', 'createCategory');
     Route::get('ingredients/recipes/create-recipes', 'createRecipes');
+    Route::get('ingredients/recipes/semi-finished-recipes', 'semiFinishedRecipes');
+    Route::get('ingredients/recipes/create-semi-finished-recipes', 'createSemiFinishedRecipes');
 });
 
 // Routes Untuk Menu inventory

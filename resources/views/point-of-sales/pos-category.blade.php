@@ -10,7 +10,7 @@
         <div class="navbar-title">Category</div>
     </x-slot:title>
 
-    <x-button.text-only-primary id="create-category-btn" class="btn-nav" text="Create Category" onClick="contentRequest('{{ url('/') }}/pos/create-category', 'GET')">
+    <x-button.text-only-primary id="create-category-btn" class="btn-nav" text="Create Category" onClick="changeContent('pos/category/create-category')">
 
     </x-button.text-only-primary>
 

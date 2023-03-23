@@ -9,7 +9,7 @@
 
     <x-navbar.navbar search="false">
         <x-slot:title>
-            <div class="navbar-title">Menu</div>
+            <div class="navbar-title">Semi-Finished Recipes</div>
         </x-slot:title>
     </x-navbar.navbar>
 

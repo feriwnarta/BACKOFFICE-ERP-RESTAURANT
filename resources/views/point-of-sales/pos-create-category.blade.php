@@ -1,4 +1,10 @@
+@extends('layouts.app')
 
+@section('sidebar')
+    @include('partials.sidebar')
+@endsection
+
+@section('page')
 
 <x-navbar.navbar search="false">
     <x-slot:title>
@@ -31,4 +37,4 @@
     </div>
 
 </div>
-
+@endsection

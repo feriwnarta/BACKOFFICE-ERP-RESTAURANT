@@ -1,4 +1,4 @@
-function changeContent(url, method, tag) {
+function changeContent(url) {
     window.location.pathname = url;
 }
 
@@ -10,11 +10,9 @@ function changeContentInnerChild(url, method) {
 
 function contentRequestNav(url, method, tag, idOnInit, idBeforeInit) {
 
-    // $('#nav-subtitle').removeClass('navbar-subtitle');
-    // $('#nav-subtitle').addClass('navbar-title');
+    // switchNavTitle(idOnInit, idBeforeInit);
 
-
-    switchNavTitle(idOnInit, idBeforeInit);
+    window.location.pathname = url;
 
     // ajax setup laravel csrf token sebelum mengirim request
     // $.ajaxSetup({
@@ -22,6 +20,8 @@ function contentRequestNav(url, method, tag, idOnInit, idBeforeInit) {
     //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
     //     },
     // });
+
+    
 
     // $.ajax({
     //     url: url,
@@ -31,11 +31,12 @@ function contentRequestNav(url, method, tag, idOnInit, idBeforeInit) {
     //     cache: false,
     //     async: false,
     //     beforeSend: function () {
-    //         $("#progress-bar").css("display", "block");
-    //         $("#progress-bar").css("width", "20%");
+    //         $("#progress-bar").width("20%");
+    //         // $("#progress-bar").css("display", "block");
+    //         $("#progress-bar").css("opacity", "100%");
     //     },
     //     success: function (response) {
-    //         $("#page").html(response);
+    //         $("#section").html(response);
     //     },
     //     complete: function () {
     //         $("#progress-bar").width("100%");
@@ -47,8 +48,11 @@ function contentRequestNav(url, method, tag, idOnInit, idBeforeInit) {
     //         // }
     //     },
     // }).done(function () {
-    //     changeWidthTitle();
+    //     setTimeout(function() {
+    //         $("#progress-bar").width('0%');
+    //       }, 500);
         
+    //     changeWidthTitle();
     //     // window.history.pushState(null, null, url); // -> untuk menyimpan url jquery ke history browser
     // });
 

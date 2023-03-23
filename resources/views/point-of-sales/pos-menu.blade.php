@@ -11,7 +11,7 @@
          <div class="navbar-title">Menu</div>
     </x-slot:title>
 
-    <x-button.icon-text-primary id="create-menu-btn" class="btn-nav" icon="plus-icon" text="Create Menu" onClick="contentRequest('{{ url('/') }}/pos/create-menu', 'GET')">
+    <x-button.icon-text-primary id="create-menu-btn" class="btn-nav" icon="plus-icon" text="Create Menu" onClick="changeContent('pos/menu/create-menu')">
 
     </x-button.icon-text-primary>
 

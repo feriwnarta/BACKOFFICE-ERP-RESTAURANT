@@ -1,10 +1,12 @@
-$(document).ready(function () {
+$(document).ready(function () {});
+
+$(window).on("load", function () {
     initSidebar();
     changeWidthTitle();
     dataTableInit();
 });
 
-// initialise sidebar mana yang terbuka
+// initialize sidebar mana yang terbuka
 function initSidebar() {
     let location = window.location.pathname;
     switch (location) {
@@ -14,7 +16,16 @@ function initSidebar() {
         case "/pos/menu":
             sidebarOpen({ parentMenu: "pos-btn", childMenu: "menu-pos-btn" });
             break;
+        case "/pos/menu/create-menu":
+            sidebarOpen({ parentMenu: "pos-btn", childMenu: "menu-pos-btn" });
+            break;
         case "/pos/category":
+            sidebarOpen({
+                parentMenu: "pos-btn",
+                childMenu: "category-pos-btn",
+            });
+            break;
+        case "/pos/category/create-category":
             sidebarOpen({
                 parentMenu: "pos-btn",
                 childMenu: "category-pos-btn",
@@ -26,7 +37,19 @@ function initSidebar() {
                 childMenu: "library-ingredients-btn",
             });
             break;
+        case "/ingredients/library/create-ingredients":
+            sidebarOpen({
+                parentMenu: "ingredients-btn",
+                childMenu: "library-ingredients-btn",
+            });
+            break;
         case "/ingredients/category":
+            sidebarOpen({
+                parentMenu: "ingredients-btn",
+                childMenu: "category-ingredients-btn",
+            });
+            break;
+        case "/ingredients/category/create-category":
             sidebarOpen({
                 parentMenu: "ingredients-btn",
                 childMenu: "category-ingredients-btn",
@@ -38,10 +61,34 @@ function initSidebar() {
                 childMenu: "recipes-ingredients-btn",
             });
             break;
+        case "/ingredients/recipes/create-recipes":
+            sidebarOpen({
+                parentMenu: "ingredients-btn",
+                childMenu: "recipes-ingredients-btn",
+            });
+            break;
+        case "/ingredients/recipes/semi-finished-recipes":
+            sidebarOpen({
+                parentMenu: "ingredients-btn",
+                childMenu: "recipes-ingredients-btn",
+            });
+            break;
+        case "/ingredients/recipes/create-semi-finished-recipes":
+            sidebarOpen({
+                parentMenu: "ingredients-btn",
+                childMenu: "recipes-ingredients-btn",
+            });
+            break;
         case "/inventory/summary":
             sidebarOpen({
                 parentMenu: "inventory-btn",
                 childMenu: "summary-inventory-btn",
+            });
+            break;
+        case "/inventory/stock-opname":
+            sidebarOpen({
+                parentMenu: "inventory-btn",
+                childMenu: "stock-opname-inventory-btn",
             });
             break;
         case "/central-kitchen/stock":
@@ -67,6 +114,16 @@ function initSidebar() {
 
 // buka menu sidebar
 function sidebarOpen({ parentMenu, childMenu }) {
+    // cek terlebih dahulu apakah child menu yang diklik sama dengan child menu sebelumnya, jika sama tidak perlu
+    // tampilkan transition button collapse
+    if (sessionStorage.getItem("parentMenu") == parentMenu) {
+        let target = $(`.${parentMenu}`).data("bs-target");
+        $(target).css({
+            "transition-duration": "0.5s",
+            "transition-property": "none",
+        });
+    }
+
     if (parentMenu != null && parentMenu != undefined) {
         $(`.${parentMenu}`).addClass("active");
         let target = $(`.${parentMenu}`).data("bs-target");
@@ -76,6 +133,8 @@ function sidebarOpen({ parentMenu, childMenu }) {
     if (childMenu != null && childMenu != undefined) {
         $(`#${childMenu}`).addClass("inner-menu-active");
     }
+
+    sessionStorage.setItem("parentMenu", parentMenu);
 }
 
 // Data Table
@@ -94,17 +153,41 @@ function dataTableInit() {
 // ubah width title divider di navbar
 function changeWidthTitle() {
     let widthTitleNavbar = $(".navbar-title").width();
+    let offset = $(".navbar-title").offset().left;
 
+    $("#title-divider").css({
+        position: "absolute",
+        left: offset - 20,
+    });
     $("#title-divider").width(widthTitleNavbar);
 }
 
 // berikan nav title ke button navbar yang diklik
 function switchNavTitle(idOnInit, idBeforeInit) {
+    $(`#${idOnInit}`).removeClass("navbar-subtitle");
+    $(`#${idOnInit}`).addClass("navbar-title");
 
-    
-    $(`#${idOnInit}`).removeClass('navbar-subtitle');
-    $(`#${idOnInit}`).addClass('navbar-title');
+    $(`#${idBeforeInit}`).removeClass("navbar-title");
+    $(`#${idBeforeInit}`).addClass("navbar-subtitle");
 
-    $(`#${idBeforeInit}`).removeClass('navbar-title');
-    $(`#${idBeforeInit}`).addClass('navbar-subtitle');
+    if (idOnInit != "nav-title") {
+        let marginDivider = parseInt($(`#nav-title`).width() + 16);
+        let widthTitle = parseInt($(`#${idOnInit}`).width());
+
+        $("#title-divider").css({
+            position: "relative",
+            left: `${marginDivider}px`,
+            width: `${widthTitle}px`,
+        });
+    } else {
+        let widthTitle = parseInt($(`#${idOnInit}`).width());
+
+        console.log(widthTitle);
+
+        $("#title-divider").css({
+            position: "relative",
+            left: "0px",
+            width: `${widthTitle}px`,
+        });
+    }
 }

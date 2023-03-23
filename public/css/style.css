@@ -8,11 +8,11 @@
     font-size: 16px;
 }
 
-/* .collapsing {
-    -webkit-transition: none;
-    transition: unset !important;
-    display: none;
-} */
+/* .collapsing { */
+    /* -webkit-transition: none; */
+    /* transition: asd; */
+    /* display: none; */
+/* } */
 
 html {
     font-family: 'Poppins Regular';
@@ -65,8 +65,11 @@ html {
     line-height: 2rem;
 }
 
-.navbar-subtitle {
+#nav-subtitle {
     margin-left: 1rem;
+}
+
+.navbar-subtitle {
     padding: 0px;
     font-family: 'Poppins Regular';
     font-style: normal;
@@ -83,6 +86,7 @@ html {
     margin-left: 1.25rem;
     height: 3px;
     background-color: #F16622;
+    width: 0px;
 }
 
 /* clears the ‘X’ from Internet Explorer */
@@ -116,6 +120,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 .btn-nav {
     margin-left: 1rem;
 }
+
 
 
 /* button di nav */
