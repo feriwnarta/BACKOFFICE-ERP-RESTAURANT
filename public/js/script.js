@@ -139,14 +139,12 @@ function sidebarOpen({ parentMenu, childMenu }) {
 
 // Data Table
 function dataTableInit() {
-    $(document).ready(function () {
-        $("#tableMenu").DataTable({
-            paging: true,
-            selected: false,
-            lengthChange: false,
-            searching: false,
-            info: false,
-        });
+    $("#tableMenu").DataTable({
+        paging: true,
+        selected: false,
+        lengthChange: false,
+        searching: false,
+        info: false,
     });
 }
 

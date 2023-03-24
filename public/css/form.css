@@ -1,0 +1,185 @@
+/* ---------------------------------------------------
+    INPUT FIELD NAME
+    STATUS DEFAULT
+----------------------------------------------------- */
+
+.form-control {
+    box-shadow: none !important;
+}
+
+.form-label {
+    margin-bottom: 4px !important;
+}
+
+.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+    /* identical to box height, or 143% */
+
+
+    /* Neutral/ 70 */
+
+    color: #757575;
+}
+
+.dropdown-toggle::after {
+    /* content: url(../img/icons/cheveron-down.png); */
+    /* display: inline-block;
+    width: .6em;
+    height: .6em;
+    margin-left: 91%;
+    vertical-align: middle;
+    content: "";
+    border: .3em solid;
+    border-width: 0 .15em .15em 0;
+    transform: rotateZ(45deg) */
+}
+
+.dropdown-menu {
+    width: 100%;
+}
+
+.input-default {
+    border: 1px solid #C2C2C2;
+    /* Shadow 3 */
+
+    box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+
+    padding: 6px, 12px, 6px, 12px;
+
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.input-default:hover {
+    background: #FFFFFF;
+    /* Primary/Main */
+
+    border: 1px solid #F16622;
+    /* Shadow 3 */
+
+    box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+}
+
+
+.input-default:focus {
+    background: #FFFFFF;
+    /* Primary/Main */
+
+    border: 1px solid #F16622;
+    /* Shadow 3 */
+
+    outline: 3px solid rgba(241, 102, 34, 0.2) !important;
+
+    border-radius: 6px;
+}
+
+.input-default:disabled {
+
+    background: #EDEDED;
+
+    border: 1px solid #C2C2C2;
+    border-radius: 6px;
+    /* Body Text/Regular */
+
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+    /* identical to box height, or 143% */
+
+
+    /* Neutral/ 60 */
+
+    color: #9E9E9E;
+}
+
+
+.input-label {
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+    /* identical to box height, or 143% */
+
+
+    /* Neutral/90 */
+
+    color: #404040;
+}
+
+
+/* ---------------------------------------------------
+    DROPDOWN
+    STATUS DEFAULT
+----------------------------------------------------- */
+
+.dropdown-default {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #C2C2C2;
+    /* box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12); */
+    border-radius: 6px;
+    padding: .375rem 1rem;
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #757575;
+    text-align: start;
+
+}
+
+.dropdown-default:focus {
+    border: 1px solid #F16622;
+    outline: 3px solid rgba(241, 102, 34, 0.2) !important;
+    border-radius: 6px;
+}
+
+.dropdown-default:hover {
+    background: #F5F5F5;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+
+}
+
+.dropdown-default:disabled {
+    background: #EDEDED;
+    border: 1px solid #C2C2C2;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+}
+
+.dropdown-menu {
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+
+/* ---------------------------------------------------
+    TEXT AREA
+----------------------------------------------------- */
+.textarea {
+    border: 1px solid #C2C2C2;
+    box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+}
+
+.textarea:hover {
+    background: #FFFFFF;
+    border: 1px solid #F16622;
+    box-shadow: inset 1px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+}
+
+.textarea:focus {
+    background: #FFFFFF;
+    border: 1px solid #F16622;
+    outline: 3px solid rgba(241, 102, 34, 0.2) !important;
+    border-radius: 6px;
+
+}

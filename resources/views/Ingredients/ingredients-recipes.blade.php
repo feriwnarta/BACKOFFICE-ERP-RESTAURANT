@@ -20,6 +20,8 @@
 
 </x-navbar.navbar>
 
+
+
 <div id="progress-bar"></div>
 
 <div id="section">

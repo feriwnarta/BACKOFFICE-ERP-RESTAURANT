@@ -16,3 +16,17 @@
     font-size: 24px;
     line-height: 32px;
 }
+
+.subtitle-2-medium {
+    font-family: 'Poppins Medium';
+    font-size: 1.35rem;
+    line-height: 1.75rem;
+    color: #0A0A0A;
+}
+
+.body-text-regular {
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #404040;
+}
