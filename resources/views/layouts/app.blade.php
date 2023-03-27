@@ -27,9 +27,11 @@
 <body>
 
 <div class="wrapper">
+
+    
     @yield('sidebar')
-
-
+    
+    
     <div id="content">
         <div id="page">
             @yield('page')
