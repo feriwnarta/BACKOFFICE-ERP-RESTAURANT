@@ -1,0 +1,13 @@
+<div class="container-input-default">
+    @if (!empty($label))
+        <label for="{{ $id }}" class="form-label input-label">{{ $label }}</label>
+    @endif
+
+    <input type="name" name="{{ $name }}" class="form-control input-default {{ $class }}"
+        id="{{ $id }}" placeholder="{{ $placeHolder }}">
+
+    <div id="{{ $id }}Error" class="input-error">
+
+    </div>
+        
+</div>

@@ -1,7 +1,23 @@
+#content-loaded {
+    margin-top: 3.66rem;
+    margin-left: 1.25rem;
+    margin-right: 3rem;
+}
 
 :root {
     font-size: 16px;
 }
+
+/* .collapsing { */
+/* -webkit-transition: none; */
+/* transition: asd; */
+/* display: none; */
+/* } */
+
+html {
+    font-family: 'Poppins Regular';
+}
+
 
 /*-----------------------------------------------------
    WRAPPER STYLE
@@ -13,12 +29,6 @@
     align-items: stretch;
 }
 
-/*-----------------------------------------------------
-   END WRAPPER STYLE
--------------------------------------------------------*/
-
-
-
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
@@ -29,3 +39,122 @@
     transition: all 0.3s;
 }
 
+/* ---------------------------------------------------
+    PROGRESS BAR STYLE
+----------------------------------------------------- */
+
+#progress-bar {
+    height: 5px;
+    background-color: #F16622;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+
+/* ---------------------------------------------------
+    NAVBAR STYLE
+----------------------------------------------------- */
+.content-navbar {
+    padding: 2rem 3rem 1.87rem 1.25rem;
+}
+
+.navbar-title {
+    font-family: 'Poppins Bold';
+    color: #F16622;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+#nav-subtitle {
+    margin-left: 1rem;
+}
+
+.navbar-subtitle {
+    padding: 0px;
+    font-family: 'Poppins Regular';
+    font-style: normal;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+#divider {
+    max-width: 100%;
+    border: 1px solid #E0E0E0;
+}
+
+#title-divider {
+    margin-left: 1.25rem;
+    height: 3px;
+    background-color: #F16622;
+    width: 0px;
+}
+
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+.search-bar {
+    max-width: 23.6rem;
+    min-width: 23.6rem;
+    border-radius: .37rem;
+    border: 1px solid #C2C2C2;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+    /*padding: 6px 12px;*/
+    gap: 4px;
+    background-image: url(../img/icons/search-bar-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    outline: 0;
+    background-position: 21.9rem;
+    background-size: 16px;
+    padding: .375rem 1rem;
+
+    font-size: .87rem;
+    line-height: 1.25rem;
+}
+
+.btn-nav {
+    margin-left: 1rem;
+}
+
+
+
+/* button di nav */
+
+
+
+
+
+
+/* ---------------------------------------------------
+    CREATE MENU PAGE STYLE
+----------------------------------------------------- */
+
+.create-menu-content {
+    margin-top: 2.75rem;
+}
+
+.content-information {
+    margin-top: 1.75rem;
+}
+
+.image-information {
+    margin-top: 3.75rem;
+}

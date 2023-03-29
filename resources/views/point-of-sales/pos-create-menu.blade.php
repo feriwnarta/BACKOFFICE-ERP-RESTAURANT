@@ -1,0 +1,112 @@
+@extends('layouts.app')
+
+@section('sidebar')
+    @include('partials.sidebar')
+@endsection
+
+@section('page')
+    <x-navbar.navbar search="false">
+        <x-slot:title>
+            <div class="navbar-title">Create Menu</div>
+        </x-slot:title>
+    </x-navbar.navbar>
+
+    <div class="create-menu-content">
+        <div class="row">
+            <div class="col-sm-7 offset-1">
+                <div class="subtitle-2-medium">General Information</div>
+
+                <div class="content-information">
+                    <x-form.input-default id="Product Name" class="" name="" placeHolder="" label="Product Name">
+                    </x-form.input-default>
+
+                    <x-form.dropdown-default placeHolder="Category" label="Category" class="margin-top-16">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </x-form.dropdown-default>
+
+                    <x-form.text-area id="description" class="margin-top-16" label="Description" placeHolder="">
+                    </x-form.text-area>
+
+                    <div id="divider" class="margin-top-32"></div>
+
+                    <div class="margin-top-32">
+                        <div id="pricingMenu">
+                            <div class="subtitle-3-medium">Pricing</div>
+                            <div id="divider" class="margin-top-12"></div>
+                            <div class="row">
+                                <div class="col">
+                                    <x-form.input-default id="idInputPriceMenu" class="margin-top-12 input-from-right" name=""
+                                        placeHolder="" label=""></x-form.input-default>
+                                </div>
+                                <div class="col">
+                                    <x-form.input-default id="idInputCodeMenu" class="margin-top-12" name=""
+                                        placeHolder="" label=""></x-form.input-default>
+                                </div>
+                            </div>
+
+                            <x-button.icon-text-primary id="btn" class="container-fluid margin-top-8" icon="plus-icon"
+                                text="Add Variant" onClick="">
+                            </x-button.icon-text-primary>
+
+                        </div>
+
+
+                        <div id="divider" class="margin-top-32"></div>
+
+                        <div id="inventoryMenu" class="margin-top-32">
+                            <div class="subtitle-3-medium">Inventory</div>
+                            <div id="divider" class="margin-top-12"></div>
+
+                            <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"
+                                onClick="" text="Setting Inventory">
+
+                            </x-button.text-only-primary>
+                        </div>
+
+                        <div id="divider" class="margin-top-32"></div>
+
+                        <div id="cogsMenu" class="margin-top-32">
+                            <div class="subtitle-3-medium">COGS</div>
+                            <div id="divider" class="margin-top-12"></div>
+
+                            <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"
+                                onClick="" text="Setting COGS">
+
+                            </x-button.text-only-primary>
+                        </div>
+
+                        <div id="ctaActionMenu" class="margin-top-32">
+
+
+                            <div class="d-flex">
+                                
+                                    <x-button.text-only-outlined class="" id="" text="Cancel"
+                                        onClick="">
+                                    </x-button.text-only-outlined>
+                                
+                                
+                                    <x-button.text-only-primary class="" id="btnSettingInventory" onClick=""
+                                        text="Save"> </x-button.text-only-primary>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-2 offset-1 d-flex flex-column align-items-start justify-content-start">
+                <div class="image-information">
+                    <div class="body-text-regular">Image for POS</div>
+                    <div>
+                        <img src="{{ asset('img/mie.png') }}" alt="" srcset="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+@endsection
