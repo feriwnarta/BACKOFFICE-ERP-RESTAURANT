@@ -45,6 +45,10 @@
     width: 100%;
 }
 
+.input-from-right {
+    text-align: right;
+}
+
 .input-default {
     border: 1px solid #C2C2C2;
     /* background: url(../img/cahaya_senja_logo.png) no-repeat scroll 14px 11px; */

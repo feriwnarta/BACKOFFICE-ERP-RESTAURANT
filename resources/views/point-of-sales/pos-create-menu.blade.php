@@ -37,11 +37,11 @@
                             <div id="divider" class="margin-top-12"></div>
                             <div class="row">
                                 <div class="col">
-                                    <x-form.input-default id="Product Name" class="margin-top-12" name=""
+                                    <x-form.input-default id="idInputPriceMenu" class="margin-top-12 input-from-right" name=""
                                         placeHolder="" label=""></x-form.input-default>
                                 </div>
                                 <div class="col">
-                                    <x-form.input-default id="Product Name" class="margin-top-12" name=""
+                                    <x-form.input-default id="idInputCodeMenu" class="margin-top-12" name=""
                                         placeHolder="" label=""></x-form.input-default>
                                 </div>
                             </div>
