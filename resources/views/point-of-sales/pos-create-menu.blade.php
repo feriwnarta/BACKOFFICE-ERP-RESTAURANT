@@ -14,6 +14,8 @@
     <div class="create-menu-content">
         <div class="row">
             <div class="col-sm-7 offset-1">
+
+                {{-- Title --}}
                 <div class="subtitle-2-medium">General Information</div>
 
                 <div class="content-information">
@@ -31,14 +33,18 @@
 
                     <div id="divider" class="margin-top-32"></div>
 
+
                     <div class="margin-top-32">
+
+
+                        {{-- Pricing --}}
                         <div id="pricingMenu">
                             <div class="subtitle-3-medium">Pricing</div>
                             <div id="divider" class="margin-top-12"></div>
                             <div class="row">
                                 <div class="col">
-                                    <x-form.input-default id="idInputPriceMenu" class="margin-top-12 input-from-right" name=""
-                                        placeHolder="" label=""></x-form.input-default>
+                                    <x-form.input-default id="idInputPriceMenu" class="margin-top-12 input-from-right"
+                                        name="" placeHolder="" label=""></x-form.input-default>
                                 </div>
                                 <div class="col">
                                     <x-form.input-default id="idInputCodeMenu" class="margin-top-12" name=""
@@ -47,26 +53,28 @@
                             </div>
 
                             <x-button.icon-text-primary id="btn" class="container-fluid margin-top-8" icon="plus-icon"
-                                text="Add Variant" onClick="">
-                            </x-button.icon-text-primary>
-
+                                text="Add Variant" toggle="modal" target="#addVariantModal"> </x-button.icon-text-primary>
                         </div>
 
 
                         <div id="divider" class="margin-top-32"></div>
 
+
+                        {{-- Inventory --}}
                         <div id="inventoryMenu" class="margin-top-32">
                             <div class="subtitle-3-medium">Inventory</div>
                             <div id="divider" class="margin-top-12"></div>
 
                             <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"
-                                onClick="" text="Setting Inventory">
+                                onClick="" text="Setting Inventory" toogle="modal" target="#manageInventoryModal">
 
                             </x-button.text-only-primary>
                         </div>
 
+
                         <div id="divider" class="margin-top-32"></div>
 
+                        {{-- COGS --}}
                         <div id="cogsMenu" class="margin-top-32">
                             <div class="subtitle-3-medium">COGS</div>
                             <div id="divider" class="margin-top-12"></div>
@@ -77,22 +85,89 @@
                             </x-button.text-only-primary>
                         </div>
 
+
+                        {{-- CTA --}}
                         <div id="ctaActionMenu" class="margin-top-32">
 
+                            <div class="d-flex flex-row justify-content-end">
 
-                            <div class="d-flex">
-                                
-                                    <x-button.text-only-outlined class="" id="" text="Cancel"
-                                        onClick="">
-                                    </x-button.text-only-outlined>
-                                
-                                
-                                    <x-button.text-only-primary class="" id="btnSettingInventory" onClick=""
-                                        text="Save"> </x-button.text-only-primary>
-                                
+                                <x-button.text-only-outlined class="" id="" text="Cancel" onClick="">
+                                </x-button.text-only-outlined>
+
+
+                                <x-button.text-only-primary class="margin-left-16" id="btnSettingInventory" onClick=""
+                                    text="Save"> </x-button.text-only-primary>
+
                             </div>
-
                         </div>
+
+
+
+                        {{-- MODAL ADD VARIANT --}}
+                        <x-modal.modal-input id="addVariantModal" title="Add Variant" icon="plus-icon">
+
+                            <form id="variantForm">
+                                <div class="d-flex flex-row">
+
+                                    <input type="text" class="form-control table-input" id="exampleInputEmail1"
+                                        placeholder="Variant Name" aria-describedby="emailHelp" autocomplete="off">
+                                    <input type="text" class="form-control table-input input-from-right"
+                                        id="inputPriceVariantModal" placeholder="Price" aria-describedby="emailHelp"
+                                        autocomplete="off">
+                                    <input type="text" class="form-control table-input" placeholder="SKU"
+                                        id="exampleInputEmail1" aria-describedby="emailHelp" autocomplete="off">
+
+                                </div>
+                            </form>
+
+                            <x-slot:footer>
+                                <x-button.text-only-outlined class="" id="btnCancelVariant" text="Cancel"
+                                    onClick="" dismiss="modal">
+                                </x-button.text-only-outlined>
+
+                                <x-button.text-only-primary class="" id="btnMoveSelectedItemsVariant"
+                                    onClick="" text="Move Selected Items"> </x-button.text-only-primary>
+                            </x-slot:footer>
+
+                        </x-modal.modal-input>
+
+
+
+                        {{-- MODAL MANAGE INVENTORY --}}
+                        <x-modal.modal-input id="manageInventoryModal" title="Manage Inventory" icon="">
+                            <table id="" class="table borderless table-manage-inventory">
+                                <thead class="table-head-color-modal">
+                                    <tr>
+                                        <th>Variant</th>
+                                        <th>Track Stock</th>
+                                        <th>In Stock</th>
+                                        <th>Minimum Stock</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>BHP 01</td>
+                                        <td>
+                                            <input class="red-input" type="checkbox" />
+                                        </td>
+                                        <td>Bubur</td>
+                                        <td>Rp 50.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+                            <x-slot:footer>
+                                <x-button.text-only-outlined class="" id="btnCancelVariant" text="Cancel"
+                                    onClick="" dismiss="modal">
+                                </x-button.text-only-outlined>
+
+                                <x-button.text-only-primary class="" id="btnMoveSelectedItemsVariant"
+                                    onClick="" text="Move Selected Items"> </x-button.text-only-primary>
+                            </x-slot:footer>
+
+                        </x-modal.modal-input>
                     </div>
                 </div>
             </div>

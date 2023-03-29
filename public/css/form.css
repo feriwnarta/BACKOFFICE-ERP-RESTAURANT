@@ -28,19 +28,6 @@
     text-align: right;
 }
 
-.dropdown-toggle::after {
-    /* content: url(../img/icons/cheveron-down.png); */
-    /* display: inline-block;
-    width: .6em;
-    height: .6em;
-    margin-left: 91%;
-    vertical-align: middle;
-    content: "";
-    border: .3em solid;
-    border-width: 0 .15em .15em 0;
-    transform: rotateZ(45deg) */
-}
-
 .dropdown-menu {
     width: 100%;
 }
@@ -128,6 +115,10 @@
     line-height: 1.25rem;
     color: #CB3A31;
 }
+
+
+
+
 
 
 /* ---------------------------------------------------

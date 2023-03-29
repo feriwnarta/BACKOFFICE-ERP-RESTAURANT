@@ -1,10 +1,10 @@
-$(document).ready(function () {});
-
 $(window).on("load", function () {
     initSidebar();
     changeWidthTitle();
     dataTableInit();
-    convertInputToRupiah("idInputPriceMenu");
+    convertInputToRupiah('idInputPriceMenu');
+    convertInputToRupiah('inputPriceVariantModal');
+    
 });
 
 // initialize sidebar mana yang terbuka
@@ -193,8 +193,10 @@ function switchNavTitle(idOnInit, idBeforeInit) {
 
 // fungsi untuk mengubah isi tag input menjadi format rupiah
 function convertInputToRupiah(id) {
-    $(`#${id}`).keyup(function () {
+    $(`#${id}`).on("input", function () {
         let rs = $(`#${id}`).val();
+
+        rs = rs.replace(/\./g, "")
 
         if (!isNaN(rs)) {
             $(`#${id}Error`).html("");
@@ -216,7 +218,7 @@ function convertInputToRupiah(id) {
                 "padding-right": "1rem",
             });
 
-            $(`#${id}Error`).html('Input harga harus menggunakan angka');
+            $(`#${id}Error`).html("Input harga harus menggunakan angka");
         }
     });
 }
