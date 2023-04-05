@@ -18,6 +18,10 @@ html {
     font-family: 'Poppins Regular';
 }
 
+#imagePos {
+    max-width: 13.18rem;
+}
+
 
 /*-----------------------------------------------------
    WRAPPER STYLE
@@ -186,7 +190,7 @@ table.borderless td, table.borderless th {
     background-color: #FFF7F2;
 }
 
-.table-manage-inventory {
+.table-modal {
     font-family: 'Poppins Medium';
     font-size: .75rem;
     line-height: 1rem;
@@ -254,6 +258,12 @@ table.borderless td {
     color: #FFFFFF;
 }
 
+.input-modal {
+    max-height: 2rem;
+    width: 2rem;
+}
+
+
 /* ---------------------------------------------------
     CHECKBOX STYLE
 ----------------------------------------------------- */
@@ -263,9 +273,6 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-    
-    width: 1.25rem;
-    height: 1.25rem;
-    background-color: red;
-    
+    accent-color: #F16622;
+    outline: 3px solid rgba(241, 102, 34, 0.2);
 }

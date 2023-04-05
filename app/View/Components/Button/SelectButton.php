@@ -1,14 +1,13 @@
 <?php
 
-namespace App\View\Components\Form;
+namespace App\View\Components\Button;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class DropdownDefault extends Component
+class SelectButton extends Component
 {
-    
     public string $label;
     public string $class;
     public string $id;
@@ -29,6 +28,6 @@ class DropdownDefault extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.form.dropdown-default');
+        return view('components.button.select-button');
     }
 }
