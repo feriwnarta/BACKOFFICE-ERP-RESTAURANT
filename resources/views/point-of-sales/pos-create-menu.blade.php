@@ -207,7 +207,7 @@
                                 </x-button.text-only-outlined>
 
                                 <x-button.text-only-primary class="" id="btnMoveSelectedItemsVariant"
-                                    onClick="" text="Confirm"> </x-button.text-only-primary>
+                                    onClick="confirmCogs()" text="Confirm"> </x-button.text-only-primary>
                             </x-slot:footer>
 
                         </x-modal.modal-input>

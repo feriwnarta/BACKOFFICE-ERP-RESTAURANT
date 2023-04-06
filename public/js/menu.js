@@ -1,5 +1,6 @@
 let variants = [];
 let inventory = [];
+let cogs = [];
 
 $(window).on("load", function () {
     convertInputToRupiah("input-format-price");
@@ -22,7 +23,9 @@ function convertRupiahModal(tag) {
             rs = rs.replace(/[^\d]/g, "");
         }
 
-        $(this).val(rs);
+        let format = convertCurrencyRupiah(rs);
+
+        $(this).val(format);
     });
 }
 
@@ -327,7 +330,7 @@ function settingCogs() {
             </td>
             <td>
                 <div class="container-input-default">
-                    <input type="name" class="form-control input-default"
+                    <input type="name" class="form-control input-default average-cost"
                         placeholder="">
                 </div>
             </td>
@@ -337,7 +340,35 @@ function settingCogs() {
 
     $("#listVariantOnCogs").html(items);
 
-    convertRupiahModal("input-format-price-setting-modal");
+    convertRupiahModal("average-cost");
+}
+
+function confirmCogs() {
+    $("#listVariantOnCogs ")
+        .find("tr")
+        .each(function () {
+            let variant = $(this).find("td:eq(0)").text();
+            let trackCogs = $(this)
+                .find("td:eq(1)")
+                .find('input[type="checkbox"]')
+                .is(":checked");
+            let averageCost = $(this).find("td:eq(2)").find("input").val();
+
+            if (averageCost != "" && averageCost != undefined) {
+                cogs.push({
+                    variant: variant,
+                    trackCogs: trackCogs,
+                    averageCost: averageCost,
+                });
+            } else {
+                alert("average cost tidak boleh kosong");
+                inventory = [];
+                return false;
+            }
+        });
+
+    
+        console.table()
 }
 
 function moveSelectedItems() {
