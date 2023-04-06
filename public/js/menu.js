@@ -344,6 +344,8 @@ function settingCogs() {
 }
 
 function confirmCogs() {
+    cogs = [];
+
     $("#listVariantOnCogs ")
         .find("tr")
         .each(function () {
@@ -367,8 +369,53 @@ function confirmCogs() {
             }
         });
 
-    
-        console.table()
+    if (cogs.length != 0) {
+        let items = `
+            <table class="table borderless table-modal margin-top-12">
+            <thead class="table-head-color-modal">
+                <tr>
+                    <th>Variant</th>
+                    <th>Track COGS</th>
+                    <th>Average Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+            `;
+
+        cogs.forEach((item) => {
+            items += `
+                
+                <tr>
+                    <td>${item.variant}</td>
+                    <td>
+                        <input id="trackCogs" class="red-input checkbox" type="checkbox" value="${
+                            item.trackCogs
+                        }" ${item.trackCogs == true ? "checked" : ""}/>
+                    </td>
+                    <td>
+                        <div class="container-input-default">
+                            <input type="name" id="averageCost" class="form-control input-default average-cost"
+                                placeholder="" value="${item.averageCost}">
+                        </div>
+                    </td>
+                </tr>
+                `;
+        });
+
+        items += `
+            </tbody>
+            </table>
+            `;
+
+        $(".cogs-list").html(items);
+        $("#manageCogsModal").modal("hide");
+
+        // input tidak boleh huruf dan format rupiah
+        convertRupiahModal("average-cost");
+
+        // reset isi modal
+        resetModal();
+    }
 }
 
 function moveSelectedItems() {

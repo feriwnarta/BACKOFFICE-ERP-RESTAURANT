@@ -90,6 +90,10 @@
                             <div class="subtitle-3-medium">COGS</div>
                             <div id="divider" class="margin-top-12"></div>
 
+                            <div class="cogs-list">
+
+                            </div>
+
                             <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"
                                 onClick="settingCogs()" text="Setting COGS" toogle="modal" target="#manageCogsModal">
 
