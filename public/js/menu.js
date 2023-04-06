@@ -1,29 +1,60 @@
+let variants = [];
+let inventory = [];
+
 $(window).on("load", function () {
     convertInputToRupiah("input-format-price");
     changeWidthInputModaPrice();
     changeImagePos();
     convertRupiahModal("input-format-price-modal");
-    test();
+    convertRupiahModal("input-format-price-setting-modal");
+
+    resetModal();
 });
 
-function test() {
-    $("#test").on("input", function () {
-        console.log("clicked");
-    });
-}
-
+// fungsi untuk mengformat inputan number menjadi format uang rupiah
 function convertRupiahModal(tag) {
+    let beforeInput = "";
+
     $(`.${tag}`).on("input", function () {
         let rs = $(`.${tag}`).val();
 
         rs = rs.replace(/\./g, "");
 
         if (!isNaN(rs)) {
+            beforeInput = rs;
+        }
+
+        if (!isNaN(rs)) {
             let format = convertCurrencyRupiah(rs);
 
             $(`.${tag}`).val(format);
         } else {
-            $(`.${tag}`).val("");
+            if (rs.length != 0) {
+                $(`.${tag}`).val(convertCurrencyRupiah(beforeInput));
+            } else {
+                $(`.${tag}`).val("");
+            }
+        }
+    });
+}
+
+function mustNumber(tag) {
+    let beforeInput = $(`.${tag}`).val();
+    $(`.${tag}`).on("input", function () {
+        let rs = $(`.${tag}`).val();
+
+        if (!isNaN(rs)) {
+            beforeInput = rs;
+        }
+
+        if (rs.length == 0) {
+            if (isNaN(rs)) {
+                $(`.${tag}`).val("");
+            }
+        } else {
+            if (isNaN(rs)) {
+                $(`.${tag}`).val(beforeInput);
+            }
         }
     });
 }
@@ -85,13 +116,9 @@ function changeImagePos() {
 
 // fungsi untuk mengubah lebar input price
 function changeWidthInputModaPrice() {
-    $("input .input-modal").click(function () {
-        console.log("asd");
-    });
-
     $(".input-modal").on("input", function () {
-        if ($(this).val().length > 1) {
-            let width = 32 + parseInt($(this).val().length * 8);
+        if ($(this).val().length < 5) {
+            let width = 32 + parseInt($(this).val().length * 6);
             $(this).css({
                 width: `${width}px`,
             });
@@ -99,40 +126,214 @@ function changeWidthInputModaPrice() {
             $(this).css({
                 width: `2rem`,
             });
+        } else {
+            let width = 32 + parseInt($(this).val().length * 7);
+            $(this).css({
+                width: `${width}px`,
+            });
         }
     });
 }
 
-let variants = [];
-
+// fungsi yang dijalankan saat button ad variant di klik
 function addVariant() {
+    // mengambil value dari input variant modal
     let variantNameModal = $("#inputVariantNameModal").val();
     let priceVariantModal = $("#inputPriceVariantModal").val();
     let skuVariantModal = $("#inputSkuVariantModal").val();
 
-    variants.push({
-        variant: variantNameModal,
-        price: priceVariantModal,
-        sku: skuVariantModal,
-    });
+    if (
+        variantNameModal !== "" &&
+        priceVariantModal !== "" &&
+        skuVariantModal !== ""
+    ) {
+        // simpan ke dalam array variants
+        variants.push({
+            variant: variantNameModal,
+            price: priceVariantModal,
+            sku: skuVariantModal,
+        });
 
-    let items = "";
+        let items = `
+        <table class="table borderless table-modal margin-top-12">
+        <thead class="table-head-color-modal">
+            <tr>
+                <th>Variant Name</th>
+                <th>Price</th>
+                <th>SKU</th>
+            </tr>
+        </thead>
+        <tbody id="listVariant">
+        `;
 
-    variants.forEach((item) => {
-        items += `<div class='d-flex flex-row justify-content-between'>`;
-        items += `<div>${item.variant}</div>`;
-        items += `<div>${item.price}</div>`;
-        items += `<div>${item.sku}</div>`;
-        items += `</div>`;
-    });
+        // looping isinya, kemudian tampilkan format htmlnya sesuai design
+        variants.forEach((item) => {
+            items += `
+            <tr>
+            <td>
+                <div class="container-input-default">
+                    <input type="name" id="inStock" class="form-control input-default"
+                        placeholder="" value="${item.variant}">
+                </div>
+            </td>
+            
+            <td>
+                <div class="container-input-default">
+                    <input type="name" id="inStock" class="form-control input-default item-price"
+                        placeholder="" value="${item.price}">
+                </div>
+            </td>
+            <td>
+                <div class="container-input-default">
+                    <input type="name" id="minimumStock" class="form-control input-default"
+                        placeholder="" value="${item.sku}">
+                </div>
+            </td>
+        </tr>
+            `;
+        });
 
-    $(".variant-list").html(items);
+        items += `
+        </tbody>
+        </table>
+        `;
+
+        $(".variant-list").html(items);
+    }
+
+    convertRupiahModal("item-price");
 
     $("#addVariantModal").modal("hide");
 }
 
+// fungsi yang dijalankan saat button setting inventory diklik
 function settingInventory() {
     let items = "";
+    inventory = [];
+
+    variants.forEach((item) => {
+        items += `
+        <tr>
+            <td>${item.variant}</td>
+            <td>
+                <input id="trackStock" class="red-input checkbox" type="checkbox"/>
+            </td>
+            <td>
+                <div class="container-input-default">
+                    <input type="name" id="inStock" class="form-control input-default input-modal instock"
+                        placeholder="">
+                </div>
+            </td>
+            <td>
+                <div class="container-input-default">
+                    <input type="name" id="minimumStock" class="form-control input-default input-modal minimum-stock"
+                        placeholder="">
+                </div>
+            </td>
+        </tr>
+        `;
+    });
+
+    mustNumber("instock");
+    mustNumber("minimum-stock");
+
+    $("#listVariantOnInventory").html(items);
+
+    changeWidthInputModaPrice();
+}
+
+// fungsi yang dijalankan saat button move selected items diklik
+function setInventory() {
+    $("#listVariantOnInventory ")
+        .find("tr")
+        .each(function () {
+            let variant = $(this).find("td:eq(0)").text();
+            let trackStock = $(this)
+                .find("td:eq(1)")
+                .find('input[type="checkbox"]')
+                .is(":checked");
+            let inStock = $(this).find("td:eq(2)").find("input").val();
+            let minimumStock = $(this).find("td:eq(3)").find("input").val();
+
+            if (
+                inStock != "" &&
+                inStock != undefined &&
+                minimumStock != "" &&
+                minimumStock != undefined
+            ) {
+                inventory.push({
+                    variant: variant,
+                    trackStock: trackStock,
+                    inStock: inStock,
+                    minimumStock: minimumStock,
+                });
+            } else {
+                alert("in stock dan minimum stock tidak boleh kosong");
+                inventory = [];
+                return false;
+            }
+        });
+
+    if (inventory.length != 0) {
+        let items = `
+        <table class="table borderless table-modal margin-top-12">
+        <thead class="table-head-color-modal">
+            <tr>
+                <th>Variant</th>
+                <th>Track Stock</th>
+                <th>In Stock</th>
+                <th>Minimum Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+        `;
+
+        inventory.forEach((item) => {
+            items += `
+            
+            <tr>
+                <td>${item.variant}</td>
+                <td>
+                    <input id="trackStock" class="red-input checkbox" type="checkbox" value="${
+                        item.trackStock
+                    }" ${item.trackStock == true ? "checked" : ""}/>
+                </td>
+                <td>
+                    <div class="container-input-default">
+                        <input type="name" id="inStock" class="form-control input-default instock"
+                            placeholder="" value="${item.inStock}" >
+                    </div>
+                </td>
+                <td>
+                    <div class="container-input-default">
+                        <input type="name" id="minimumStock" class="form-control input-default minimum-stock"
+                            placeholder="" value="${item.minimumStock}">
+                    </div>
+                </td>
+            </tr>
+            `;
+        });
+
+        items += `
+        </tbody>
+        </table>
+        `;
+
+        $(".inventory-list").html(items);
+        $("#manageInventoryModal").modal("hide");
+
+        // input tidak boleh huruf
+        mustNumber("instock");
+        mustNumber("minimum-stock");
+    }
+}
+
+// fungsi yang dijalankan saat button setting cogs diklik
+// mengambil isi array variants yang sudah diisi sebelumnya kemudian membuat isinya sesuai tampilan design
+function settingCogs() {
+    let items = `
+    `;
+
     variants.forEach((item) => {
         items += `
         <tr>
@@ -142,13 +343,7 @@ function settingInventory() {
             </td>
             <td>
                 <div class="container-input-default">
-                    <input type="name" class="form-control input-default input-modal"
-                        placeholder="">
-                </div>
-            </td>
-            <td>
-                <div class="container-input-default">
-                    <input type="name" class="form-control input-default input-modal"
+                    <input type="name" class="form-control input-default input-format-price-setting-modal"
                         placeholder="">
                 </div>
             </td>
@@ -156,9 +351,26 @@ function settingInventory() {
         `;
     });
 
-    $("#listVariant").html(items);
+    $("#listVariantOnCogs").html(items);
 
-    changeWidthInputModaPrice();
+    convertRupiahModal("input-format-price-setting-modal");
+}
+
+function moveSelectedItems() {
+    console.log("click");
+}
+
+// mereset isi modal, saat di dismiss
+function resetModal() {
+    $(".modal").on("hidden.bs.modal", function () {
+        $(this)
+            .find("input:not([type=hidden]),textarea,select")
+            .val("")
+            .end()
+            .find("input[type=checkbox], input[type=radio]")
+            .prop("checked", "")
+            .end();
+    });
 }
 
 // id product name

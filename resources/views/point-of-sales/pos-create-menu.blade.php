@@ -71,8 +71,13 @@
                             <div class="subtitle-3-medium">Inventory</div>
                             <div id="divider" class="margin-top-12"></div>
 
+                            <div class="inventory-list">
+
+                            </div>
+
                             <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"
-                                onClick="settingInventory()" text="Setting Inventory" toogle="modal" target="#manageInventoryModal">
+                                onClick="settingInventory()" text="Setting Inventory" toogle="modal"
+                                target="#manageInventoryModal">
 
                             </x-button.text-only-primary>
                         </div>
@@ -86,7 +91,7 @@
                             <div id="divider" class="margin-top-12"></div>
 
                             <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"
-                                onClick="" text="Setting COGS" toogle="modal" target="#manageCogsModal">
+                                onClick="settingCogs()" text="Setting COGS" toogle="modal" target="#manageCogsModal">
 
                             </x-button.text-only-primary>
                         </div>
@@ -149,21 +154,8 @@
                                         <th>Minimum Stock</th>
                                     </tr>
                                 </thead>
-                                <tbody id="listVariant">
-                                    <tr>
-                                        <td>BHP 01</td>
-                                        <td>
-                                            <input class="red-input checkbox" type="checkbox" />
-                                        </td>
-                                        <td>
-                                            <x-form.input-default id="" class="input-modal" name=""
-                                                placeHolder="" label=""></x-form.input-default>
-                                        </td>
-                                        <td>
-                                            <x-form.input-default id="" class="input-modal" name=""
-                                                placeHolder="" label=""></x-form.input-default>
-                                        </td>
-                                    </tr>
+                                <tbody id="listVariantOnInventory">
+
                                 </tbody>
                             </table>
 
@@ -175,7 +167,7 @@
                                 </x-button.text-only-outlined>
 
                                 <x-button.text-only-primary class="" id="btnMoveSelectedItemsVariant"
-                                    onClick="" text="Move Selected Items"> </x-button.text-only-primary>
+                                    onClick="setInventory()" text="Move Selected Items"> </x-button.text-only-primary>
                             </x-slot:footer>
 
                         </x-modal.modal-input>
@@ -193,17 +185,17 @@
                                         <th>Average Cost</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
+                                <tbody id="listVariantOnCogs">
+                                    {{-- <tr>
                                         <td>BHP 01</td>
                                         <td>
                                             <input class="red-input checkbox" type="checkbox" />
                                         </td>
                                         <td>
-                                            <x-form.input-default id="" class="" name=""
+                                            <x-form.input-default id="" class="input-format-price-setting-modal" name=""
                                                 placeHolder="" label=""></x-form.input-default>
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                 </tbody>
                             </table>
 
@@ -227,7 +219,7 @@
                 <div class="image-information">
                     <div class="body-text-regular">Image for POS</div>
                     <div class="image-picker">
-                        <img id="imagePos" src="{{ asset('img/mie.png') }}" alt="" srcset=""
+                        <img id="imagePos" src="{{ asset('img/image-pos.png') }}" alt="" srcset=""
                             class="img-fluid">
                     </div>
                 </div>
