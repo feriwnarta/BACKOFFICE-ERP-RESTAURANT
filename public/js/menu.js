@@ -13,49 +13,28 @@ $(window).on("load", function () {
 
 // fungsi untuk mengformat inputan number menjadi format uang rupiah
 function convertRupiahModal(tag) {
-    let beforeInput = "";
-
     $(`.${tag}`).on("input", function () {
-        let rs = $(`.${tag}`).val();
+        let rs = $(this).val();
 
         rs = rs.replace(/\./g, "");
 
-        if (!isNaN(rs)) {
-            beforeInput = rs;
+        if (isNaN(rs)) {
+            rs = rs.replace(/[^\d]/g, "");
         }
 
-        if (!isNaN(rs)) {
-            let format = convertCurrencyRupiah(rs);
-
-            $(`.${tag}`).val(format);
-        } else {
-            if (rs.length != 0) {
-                $(`.${tag}`).val(convertCurrencyRupiah(beforeInput));
-            } else {
-                $(`.${tag}`).val("");
-            }
-        }
+        $(this).val(rs);
     });
 }
 
 function mustNumber(tag) {
-    let beforeInput = $(`.${tag}`).val();
     $(`.${tag}`).on("input", function () {
-        let rs = $(`.${tag}`).val();
+        let rs = $(this).val();
 
-        if (!isNaN(rs)) {
-            beforeInput = rs;
+        if (isNaN(rs)) {
+            rs = rs.replace(/[^\d]/g, "");
         }
 
-        if (rs.length == 0) {
-            if (isNaN(rs)) {
-                $(`.${tag}`).val("");
-            }
-        } else {
-            if (isNaN(rs)) {
-                $(`.${tag}`).val(beforeInput);
-            }
-        }
+        $(this).val(rs);
     });
 }
 
@@ -204,6 +183,8 @@ function addVariant() {
     convertRupiahModal("item-price");
 
     $("#addVariantModal").modal("hide");
+
+    resetModal();
 }
 
 // fungsi yang dijalankan saat button setting inventory diklik
@@ -234,10 +215,10 @@ function settingInventory() {
         `;
     });
 
+    $("#listVariantOnInventory").html(items);
+
     mustNumber("instock");
     mustNumber("minimum-stock");
-
-    $("#listVariantOnInventory").html(items);
 
     changeWidthInputModaPrice();
 }
@@ -325,6 +306,9 @@ function setInventory() {
         // input tidak boleh huruf
         mustNumber("instock");
         mustNumber("minimum-stock");
+
+        // reset isi modal
+        resetModal();
     }
 }
 
@@ -343,7 +327,7 @@ function settingCogs() {
             </td>
             <td>
                 <div class="container-input-default">
-                    <input type="name" class="form-control input-default input-format-price-setting-modal"
+                    <input type="name" class="form-control input-default"
                         placeholder="">
                 </div>
             </td>
