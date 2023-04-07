@@ -83,6 +83,7 @@ html {
 
 #divider {
     max-width: 100%;
+
     border: 1px solid #E0E0E0;
 }
 
@@ -182,6 +183,21 @@ table.borderless td, table.borderless th {
     border: none !important;
 }
 
+.table-head-color {
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #404040;
+    background-color: #FFF7F2;    
+}
+
+.items-table-head-color {
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #404040;
+}
+
 .table-head-color-modal {
     font-family: 'Poppins Medium';
     font-size: .75rem;
@@ -215,25 +231,6 @@ table.borderless td {
 
     padding: 1rem;
 }
-
-
-
-/* ---------------------------------------------------
-    CREATE MENU PAGE STYLE
------------------------------------------------------ */
-
-.create-menu-content {
-    margin-top: 2.75rem;
-}
-
-.content-information {
-    margin-top: 1.75rem;
-}
-
-.image-information {
-    margin-top: 3.75rem;
-}
-
 
 
 /* ---------------------------------------------------
@@ -276,3 +273,71 @@ input[type="checkbox"]:checked {
     accent-color: #F16622;
     outline: 3px solid rgba(241, 102, 34, 0.2);
 }
+
+
+
+
+/* ---------------------------------------------------
+    CREATE MENU PAGE STYLE
+----------------------------------------------------- */
+
+.create-menu-content {
+    margin-top: 2.75rem;
+}
+
+.content-information {
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+}
+
+.image-information {
+    margin-top: 3.75rem;
+}
+
+/* ---------------------------------------------------
+    CREATE PO PAGE STYLE
+----------------------------------------------------- */
+
+.total-price {
+    text-align: end;
+}
+
+.full-search-bar {
+    border-radius: .37rem;
+    border: 1px solid #C2C2C2;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+    /*padding: 6px 12px;*/
+    gap: 4px;
+    background-image: url(../img/icons/search-bar-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    outline: 0;
+    background-position: 99%;
+    background-size: 16px;
+    padding: .375rem 1rem;
+
+    font-size: .87rem;
+    line-height: 1.25rem;
+}
+
+.body-modal-create-po {
+    margin: 1.18rem 1.5rem 2.5rem 1.25rem;
+}
+
+.items-ingredients {
+    margin-top: 1.25rem;
+}
+
+.name-item-ingredient {
+    margin-left: .5rem;
+    max-width: 100%;
+}
+
+.items-ingredient-img {
+    max-width: 3.5rem;
+    max-height: 3.5rem;
+}
+
+
+
+

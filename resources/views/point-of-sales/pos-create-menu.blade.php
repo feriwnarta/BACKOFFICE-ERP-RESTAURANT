@@ -12,7 +12,7 @@
     </x-navbar.navbar>
 
     <div class="create-menu-content">
-        <div class="row">
+        <div class="row g-0">
             <div class="col-sm-7 offset-1">
 
                 {{-- Title --}}

@@ -21,10 +21,38 @@
     </x-button.dropdown-no-icon>
 
     <x-button.text-only-secondary id=export-btn class="btn-nav" text="Export" onClick=""></x-button.text-only-secondary>
-    <x-button.text-only-primary id="create-po-btn" class="btn-nav" text="Create PO" onClick=""></x-button.text-only-primary>
+    <x-button.text-only-primary id="create-po-btn" class="btn-nav" text="Create PO" onClick="changeContent('purchasing/purchase-order/create-po')"></x-button.text-only-primary>
 
 </x-navbar.navbar>
 
-<div id="progress-bar"></div>
+<div id="content-loaded">
+    <div class="row g-0">
+        <table id="" class="table borderless">
+            <thead class="table-head-color">
+                <tr>
+                    <th>Date</th>
+                    <th>Supplier</th>
+                    <th>Order No.</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="listPurchaseOrder">
+                <tr class="items-table-head-color">
+                    <td>Rabu,08 Des 2022</td>
+                    <td>PT Meat Supplier</td>
+                    <td>#02030405</td>
+                    <td>1.200.000</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
 
 @endsection

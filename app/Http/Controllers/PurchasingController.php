@@ -12,6 +12,9 @@ class PurchasingController extends Controller
 
     public function purchaseOrder(Request $request) {
         return view('purchasing.purchasing-purchase-order');
+    }
 
+    public function createPo(Request $request) {
+        return view('purchasing.purchasing-create-po');
     }
 }
