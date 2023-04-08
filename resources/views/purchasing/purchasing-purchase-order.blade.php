@@ -27,7 +27,7 @@
 
 <div id="content-loaded">
     <div class="row g-0">
-        <table id="" class="table borderless">
+        <table id="" class="table borderless table-hover">
             <thead class="table-head-color">
                 <tr>
                     <th>Date</th>
@@ -38,13 +38,15 @@
                 </tr>
             </thead>
             <tbody id="listPurchaseOrder">
-                <tr class="items-table-head-color">
+                {{-- id nanti diisi dengan id po dari databse --}}
+                <tr class="items-table-head-color" id="po1">
                     <td>Rabu,08 Des 2022</td>
                     <td>PT Meat Supplier</td>
                     <td>#02030405</td>
                     <td>1.200.000</td>
                     <td>1</td>
                 </tr>
+                
             </tbody>
         </table>
     </div>

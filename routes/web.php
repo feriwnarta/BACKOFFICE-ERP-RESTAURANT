@@ -57,6 +57,7 @@ Route::controller(\App\Http\Controllers\PurchasingController::class)->group(func
    Route::get('purchasing/supplier', 'supplier');
     Route::get('purchasing/purchase-order', 'purchaseOrder');
     Route::get('purchasing/purchase-order/create-po', 'createPo');
+    Route::get('purchasing/purchase-order/{id}', 'detailPurchaseOrder');
 });
 
 

@@ -31,6 +31,13 @@
     color: #404040;
 }
 
+.subtitle-3-regular{
+    font-family: 'Poppins Regular';
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #404040;
+}
+
 .body-text-regular {
     font-family: 'Poppins Regular';
     font-size: .875rem;
