@@ -117,7 +117,7 @@ function sidebarOpen({ parentMenu, childMenu }) {
     if (sessionStorage.getItem("parentMenu") == parentMenu) {
         let target = $(`.${parentMenu}`).data("bs-target");
         $(target).css({
-            "transition-duration": "0.5s",
+            "transition-duration": "0s",
             "transition-property": "none",
         });
     }

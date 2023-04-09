@@ -87,14 +87,36 @@
                             <div class="subtitle-3-regular">Created at : {{ $po_data['create_at'] }}</div>
                             <div class="subtitle-3-regular">Created by : {{ $po_data['create_by'] }}</div>
                             <div class="subtitle-3-regular">Email : {{ $po_data['email'] }}</div>
-                            <div class="subtitle-3-regular">Outlet {{ $po_data['outlet'] }}</div>
+                            <div class="subtitle-3-regular">Outlet : {{ $po_data['outlet'] }}</div>
                             <div class="subtitle-3-regular">Phone : {{ $po_data['phone'] }}</div>
                             <div class="subtitle-3-regular">Address : {{ $po_data['address'] }} </div>
 
 
                             <div class="status-activity margin-top-24">
+                                <div class="subtitle-3-medium">Status Activity</div>
+                                <div id="divider" class="margin-top-8"></div>
+
+
+
+                                {{-- status activity --}}
+                                <x-button.select-button placeHolder="" label=""
+                                    class="input-status-activity margin-top-18">
+                                    @foreach ($po_data['status'] as $status)
+                                        <option value="">{{ $status }}</option>
+                                    @endforeach
+
+                                </x-button.select-button>
+
 
                             </div>
+
+
+                        </div>
+
+                        <div class="po-items margin-top-24">
+                            <div class="subtitle-3-medium">Purchase Order</div>
+                                <div id="divider" class="margin-top-8"></div>
+
                         </div>
 
 

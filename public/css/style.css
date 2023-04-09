@@ -8,11 +8,11 @@
     font-size: 16px;
 }
 
-/* .collapsing { */
-/* -webkit-transition: none; */
-/* transition: asd; */
-/* display: none; */
-/* } */
+.collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;
+}
 
 html {
     font-family: "Poppins Regular";
@@ -293,9 +293,9 @@ input[type="checkbox"]:checked {
     /* Body Text/Regular */
 
     font-family: "Poppins Regular";
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 1.25rem;
-    padding: .375rem .75rem;
+    padding: 0.375rem 0.75rem;
     /* identical to box height, or 143% */
 
     /* Neutral/90 */
@@ -354,4 +354,37 @@ input[type="checkbox"]:checked {
 .items-ingredient-img {
     max-width: 3.5rem;
     max-height: 3.5rem;
+}
+
+/* ---------------------------------------------------
+    DETAIL PO PAGE STYLE
+----------------------------------------------------- */
+
+.input-status-activity {
+    border: 1px solid #f16622;
+    border-radius: 6px;
+
+    background: url("../img/icons/plus-circle.png") no-repeat right #ffffff;
+    background-position: 98%;
+    overflow: hidden;
+    background-size: 1rem 1rem;
+}
+
+/* This is to remove the arrow of select element in IE */
+select::-ms-expand {
+    display: none;
+}
+
+select {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.input-status-activity select {
+    background: transparent;
+
+    padding-right: 5px;
+    border: 0;
+    border-radius: 0;
+    height: 30px;
 }

@@ -42,7 +42,10 @@ class PurchasingController extends Controller
                 'outlet' => 'Outlet 1',
                 'phone' => '+62912xxxx',
                 'address' => 'Rukan Beach View Boulevard, Jl. Pantai Indah Kapuk No.7, Daerah Khusus Ibukota Jakarta 14460',
-                'status' => 'At 12/08/2022 13:08 #002376393 is created',
+                'status' =>  [
+                    'At 12/08/2022 13:08 #002376393 is process',
+                    'At 12/08/2022 13:15 #002376393 is created',
+                ],
             ],
             'po_items' => [
                 'ayam' => [
