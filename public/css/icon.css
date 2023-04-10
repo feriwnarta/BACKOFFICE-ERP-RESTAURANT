@@ -133,3 +133,17 @@
 /* ---------------------------------------------------
     ICON PAGE CREATE MENU
 ----------------------------------------------------- */
+
+
+/* ---------------------------------------------------
+    ICON PAGE PURCHASE ORDER
+----------------------------------------------------- */
+.plus-circle-icon-bg {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/icons/plus-circle.png);
+    vertical-align: middle;
+}

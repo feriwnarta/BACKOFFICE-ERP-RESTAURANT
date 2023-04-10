@@ -8,11 +8,11 @@
     font-size: 16px;
 }
 
-.collapsing {
+/* .collapsing {
     -webkit-transition: none;
     transition: none;
     display: none;
-}
+} */
 
 html {
     font-family: "Poppins Regular";
@@ -113,6 +113,16 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
 }
 
+.input-no-border {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.table-detail-item-ingredients {
+ width: 7.8rem;
+}
+
 .search-bar {
     max-width: 23.6rem;
     min-width: 23.6rem;
@@ -131,6 +141,12 @@ input[type="search"]::-webkit-search-results-decoration {
 
     font-size: 0.87rem;
     line-height: 1.25rem;
+}
+
+.search-bar:hover {
+    border: 1px solid #F16622;
+    outline: 3px solid rgba(241, 102, 34, 0.2);
+    border-radius: 6px;
 }
 
 .btn-nav {
@@ -310,6 +326,19 @@ input[type="checkbox"]:checked {
 
 .table-po-rm-top {
     border-top: none;
+}
+
+.title-status-po {
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+    /* identical to box height, or 143% */
+
+
+    /* Primary/Main */
+
+    color: #F16622;
+
 }
 
 /* ---------------------------------------------------
