@@ -12,23 +12,6 @@ $(window).on("load", function () {
     resetModal();
 });
 
-// fungsi untuk mengformat inputan number menjadi format uang rupiah
-function convertRupiahModal(tag) {
-    $(`.${tag}`).on("input", function () {
-        let rs = $(this).val();
-
-        rs = rs.replace(/\./g, "");
-
-        if (isNaN(rs)) {
-            rs = rs.replace(/[^\d]/g, "");
-        }
-
-        let format = convertCurrencyRupiah(rs);
-
-        $(this).val(format);
-    });
-}
-
 function mustNumber(tag) {
     $(`.${tag}`).on("input", function () {
         let rs = $(this).val();
@@ -38,40 +21,6 @@ function mustNumber(tag) {
         }
 
         $(this).val(rs);
-    });
-}
-
-// fungsi untuk mengubah isi tag input menjadi format rupiah
-function convertInputToRupiah(tag) {
-    $(`.${tag}`).on("input", function () {
-        let rs = $(`.${tag}`).val();
-
-        rs = rs.replace(/\./g, "");
-
-        if (!isNaN(rs)) {
-            $(`.${tag}-error`).html("");
-
-            $(`.${tag}`).css({
-                "background-image": "",
-            });
-
-            let format = convertCurrencyRupiah(rs);
-
-            $(`.${tag}`).val(format);
-        } else {
-            $(`.${tag}`).css({
-                "background-image": "url(/img/icons/exclamation-circle.png)",
-                "background-repeat": "no-repeat",
-                "background-size": "1rem",
-                "vertical-align": "middle",
-                "background-position": "right center",
-                "padding-right": "1rem",
-            });
-
-            $(`.${tag}`).val("");
-
-            $(`.${tag}-error`).html("Input harga harus menggunakan angka");
-        }
     });
 }
 

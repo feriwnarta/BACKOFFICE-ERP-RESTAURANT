@@ -119,8 +119,10 @@ input[type="search"]::-webkit-search-results-decoration {
     outline: none;
 }
 
-.table-detail-item-ingredients {
- width: 7.8rem;
+
+
+.table-detail-item-ingredients:disabled {
+    background-color: #EDEDED;
 }
 
 .search-bar {
@@ -320,6 +322,10 @@ input[type="checkbox"]:checked {
     border: 1px solid #c2c2c2;
 }
 
+.table-po-disabled {
+    background-color: #EDEDED;
+}
+
 .table-po-rm-right {
     border-right: none;
 }
@@ -338,6 +344,20 @@ input[type="checkbox"]:checked {
     /* Primary/Main */
 
     color: #F16622;
+
+}
+
+.table-detail-item-ingredients {
+    width: 7.35rem;
+}
+
+/* .make-input {
+    width: 8.3rem;
+} */
+
+.wrapper-table-po {
+    max-width: 100%;
+    min-width: 100%;
 
 }
 

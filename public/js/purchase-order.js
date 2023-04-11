@@ -1,9 +1,11 @@
 let itemPo = [];
-
 let dataIngredientsPo = [];
+let nextAdd = false;
+let dataInputIngredients = [];
 
 $(window).on("load", function () {
     changeInputDatePlaceHolder();
+    btnManageRecipeClicked();
 });
 
 // ubah placeholder date input menjadi tanggal hari ini
@@ -17,21 +19,166 @@ function addItems() {
     // bersihkan item po yang sudah diceklis, dan ambil ceklis terbaru
     itemPo = [];
 
-    $(".list-of-ingredients-modal")
-        .find(".items-ingredients")
-        .each(function () {
-            let checked =
-                $(this).find('input[type="checkbox"]').is(":checked") == true;
+    if (!nextAdd) {
+        $(".list-of-ingredients-modal")
+            .find(".items-ingredients")
+            .each(function () {
+                let checked =
+                    $(this).find('input[type="checkbox"]').is(":checked") ==
+                    true;
 
-            if (checked) {
-                let idItem = $(this).find('input[type="checkbox"]').attr("id");
-                itemPo.push(idItem);
+                if (checked) {
+                    let idItem = $(this)
+                        .find('input[type="checkbox"]')
+                        .attr("id");
+                    itemPo.push(idItem);
+                }
+            });
+
+        if (itemPo !== undefined && itemPo !== null && itemPo.length > 0) {
+            insertOrder(itemPo);
+        }
+    } else {
+        let inputIngredients = [];
+
+        let isEmpty = false;
+
+        $(".list-of-ingredients-modal .input-ingredient-detail").each(
+            function () {
+                let id = $(this).attr("id");
+                let name = $(this).find(".item-name").html();
+                let inputOrder = "";
+                let inputPrice = "";
+                let inputTotal = "";
+                let inStock = "";
+                let unit = "";
+
+                $(this)
+                    .find(".wrapper-table-po .tables-po .table-po")
+                    .each(function () {
+                        let order = $(this).find(".input-order").val();
+                        let price = $(this).find(".input-price").val();
+                        let total = $(this).find(".input-total").val();
+
+                        let stock = $(this).find(".input-in-stock").val();
+
+                        if (stock !== undefined) {
+                            inStock = stock;
+                        }
+
+                        let inputUnit = $(this).find(".input-unit").val();
+
+                        if (inputUnit !== undefined) {
+                            unit = inputUnit;
+                        }
+
+                        if (order !== undefined) {
+                            inputOrder = order;
+                        }
+
+                        if (price !== undefined) {
+                            inputPrice = price;
+                        }
+
+                        if (total !== undefined) {
+                            inputTotal = total;
+                        }
+                    });
+
+                if (
+                    inputOrder !== "" &&
+                    inputOrder !== undefined &&
+                    inputPrice !== "" &&
+                    inputPrice !== undefined &&
+                    inputPrice !== "" &&
+                    inputPrice !== undefined
+                ) {
+                    inputIngredients.push({
+                        id: id,
+                        name: name,
+                        order: inputOrder,
+                        price: inputPrice,
+                        total: inputTotal,
+                        stock: inStock,
+                        unit: unit,
+                    });
+                } else {
+                    isEmpty = !isEmpty;
+                    alert("order dan price tidak boleh kosong");
+                }
             }
-        });
+        );
 
-    if (itemPo !== undefined && itemPo !== null && itemPo.length > 0) {
-        insertOrder(itemPo);
+        if (inputIngredients != undefined && inputIngredients.length > 0) {
+            dataInputIngredients = inputIngredients;
+        }
+
+        if (!isEmpty) {
+            makeListPo(dataInputIngredients);
+
+            nextAdd = false;
+            $("#manageRecipePoModal").modal("hide");
+        }
     }
+}
+
+function makeListPo(dataIngredientsPo) {
+    console.table(dataIngredientsPo);
+
+    let html = "";
+
+    dataIngredientsPo.forEach((itemPo) => {
+        html += `
+
+        <div class="input-ingredient-detail margin-top-32" id="${itemPo.id}">
+                    <div class="subtitle-3-bold item-name">${itemPo.name}</div>
+                    <div class="d-flex flex-row align-items-end margin-top-32 wrapper-table-po">
+                        <div class="tables-po">
+                            <div class="table-po table-po-disabled table-po-rm-right">
+                                <input type="text" disabled value="${itemPo.unit}"
+                                    class="input-no-border make-input caption-medium input-unit">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center tables-po">
+                            <div class="caption-medium">In Stock</div>
+                            <div class="table-po table-po-disabled table-po-rm-right margin-top-16">
+                                <input type="text" disabled value="${itemPo.stock}"
+                                    class="input-no-border make-input caption-medium input-in-stock">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center tables-po">
+                            <div class="caption-medium">Order</div>
+                            <div class="table-po table-po-rm-right margin-top-16">
+                                <input type="text"
+                                    class="input-no-border input-order make-input caption-medium" value="${itemPo.order}">
+                            </div>
+                        </div>
+                        <div class="tables-po">
+
+                            <div class="table-po table-po-rm-right d-flex align-items-center">
+                                <span class="caption-medium">Rp.</span>
+                                <input type="text"
+                                    class="input-no-border input-price make-input caption-medium input-format-price" value="${itemPo.price}">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center tables-po">
+                            <div class="caption-medium">Total</div>
+                            <div class="table-po table-po-disabled margin-top-16 d-flex align-items-center">
+                                <span class="caption-medium">Rp.</span>
+                                <input type="text" disabled
+                                    class="input-no-border make-input caption-medium input-total" value="${itemPo.total}">
+                            </div>
+                        </div>
+                    </div>
+
+                </div> 
+
+        `;
+
+        html += "</div>";
+
+        $(".list-items-po").html(html);
+    });
 }
 
 function insertOrder(itemPo) {
@@ -47,6 +194,22 @@ function insertOrder(itemPo) {
         itemPo: itemPo,
     });
 
+    // contoh data balikan item po
+    // [
+    //     {
+    //         id_item: "1",
+    //         item_name: "ayam jantan",
+    //         unit: "Ekor",
+    //         in_stock: "15",
+    //     },
+    //     {
+    //         id_item: "2",
+    //         item_name: "ayam broiler",
+    //         unit: "Ekor",
+    //         in_stock: "30",
+    //     },
+    // ];
+
     if (dataDetailItems !== undefined && dataDetailItems !== null) {
         setTimeout(function () {
             $(".spinner").removeClass(
@@ -56,10 +219,58 @@ function insertOrder(itemPo) {
             let itemsHtml = "";
 
             dataDetailItems.forEach((itemPo) => {
-                itemsHtml += `<div>${itemPo.item_name}</div>`;
+                itemsHtml += `
+
+                <div class="input-ingredient-detail margin-top-32" id="${itemPo.id_item}">
+                    <div class="subtitle-3-bold item-name">${itemPo.item_name}</div>
+                    <div class="d-flex flex-row align-items-end margin-top-32 wrapper-table-po">
+                        <div class="tables-po">
+                            <div class="table-po table-po-disabled table-po-rm-right">
+                                <input type="text" disabled value="${itemPo.unit}"
+                                    class="input-no-border table-detail-item-ingredients caption-medium input-unit">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center tables-po">
+                            <div class="caption-medium">In Stock</div>
+                            <div class="table-po table-po-disabled table-po-rm-right margin-top-16">
+                                <input type="text" disabled value="${itemPo.in_stock}"
+                                    class="input-no-border table-detail-item-ingredients caption-medium input-in-stock">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center tables-po">
+                            <div class="caption-medium">Order</div>
+                            <div class="table-po table-po-rm-right margin-top-16">
+                                <input type="text"
+                                    class="input-no-border input-order table-detail-item-ingredients caption-medium">
+                            </div>
+                        </div>
+                        <div class="tables-po">
+
+                            <div class="table-po table-po-rm-right d-flex align-items-center">
+                                <span class="caption-medium">Rp.</span>
+                                <input type="text"
+                                    class="input-no-border input-price table-detail-item-ingredients caption-medium input-format-price">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center tables-po">
+                            <div class="caption-medium">Total</div>
+                            <div class="table-po table-po-disabled margin-top-16 d-flex align-items-center">
+                                <span class="caption-medium">Rp.</span>
+                                <input type="text" disabled
+                                    class="input-no-border table-detail-item-ingredients caption-medium input-total">
+                            </div>
+                        </div>
+                    </div>
+
+                </div> 
+                `;
             });
 
+            itemsHtml += "</div>";
+
             $(".list-of-ingredients-modal").html(itemsHtml);
+
+            countTotalItemIngredients();
         }, 1000);
     }
 }
@@ -179,12 +390,12 @@ function requestDetailsIngredient({ itemPo }) {
     // let url = 'po/details'
 
     // item po dikirim ke request data json untuk mendapatkan data instock per item dari database
-    // let json = requestDataJson({url: url, method: 'GET', data : itemPo});
-    // dummy data balikan dari requestDataJson
 
+    // let json = requestDataJson({url: url, method: 'GET', data : itemPo});
+
+    // dummy data balikan dari requestDataJson
     return [
         {
-            id_item: "1",
             id_item: "1",
             item_name: "ayam jantan",
             unit: "Ekor",
@@ -192,10 +403,84 @@ function requestDetailsIngredient({ itemPo }) {
         },
         {
             id_item: "2",
-            id_item: "2",
             item_name: "ayam broiler",
             unit: "Ekor",
             in_stock: "30",
         },
     ];
+}
+
+function countTotalItemIngredients() {
+    let order = "";
+    let price = "";
+
+    $(".input-ingredient-detail").click(function () {
+        let parent = this;
+        $(this)
+            .find(".input-order")
+            .on("input", function () {
+                order = $(this).val();
+
+                if (isNaN(order)) {
+                    order = order.replace(/[^\d]/g, "");
+                }
+
+                order = order;
+
+                $(this).val(order);
+
+                if (order !== "" && price != "") {
+                    order = order;
+                    price = price.replace(/\./g, "").replace(",", ".");
+
+                    let total = order * price;
+
+                    total = convertCurrencyRupiah(total.toString());
+
+                    $(parent).find(".input-total").val(total);
+                }
+            });
+    });
+
+    $(".input-ingredient-detail").click(function () {
+        let parent = this;
+        $(this)
+            .find(".input-price")
+            .on("input", function () {
+                price = $(this).val();
+                if (isNaN(price)) {
+                    price = price.replace(/[^\d]/g, "");
+                }
+
+                price = price;
+
+                let format = convertCurrencyRupiah(price.toString());
+
+                $(this).val(format);
+
+                if (order !== "" && price != "") {
+                    order = order;
+                    price = price.replace(/\./g, "").replace(",", ".");
+
+                    let total = order * price;
+
+                    total = convertCurrencyRupiah(total.toString());
+
+                    $(parent).find(".input-total").val(total);
+                }
+            });
+    });
+
+    nextAdd = !nextAdd;
+    btnManageRecipeClicked();
+}
+
+function btnManageRecipeClicked() {
+    $("#btnManageRecipe").click(function () {
+        getAllIngredients();
+
+        $("#btnAddIngredients").click(function () {
+            addItems();
+        });
+    });
 }

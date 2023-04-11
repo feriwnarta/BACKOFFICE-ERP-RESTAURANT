@@ -55,6 +55,13 @@
                     <div id="divider" class="margin-top-12"></div>
 
                     <div class="margin-top-32">
+
+                        <div class="list-items-po">
+
+
+
+                        </div>
+
                         <div class="row g-0 d-flex justify-content-between">
                             <div class="col-sm-1 subtitle-3-medium">Total</div>
                             <div class="col-sm-1 subtitle-3-medium total-price">0</div>
@@ -62,7 +69,7 @@
                     </div>
 
                     <x-button.text-only-primary class="container-fluid margin-top-8" id="btnManageRecipe" onClick=""
-                        text="Manage Recipe" toogle="modal" target="#manageInventoryModal">
+                        text="Manage Recipe" toogle="modal" target="#manageRecipePoModal">
                     </x-button.text-only-primary>
                 </div>
 
@@ -74,7 +81,7 @@
     </div>
 
 
-    <x-modal.modal-scrollable id="manageInventoryModal" title="Add Ingredients" icon="">
+    <x-modal.modal-scrollable id="manageRecipePoModal" title="Add Ingredients" icon="">
 
         <div class="body-modal-create-po">
             {{-- add ingredients body --}}
@@ -87,36 +94,48 @@
             <div class="list-of-ingredients-modal d-flex flex-column">
 
 
-                <div>
-                    <div>Ayam</div>
-                    <div class="d-flex flex-row align-items-end">
+                {{-- <div class="input-ingredient-detail margin-top-32">
+                    <div class="subtitle-3-bold">Ayam</div>
+                    <div class="d-flex flex-row align-items-end margin-top-32">
                         <div>
-                            <div class="table-po table-po-rm-right"><input type="text"
-                                    class="input-no-border table-detail-item-ingredients"></div>
-                        </div>
-                        <div class="d-flex flex-column align-items-center">
-                            <div>In Stock</div>
-                            <div class="table-po table-po-rm-right">
-                                <input type="text" class="input-no-border table-detail-item-ingredients">
+                            <div class="table-po table-po-disabled table-po-rm-right">
+                                <input type="text" disabled value="Ekor"
+                                    class="input-no-border table-detail-item-ingredients caption-medium">
                             </div>
                         </div>
                         <div class="d-flex flex-column align-items-center">
-                            <div>Order</div>
-                            <div class="table-po table-po-rm-right"><input type="text"
-                                    class="input-no-border table-detail-item-ingredients"></div>
-                        </div>
-                        <div>
-                            <div class="table-po table-po-rm-right"><input type="text"
-                                    class="input-no-border table-detail-item-ingredients"></div>
+                            <div class="caption-medium">In Stock</div>
+                            <div class="table-po table-po-disabled table-po-rm-right margin-top-16">
+                                <input type="text" disabled value="25"
+                                    class="input-no-border table-detail-item-ingredients caption-medium">
+                            </div>
                         </div>
                         <div class="d-flex flex-column align-items-center">
-                            <div>Total</div>
-                            <div class="table-po"><input type="text"
-                                    class="input-no-border table-detail-item-ingredients"></div>
+                            <div class="caption-medium">Order</div>
+                            <div class="table-po table-po-rm-right margin-top-16">
+                                <input type="text"
+                                    class="input-no-border input-order table-detail-item-ingredients caption-medium">
+                            </div>
+                        </div>
+                        <div>
+
+                            <div class="table-po table-po-rm-right d-flex align-items-center">
+                                <span class="caption-medium">Rp.</span>
+                                <input type="text"
+                                    class="input-no-border input-price table-detail-item-ingredients caption-medium input-format-price">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="caption-medium">Total</div>
+                            <div class="table-po table-po-disabled margin-top-16 d-flex align-items-center">
+                                <span class="caption-medium">Rp.</span>
+                                <input type="text" disabled
+                                    class="input-no-border table-detail-item-ingredients caption-medium input-total">
+                            </div>
                         </div>
                     </div>
 
-                </div>
+                </div> --}}
 
 
                 {{-- <div class="spinner"></div> --}}
@@ -131,10 +150,11 @@
 
 
         <x-slot:footer>
-            <x-button.text-only-outlined class="" id="btnCancelVariant" text="Cancel" onClick="" dismiss="modal">
+            <x-button.text-only-outlined class="" id="btnCancelIngredients" text="Cancel" onClick=""
+                dismiss="modal">
             </x-button.text-only-outlined>
 
-            <x-button.text-only-primary class="" id="btnMoveSelectedItemsVariant" onClick="addItems()" text="Add">
+            <x-button.text-only-primary class="" id="btnAddIngredients" onClick="" text="Add">
             </x-button.text-only-primary>
         </x-slot:footer>
     </x-modal.modal-scrollable>
