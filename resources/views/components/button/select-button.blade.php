@@ -1,15 +1,13 @@
-<div class="{{ $class }}" id="{{ $id }}">
+<div class="{{ $class }}">
 
-    @if($label != '') 
-    <label for="form-select" class="form-label input-label">{{ $label }}</label>
+    @if ($label != '')
+        <label for="form-select" class="form-label input-label">{{ $label }}</label>
     @endif
 
-    <select class="form-select select-button"">
+    <select class="form-select select-button" id="{{ $id }}">
 
         {{ $slot }}
 
     </select>
 
 </div>
-
-

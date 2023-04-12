@@ -7,101 +7,62 @@ $(window).on("load", function () {
 // initialize sidebar mana yang terbuka
 function initSidebar() {
     let location = window.location.pathname;
-    switch (location) {
-        case "/":
+    switch (true) {
+        case location === "/":
             sidebarOpen({ parentMenu: "dashboard-btn" });
             break;
-        case "/pos/menu":
+        case location.startsWith("/pos/menu"):
             sidebarOpen({ parentMenu: "pos-btn", childMenu: "menu-pos-btn" });
             break;
-        case "/pos/menu/create-menu":
-            sidebarOpen({ parentMenu: "pos-btn", childMenu: "menu-pos-btn" });
-            break;
-        case "/pos/category":
+        case location.startsWith("/pos/category"):
             sidebarOpen({
                 parentMenu: "pos-btn",
                 childMenu: "category-pos-btn",
             });
             break;
-        case "/pos/category/create-category":
-            sidebarOpen({
-                parentMenu: "pos-btn",
-                childMenu: "category-pos-btn",
-            });
-            break;
-        case "/ingredients/library":
+        case location.startsWith("/ingredients/library"):
             sidebarOpen({
                 parentMenu: "ingredients-btn",
                 childMenu: "library-ingredients-btn",
             });
             break;
-        case "/ingredients/library/create-ingredients":
-            sidebarOpen({
-                parentMenu: "ingredients-btn",
-                childMenu: "library-ingredients-btn",
-            });
-            break;
-        case "/ingredients/category":
+        case location.startsWith("/ingredients/category"):
             sidebarOpen({
                 parentMenu: "ingredients-btn",
                 childMenu: "category-ingredients-btn",
             });
             break;
-        case "/ingredients/category/create-category":
-            sidebarOpen({
-                parentMenu: "ingredients-btn",
-                childMenu: "category-ingredients-btn",
-            });
-            break;
-        case "/ingredients/recipes":
+        case location.startsWith("/ingredients/recipes"):
             sidebarOpen({
                 parentMenu: "ingredients-btn",
                 childMenu: "recipes-ingredients-btn",
             });
             break;
-        case "/ingredients/recipes/create-recipes":
-            sidebarOpen({
-                parentMenu: "ingredients-btn",
-                childMenu: "recipes-ingredients-btn",
-            });
-            break;
-        case "/ingredients/recipes/semi-finished-recipes":
-            sidebarOpen({
-                parentMenu: "ingredients-btn",
-                childMenu: "recipes-ingredients-btn",
-            });
-            break;
-        case "/ingredients/recipes/create-semi-finished-recipes":
-            sidebarOpen({
-                parentMenu: "ingredients-btn",
-                childMenu: "recipes-ingredients-btn",
-            });
-            break;
-        case "/inventory/summary":
+        case location.startsWith("/inventory/summary"):
             sidebarOpen({
                 parentMenu: "inventory-btn",
                 childMenu: "summary-inventory-btn",
             });
             break;
-        case "/inventory/stock-opname":
+        case location.startsWith("/inventory/stock-opname"):
             sidebarOpen({
                 parentMenu: "inventory-btn",
                 childMenu: "stock-opname-inventory-btn",
             });
             break;
-        case "/central-kitchen/stock":
+        case location.startsWith("/central-kitchen/stock"):
             sidebarOpen({
                 parentMenu: "central-kitchen-btn",
                 childMenu: "stock-central-kitchen-btn",
             });
             break;
-        case "/purchasing/supplier":
+        case location.startsWith("/purchasing/supplier"):
             sidebarOpen({
                 parentMenu: "purchasing-btn",
                 childMenu: "supplier-purchasing-btn",
             });
             break;
-        case "/purchasing/purchase-order":
+        case location.startsWith("/purchasing/purchase-order"):
             sidebarOpen({
                 parentMenu: "purchasing-btn",
                 childMenu: "purchase-order-purchasing-btn",

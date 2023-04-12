@@ -29,20 +29,20 @@
 
 
                     {{-- Outlet --}}
-                    <x-button.select-button placeHolder="" label="Outlet" class="margin-top-16">
-                        <option value="chabihun1">Cahaya Senja Cafe</option>
-                        <option value="chabihun1">Cahaya Senja Cafe</option>
-                        <option value="chabihun1">Cahaya Senja Cafe</option>
+                    <x-button.select-button placeHolder="" label="Outlet" class="margin-top-16" id="outlet">
+                        <option value="senja1">Cahaya Senja Cafe 1</option>
+                        <option value="senja2">Cahaya Senja Cafe 2</option>
+                        <option value="senja3">Cahaya Senja Cafe 3</option>
                     </x-button.select-button>
 
 
                     {{-- Supplier --}}
 
-                    <x-button.select-button placeHolder="" label="Supplier" class="margin-top-16">
-                        <option value="chabihun1">PT Meet Fresh</option>
-                        <option value="chabihun1">PT Meet Fresh</option>
-                        <option value="chabihun1">PT Meet Fresh</option>
-                        <option value="chabihun1">PT Meet Fresh</option>
+                    <x-button.select-button placeHolder="" label="Supplier" class="margin-top-16" id="supplier">
+                        <option value="pt1">PT Meet Fresh 1</option>
+                        <option value="pt2">PT Meet Fresh 2</option>
+                        <option value="pt3">PT Meet Fresh 3</option>
+
                     </x-button.select-button>
 
 
@@ -57,9 +57,6 @@
                     <div class="margin-top-32">
 
                         <div class="list-items-po">
-
-
-
                         </div>
 
                         <div class="row g-0 d-flex justify-content-between">
@@ -71,6 +68,21 @@
                     <x-button.text-only-primary class="container-fluid margin-top-8" id="btnManageRecipe" onClick=""
                         text="Manage Recipe" toogle="modal" target="#manageRecipePoModal">
                     </x-button.text-only-primary>
+
+
+                    <div id="ctaActionMenu" class="margin-top-32">
+
+                        <div class="d-flex flex-row justify-content-end">
+
+                            <x-button.text-only-outlined class="" id="" text="Cancel" onClick="">
+                            </x-button.text-only-outlined>
+
+
+                            <x-button.text-only-primary class="margin-left-16" id="btnSettingInventory" onClick="createPo()"
+                                text="Create"> </x-button.text-only-primary>
+
+                        </div>
+                    </div>
                 </div>
 
 
@@ -92,58 +104,7 @@
 
             {{-- list of ingredients --}}
             <div class="list-of-ingredients-modal d-flex flex-column">
-
-
-                {{-- <div class="input-ingredient-detail margin-top-32">
-                    <div class="subtitle-3-bold">Ayam</div>
-                    <div class="d-flex flex-row align-items-end margin-top-32">
-                        <div>
-                            <div class="table-po table-po-disabled table-po-rm-right">
-                                <input type="text" disabled value="Ekor"
-                                    class="input-no-border table-detail-item-ingredients caption-medium">
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column align-items-center">
-                            <div class="caption-medium">In Stock</div>
-                            <div class="table-po table-po-disabled table-po-rm-right margin-top-16">
-                                <input type="text" disabled value="25"
-                                    class="input-no-border table-detail-item-ingredients caption-medium">
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column align-items-center">
-                            <div class="caption-medium">Order</div>
-                            <div class="table-po table-po-rm-right margin-top-16">
-                                <input type="text"
-                                    class="input-no-border input-order table-detail-item-ingredients caption-medium">
-                            </div>
-                        </div>
-                        <div>
-
-                            <div class="table-po table-po-rm-right d-flex align-items-center">
-                                <span class="caption-medium">Rp.</span>
-                                <input type="text"
-                                    class="input-no-border input-price table-detail-item-ingredients caption-medium input-format-price">
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column align-items-center">
-                            <div class="caption-medium">Total</div>
-                            <div class="table-po table-po-disabled margin-top-16 d-flex align-items-center">
-                                <span class="caption-medium">Rp.</span>
-                                <input type="text" disabled
-                                    class="input-no-border table-detail-item-ingredients caption-medium input-total">
-                            </div>
-                        </div>
-                    </div>
-
-                </div> --}}
-
-
-                {{-- <div class="spinner"></div> --}}
-
-                {{-- <x-list.list-of-ingredients idItem="1" itemImage="{{ asset('img/chicken.png') }}" itemName="Ayam 1"></x-list.list-of-ingredients>
-                <x-list.list-of-ingredients idItem="2" itemImage="{{ asset('img/chicken.png') }}" itemName="Ayam 2"></x-list.list-of-ingredients> --}}
-
-
+                <div class="spinner"></div>
             </div>
         </div>
 

@@ -115,6 +115,7 @@ function addItems() {
 
         if (!isEmpty) {
             makeListPo(dataInputIngredients);
+            grandTotal(dataInputIngredients);
 
             nextAdd = false;
             $("#manageRecipePoModal").modal("hide");
@@ -123,16 +124,14 @@ function addItems() {
 }
 
 function makeListPo(dataIngredientsPo) {
-    console.table(dataIngredientsPo);
-
     let html = "";
 
     dataIngredientsPo.forEach((itemPo) => {
         html += `
 
         <div class="input-ingredient-detail margin-top-32" id="${itemPo.id}">
-                    <div class="subtitle-3-bold item-name">${itemPo.name}</div>
-                    <div class="d-flex flex-row align-items-end margin-top-32 wrapper-table-po">
+                    <div class="subtitle-3-bold item-name text-center">${itemPo.name}</div>
+                    <div class="d-flex flex-row align-items-end margin-top-32 margin-bottom-32 wrapper-table-po">
                         <div class="tables-po">
                             <div class="table-po table-po-disabled table-po-rm-right">
                                 <input type="text" disabled value="${itemPo.unit}"
@@ -178,6 +177,7 @@ function makeListPo(dataIngredientsPo) {
         html += "</div>";
 
         $(".list-items-po").html(html);
+        countTotalItemIngredients();
     });
 }
 
@@ -416,6 +416,18 @@ function countTotalItemIngredients() {
 
     $(".input-ingredient-detail").click(function () {
         let parent = this;
+        let id = $(this).attr("id");
+
+        if (
+            dataInputIngredients !== undefined &&
+            dataInputIngredients.length > 0
+        ) {
+            price = $(this)
+                .find(".wrapper-table-po")
+                .find(".input-price")
+                .val();
+        }
+
         $(this)
             .find(".input-order")
             .on("input", function () {
@@ -439,11 +451,40 @@ function countTotalItemIngredients() {
 
                     $(parent).find(".input-total").val(total);
                 }
+
+                // update data input ingredients saat diupdate
+                if (
+                    dataInputIngredients !== undefined &&
+                    dataInputIngredients.length > 0
+                ) {
+                    let data = dataInputIngredients.map(function (item) {
+                        if (item.id == id) {
+                            item.order = order;
+                        }
+                        return item;
+                    });
+
+                    dataInputIngredients = data;
+
+                    grandTotal(dataInputIngredients);
+                }
             });
     });
 
     $(".input-ingredient-detail").click(function () {
         let parent = this;
+        let id = $(this).attr("id");
+
+        if (
+            dataInputIngredients !== undefined &&
+            dataInputIngredients.length > 0
+        ) {
+            order = $(this)
+                .find(".wrapper-table-po")
+                .find(".input-order")
+                .val();
+        }
+
         $(this)
             .find(".input-price")
             .on("input", function () {
@@ -468,11 +509,42 @@ function countTotalItemIngredients() {
 
                     $(parent).find(".input-total").val(total);
                 }
+
+                // update data input ingredients saat diupdate
+                if (
+                    dataInputIngredients !== undefined &&
+                    dataInputIngredients.length > 0
+                ) {
+                    let data = dataInputIngredients.map(function (item) {
+                        if (item.id == id) {
+                            item.price = price;
+                        }
+                        return item;
+                    });
+
+                    dataInputIngredients = data;
+
+                    grandTotal(dataInputIngredients);
+                }
             });
     });
 
     nextAdd = !nextAdd;
     btnManageRecipeClicked();
+}
+
+function grandTotal(dataInputIngredients) {
+    let grandTotal = 0;
+
+    dataInputIngredients.map((item) => {
+        let order = item.order;
+        let price = parseFloat(item.price.replace(/\./g, "").replace(",", "."));
+        let total = order * price;
+
+        grandTotal += total;
+    });
+
+    $(".total-price").html(grandTotal);
 }
 
 function btnManageRecipeClicked() {
@@ -483,4 +555,28 @@ function btnManageRecipeClicked() {
             addItems();
         });
     });
+}
+
+function createPo() {
+    let tanggal = $("#dateInput").val();
+    let outlet = $("#outlet").val();
+    let supplier = $("#supplier").val();
+    let note = $("#note").val();
+    // console.log(dataInputIngredients);
+
+    // send data json
+
+    let json = [
+        {
+            tanggal: tanggal,
+            outlet: outlet,
+            supplier: supplier,
+            note: note,
+            item_po: dataInputIngredients,
+        },
+    ];
+
+    json = JSON.stringify(json);
+
+    // send json to api
 }
