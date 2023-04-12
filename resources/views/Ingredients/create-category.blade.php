@@ -10,4 +10,6 @@
         <div class="navbar-title">Category Ingredients</div>
     </x-slot:title>
 </x-navbar.navbar>    
+
+
 @endsection

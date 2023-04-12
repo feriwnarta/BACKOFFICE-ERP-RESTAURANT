@@ -1,5 +1,5 @@
 #content-loaded {
-    margin-top: 3.66rem;
+    margin-top: 2.75rem;
     margin-left: 1.25rem;
     margin-right: 3rem;
 }
@@ -8,16 +8,19 @@
     font-size: 16px;
 }
 
-/* .collapsing { */
-/* -webkit-transition: none; */
-/* transition: asd; */
-/* display: none; */
-/* } */
+/* .collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;
+} */
 
 html {
-    font-family: 'Poppins Regular';
+    font-family: "Poppins Regular";
 }
 
+#imagePos {
+    max-width: 13.18rem;
+}
 
 /*-----------------------------------------------------
    WRAPPER STYLE
@@ -45,11 +48,10 @@ html {
 
 #progress-bar {
     height: 5px;
-    background-color: #F16622;
+    background-color: #f16622;
     width: 0%;
     transition: width 0.5s ease-in-out;
 }
-
 
 /* ---------------------------------------------------
     NAVBAR STYLE
@@ -59,8 +61,8 @@ html {
 }
 
 .navbar-title {
-    font-family: 'Poppins Bold';
-    color: #F16622;
+    font-family: "Poppins Bold";
+    color: #f16622;
     font-size: 1.5rem;
     line-height: 2rem;
 }
@@ -71,7 +73,7 @@ html {
 
 .navbar-subtitle {
     padding: 0px;
-    font-family: 'Poppins Regular';
+    font-family: "Poppins Regular";
     font-style: normal;
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -79,24 +81,25 @@ html {
 
 #divider {
     max-width: 100%;
-    border: 1px solid #E0E0E0;
+
+    border: 1px solid #e0e0e0;
 }
 
 #title-divider {
     margin-left: 1.25rem;
     height: 3px;
-    background-color: #F16622;
+    background-color: #f16622;
     width: 0px;
 }
 
 /* clears the ‘X’ from Internet Explorer */
-input[type=search]::-ms-clear {
+input[type="search"]::-ms-clear {
     display: none;
     width: 0;
     height: 0;
 }
 
-input[type=search]::-ms-reveal {
+input[type="search"]::-ms-reveal {
     display: none;
     width: 0;
     height: 0;
@@ -110,11 +113,23 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
 }
 
+.input-no-border {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+
+
+.table-detail-item-ingredients:disabled {
+    background-color: #EDEDED;
+}
+
 .search-bar {
     max-width: 23.6rem;
     min-width: 23.6rem;
-    border-radius: .37rem;
-    border: 1px solid #C2C2C2;
+    border-radius: 0.37rem;
+    border: 1px solid #c2c2c2;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
     /*padding: 6px 12px;*/
     gap: 4px;
@@ -124,24 +139,153 @@ input[type="search"]::-webkit-search-results-decoration {
     outline: 0;
     background-position: 21.9rem;
     background-size: 16px;
-    padding: .375rem 1rem;
+    padding: 0.375rem 1rem;
 
-    font-size: .87rem;
+    font-size: 0.87rem;
     line-height: 1.25rem;
+}
+
+.search-bar:hover {
+    border: 1px solid #F16622;
+    outline: 3px solid rgba(241, 102, 34, 0.2);
+    border-radius: 6px;
 }
 
 .btn-nav {
     margin-left: 1rem;
 }
 
+/* ---------------------------------------------------
+    TABLE  STYLE
+----------------------------------------------------- */
+#tableMenu th {
+    border-top: 1px solid #c2c2c2;
+    border-bottom: 1px solid #c2c2c2 !important;
+}
 
+#tableMenu td {
+    padding: 2.5rem 0px !important;
+}
 
-/* button di nav */
+#variantForm {
+    margin-bottom: 2rem;
+}
 
+.table-input {
+    border-style: solid;
+    border-left: none;
+    border-top: none;
+    border-color: #e0e0e0;
+    border-width: 1px;
+    border-radius: 0px;
+}
 
+.table-input::placeholder {
+    font-family: "Poppins Regular";
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: #9e9e9e;
+}
 
+.table-input:focus {
+    border-color: #e0e0e0;
+}
 
+.table-input:hover {
+    border-color: #e0e0e0;
+}
 
+table.borderless td,
+table.borderless th {
+    border: none !important;
+}
+
+.table-head-color {
+    font-family: "Poppins Regular";
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #404040;
+    background-color: #fff7f2;
+}
+
+.items-table-head-color {
+    font-family: "Poppins Regular";
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #404040;
+}
+
+.table-head-color-modal {
+    font-family: "Poppins Medium";
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: #404040;
+    background-color: #fff7f2;
+}
+
+.table-modal {
+    font-family: "Poppins Medium";
+    font-size: 0.75rem;
+    line-height: 1rem;
+    /* identical to box height, or 133% */
+
+    /* Neutral/90 */
+
+    color: #404040;
+}
+
+table.borderless .checkbox {
+    width: 1rem;
+    height: 1rem;
+}
+
+table.borderless th {
+    padding: 1rem;
+}
+
+table.borderless td {
+    padding: 1rem;
+}
+
+/* ---------------------------------------------------
+    MODAL STYLE
+----------------------------------------------------- */
+
+.modal-body {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.modal-input-title {
+    font-family: "Poppins Medium";
+    font-size: 1rem;
+    line-height: 1.75rem;
+    /* identical to box height, or 140% */
+
+    text-align: center;
+
+    /* Neutral/10 */
+
+    color: #ffffff;
+}
+
+.input-modal {
+    max-height: 2rem;
+    width: 2rem;
+}
+
+/* ---------------------------------------------------
+    CHECKBOX STYLE
+----------------------------------------------------- */
+input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+input[type="checkbox"]:checked {
+    accent-color: #f16622;
+    outline: 3px solid rgba(241, 102, 34, 0.2);
+}
 
 /* ---------------------------------------------------
     CREATE MENU PAGE STYLE
@@ -153,8 +297,147 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .content-information {
     margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
 }
 
 .image-information {
     margin-top: 3.75rem;
+}
+
+/* ---------------------------------------------------
+    PO PAGE STYLE
+----------------------------------------------------- */
+.table-po {
+    /* Body Text/Regular */
+
+    font-family: "Poppins Regular";
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    /* max-width: 100%;
+    min-width: 100%; */
+
+    padding: 0.375rem 0.75rem;
+    /* identical to box height, or 143% */
+
+    /* Neutral/90 */
+
+    color: #404040;
+    border: 1px solid #c2c2c2;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.tables-po {
+    width: 20%;
+}
+
+.table-po-disabled {
+    background-color: #EDEDED;
+}
+
+.table-po-rm-right {
+    border-right: none;
+}
+
+.table-po-rm-top {
+    border-top: none;
+}
+
+.title-status-po {
+    font-family: 'Poppins Regular';
+    font-size: .875rem;
+    line-height: 1.25rem;
+    /* identical to box height, or 143% */
+
+
+    /* Primary/Main */
+
+    color: #F16622;
+
+}
+
+.table-detail-item-ingredients {
+    width: 7.35rem;
+}
+
+.make-input {
+    max-width: 100%;
+}
+
+
+/* ---------------------------------------------------
+    CREATE PO PAGE STYLE
+----------------------------------------------------- */
+
+.total-price {
+    text-align: end;
+}
+
+.full-search-bar {
+    border-radius: 0.37rem;
+    border: 1px solid #c2c2c2;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+    /*padding: 6px 12px;*/
+    gap: 4px;
+    background-image: url(../img/icons/search-bar-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    outline: 0;
+    background-position: 99%;
+    background-size: 16px;
+    padding: 0.375rem 1rem;
+
+    font-size: 0.87rem;
+    line-height: 1.25rem;
+}
+
+.body-modal-create-po {
+    margin: 1.18rem 1.5rem 2.5rem 1.25rem;
+}
+
+.items-ingredients {
+    margin-top: 1.25rem;
+}
+
+.name-item-ingredient {
+    margin-left: 0.5rem;
+    max-width: 100%;
+}
+
+.items-ingredient-img {
+    max-width: 3.5rem;
+    max-height: 3.5rem;
+}
+
+/* ---------------------------------------------------
+    DETAIL PO PAGE STYLE
+----------------------------------------------------- */
+
+.input-status-activity {
+    border: 1px solid #f16622;
+    border-radius: 6px;
+
+    background: url("../img/icons/plus-circle.png") no-repeat right #ffffff;
+    background-position: 98%;
+    overflow: hidden;
+    background-size: 1rem 1rem;
+}
+
+/* This is to remove the arrow of select element in IE */
+select::-ms-expand {
+    display: none;
+}
+
+select {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.input-status-activity select {
+    background: transparent;
+
+    padding-right: 5px;
+    border: 0;
+    border-radius: 0;
+    height: 30px;
 }

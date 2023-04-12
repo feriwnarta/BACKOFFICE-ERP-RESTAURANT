@@ -14,6 +14,8 @@ class IconTextPrimary extends Component
     public string $text;
     public string $icon;
     public string $onClick;
+    public string $toggle;
+    public string $target;
 
 
     /**
@@ -22,13 +24,15 @@ class IconTextPrimary extends Component
      * @param string $text
      * @param string $icon
      */
-    public function __construct(string $id, string $class, string $text, string $icon, string $onClick)
+    public function __construct(string $id, string $class, string $text, string $icon, string $onClick = '', string $toggle = '', string $target = '')
     {
         $this->id = $id;
         $this->class = $class;
         $this->text = $text;
         $this->icon = $icon;
         $this->onClick = $onClick;
+        $this->toggle = $toggle;
+        $this->target = $target;
     }
 
 

@@ -1,110 +1,68 @@
-$(document).ready(function () {});
-
 $(window).on("load", function () {
     initSidebar();
     changeWidthTitle();
     dataTableInit();
-    convertInputToRupiah("idInputPriceMenu");
 });
 
 // initialize sidebar mana yang terbuka
 function initSidebar() {
     let location = window.location.pathname;
-    switch (location) {
-        case "/":
+    switch (true) {
+        case location === "/":
             sidebarOpen({ parentMenu: "dashboard-btn" });
             break;
-        case "/pos/menu":
+        case location.startsWith("/pos/menu"):
             sidebarOpen({ parentMenu: "pos-btn", childMenu: "menu-pos-btn" });
             break;
-        case "/pos/menu/create-menu":
-            sidebarOpen({ parentMenu: "pos-btn", childMenu: "menu-pos-btn" });
-            break;
-        case "/pos/category":
+        case location.startsWith("/pos/category"):
             sidebarOpen({
                 parentMenu: "pos-btn",
                 childMenu: "category-pos-btn",
             });
             break;
-        case "/pos/category/create-category":
-            sidebarOpen({
-                parentMenu: "pos-btn",
-                childMenu: "category-pos-btn",
-            });
-            break;
-        case "/ingredients/library":
+        case location.startsWith("/ingredients/library"):
             sidebarOpen({
                 parentMenu: "ingredients-btn",
                 childMenu: "library-ingredients-btn",
             });
             break;
-        case "/ingredients/library/create-ingredients":
-            sidebarOpen({
-                parentMenu: "ingredients-btn",
-                childMenu: "library-ingredients-btn",
-            });
-            break;
-        case "/ingredients/category":
+        case location.startsWith("/ingredients/category"):
             sidebarOpen({
                 parentMenu: "ingredients-btn",
                 childMenu: "category-ingredients-btn",
             });
             break;
-        case "/ingredients/category/create-category":
-            sidebarOpen({
-                parentMenu: "ingredients-btn",
-                childMenu: "category-ingredients-btn",
-            });
-            break;
-        case "/ingredients/recipes":
+        case location.startsWith("/ingredients/recipes"):
             sidebarOpen({
                 parentMenu: "ingredients-btn",
                 childMenu: "recipes-ingredients-btn",
             });
             break;
-        case "/ingredients/recipes/create-recipes":
-            sidebarOpen({
-                parentMenu: "ingredients-btn",
-                childMenu: "recipes-ingredients-btn",
-            });
-            break;
-        case "/ingredients/recipes/semi-finished-recipes":
-            sidebarOpen({
-                parentMenu: "ingredients-btn",
-                childMenu: "recipes-ingredients-btn",
-            });
-            break;
-        case "/ingredients/recipes/create-semi-finished-recipes":
-            sidebarOpen({
-                parentMenu: "ingredients-btn",
-                childMenu: "recipes-ingredients-btn",
-            });
-            break;
-        case "/inventory/summary":
+        case location.startsWith("/inventory/summary"):
             sidebarOpen({
                 parentMenu: "inventory-btn",
                 childMenu: "summary-inventory-btn",
             });
             break;
-        case "/inventory/stock-opname":
+        case location.startsWith("/inventory/stock-opname"):
             sidebarOpen({
                 parentMenu: "inventory-btn",
                 childMenu: "stock-opname-inventory-btn",
             });
             break;
-        case "/central-kitchen/stock":
+        case location.startsWith("/central-kitchen/stock"):
             sidebarOpen({
                 parentMenu: "central-kitchen-btn",
                 childMenu: "stock-central-kitchen-btn",
             });
             break;
-        case "/purchasing/supplier":
+        case location.startsWith("/purchasing/supplier"):
             sidebarOpen({
                 parentMenu: "purchasing-btn",
                 childMenu: "supplier-purchasing-btn",
             });
             break;
-        case "/purchasing/purchase-order":
+        case location.startsWith("/purchasing/purchase-order"):
             sidebarOpen({
                 parentMenu: "purchasing-btn",
                 childMenu: "purchase-order-purchasing-btn",
@@ -120,7 +78,7 @@ function sidebarOpen({ parentMenu, childMenu }) {
     if (sessionStorage.getItem("parentMenu") == parentMenu) {
         let target = $(`.${parentMenu}`).data("bs-target");
         $(target).css({
-            "transition-duration": "0.5s",
+            "transition-duration": "0s",
             "transition-property": "none",
         });
     }
@@ -191,36 +149,6 @@ function switchNavTitle(idOnInit, idBeforeInit) {
     }
 }
 
-// fungsi untuk mengubah isi tag input menjadi format rupiah
-function convertInputToRupiah(id) {
-    $(`#${id}`).keyup(function () {
-        let rs = $(`#${id}`).val();
-
-        if (!isNaN(rs)) {
-            $(`#${id}Error`).html("");
-
-            $(`#${id}`).css({
-                "background-image": "",
-            });
-
-            let format = convertCurrencyRupiah(rs);
-
-            $(`#${id}`).val(format);
-        } else {
-            $(`#${id}`).css({
-                "background-image": "url(/img/icons/exclamation-circle.png)",
-                "background-repeat": "no-repeat",
-                "background-size": "1rem",
-                "vertical-align": "middle",
-                "background-position": "right center",
-                "padding-right": "1rem",
-            });
-
-            $(`#${id}Error`).html('Input harga harus menggunakan angka');
-        }
-    });
-}
-
 // fungsi untuk membuat format rupiah dari integer biasa
 function convertCurrencyRupiah(price) {
     var number_string = price.replace(/[^,\d]/g, "").toString();
@@ -235,4 +163,55 @@ function convertCurrencyRupiah(price) {
     }
 
     return (rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah);
+}
+
+// fungsi untuk mengformat inputan number menjadi format uang rupiah
+function convertRupiahModal(tag) {
+    $(`.${tag}`).on("input", function () {
+        let rs = $(this).val();
+
+        rs = rs.replace(/\./g, "");
+
+        if (isNaN(rs)) {
+            rs = rs.replace(/[^\d]/g, "");
+        }
+
+        let format = convertCurrencyRupiah(rs);
+
+        $(this).val(format);
+    });
+}
+
+// fungsi untuk mengubah isi tag input menjadi format rupiah
+function convertInputToRupiah(tag) {
+    $(`.${tag}`).on("input", function () {
+        let rs = $(`.${tag}`).val();
+
+        rs = rs.replace(/\./g, "");
+
+        if (!isNaN(rs)) {
+            $(`.${tag}-error`).html("");
+
+            $(`.${tag}`).css({
+                "background-image": "",
+            });
+
+            let format = convertCurrencyRupiah(rs);
+
+            $(`.${tag}`).val(format);
+        } else {
+            $(`.${tag}`).css({
+                "background-image": "url(/img/icons/exclamation-circle.png)",
+                "background-repeat": "no-repeat",
+                "background-size": "1rem",
+                "vertical-align": "middle",
+                "background-position": "right center",
+                "padding-right": "1rem",
+            });
+
+            $(`.${tag}`).val("");
+
+            $(`.${tag}-error`).html("Input harga harus menggunakan angka");
+        }
+    });
 }
