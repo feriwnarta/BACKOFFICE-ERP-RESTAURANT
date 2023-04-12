@@ -6,19 +6,23 @@ use Illuminate\Http\Request;
 
 class PurchasingController extends Controller
 {
-    public function supplier(Request $request) {
+    public function supplier(Request $request)
+    {
         return view('purchasing.purchasing-supplier');
     }
 
-    public function purchaseOrder(Request $request) {
+    public function purchaseOrder(Request $request)
+    {
         return view('purchasing.purchasing-purchase-order');
     }
 
-    public function createPo(Request $request) {
+    public function createPo(Request $request)
+    {
         return view('purchasing.purchasing-create-po');
     }
 
-    public function detailPurchaseOrder(Request $request, string $id) {
+    public function detailPurchaseOrder(Request $request, string $id)
+    {
         // panggil service yang mengambil detail data po berdasarkan id
 
         // dummy data 
@@ -60,5 +64,10 @@ class PurchasingController extends Controller
         ];
 
         return view('purchasing.purchasing-details-po', $data);
+    }
+
+    public function createSupplier(Request $request)
+    {
+        return view('purchasing.purchasing-create-supplier');
     }
 }

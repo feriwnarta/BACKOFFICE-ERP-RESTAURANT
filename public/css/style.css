@@ -441,3 +441,18 @@ select {
     border-radius: 0;
     height: 30px;
 }
+
+.dropdown-menu {
+    width: 15rem !important;
+}
+
+.create-supplier {
+    height: 83vh;
+    position: relative;
+}
+
+.btn-action-create-supplier {
+    position: absolute;
+    bottom: 2.25rem;
+    right: 0%;
+}

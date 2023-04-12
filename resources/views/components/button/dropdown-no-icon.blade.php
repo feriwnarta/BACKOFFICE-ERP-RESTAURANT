@@ -1,15 +1,11 @@
-<div class="dropdown">
-    <button class="btn btn-dropdown-no-icon dropdown-toggle {{ $class }}" type="button" id=" {{ $id }}" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ $text }}
+<button class="btn btn-dropdown-no-icon dropdown-toggle {{ $class }}" type="button" id=" {{ $id }}"
+    data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+    {{ $text }}
 
-    </button>
+</button>
 
-    <ul class="dropdown-menu" aria-labelledby="{{ $id }}">
+<ul class="dropdown-menu" aria-labelledby="{{ $id }}">
 
-        {{ $slot }}
+    {{ $slot }}
 
-{{--        <li><a class="dropdown-item" href="#">Action</a></li>--}}
-{{--        <li><a class="dropdown-item" href="#">Another action</a></li>--}}
-{{--        <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
-    </ul>
-</div>
+</ul>

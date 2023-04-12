@@ -47,10 +47,10 @@
                             <div class="subtitle-3-medium">{{ $supplier_data['name'] }}</div>
                             <div class="po-table margin-top-8">
                                 <div class="row g-0">
-                                    <div class="col-sm-6 table-po table-po-rm-right">
+                                    <div class="col-sm-6 table-po">
                                         {{ $supplier_data['phone'] }}
                                     </div>
-                                    <div class="col-sm-6 table-po">
+                                    <div class="col-sm-6 table-po table-po-rm-top">
                                         {{ $supplier_data['email'] }}
                                     </div>
 
@@ -64,10 +64,10 @@
 
                                 <div class="row g-0">
 
-                                    <div class="col-sm-4 table-po table-po-rm-top table-po-rm-right">
+                                    <div class="col-sm-4 table-po table-po-rm-top">
                                         {{ $supplier_data['address']['state'] }}
                                     </div>
-                                    <div class="col-sm-4 table-po table-po-rm-top table-po-rm-right">
+                                    <div class="col-sm-4 table-po table-po-rm-top">
                                         {{ $supplier_data['address']['city'] }}
                                     </div>
                                     <div class="col-sm-4 table-po table-po-rm-top">
@@ -115,7 +115,7 @@
 
                         <div class="po-items margin-top-24">
                             <div class="subtitle-3-medium">Purchase Order</div>
-                                <div id="divider" class="margin-top-8"></div>
+                            <div id="divider" class="margin-top-8"></div>
 
                         </div>
 
@@ -126,7 +126,17 @@
             </div>
 
             <div class="col-sm-3">
-                asd
+                <x-button.text-only-primary id="create-po" class="margin-left-16" text="Done" onClick="">
+                </x-button.text-only-primary>
+
+                <x-button.text-only-secondary id=export-bt class="margin-left-16" text="Mark as fulfilled" onClick="">
+                </x-button.text-only-secondary>
+
+                <x-button.dropdown-no-icon id="all-s" class="margin-left-16" text="More">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </x-button.dropdown-no-icon>
             </div>
 
         </div>
