@@ -275,6 +275,10 @@ function insertOrder(itemPo) {
     }
 }
 
+function requestAllIngredients() {
+    // ajax request
+}
+
 function getAllIngredients() {
     $(".list-of-ingredients-modal").html('<div class="spinner"></div>');
 

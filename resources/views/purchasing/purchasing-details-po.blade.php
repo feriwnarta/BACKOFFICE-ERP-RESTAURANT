@@ -5,7 +5,8 @@
     @include('partials.sidebar')
 @endsection
 
-@section('page')
+
+@section('appbar')
     <x-navbar.navbar>
         <x-slot:title>
             <div class="navbar-title">Purchase Order</div>
@@ -26,8 +27,9 @@
             onClick="changeContent('purchasing/purchase-order/create-po')"></x-button.text-only-primary>
 
     </x-navbar.navbar>
+@endsection
 
-
+@section('page')
     {{-- {{ $supplier_data['name'] }} --}}
 
 

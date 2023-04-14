@@ -6,36 +6,48 @@ use Illuminate\Http\Request;
 
 class IngredientsController extends Controller
 {
-    public function library(Request $request) {
-        return view('ingredients.ingredients-library');
+    public function library(Request $request)
+    {
+        $data = [
+            //   'ingredients_library' => [
+
+            //   ]
+        ];
+        return view('ingredients.ingredients-library', $data);
     }
 
-    public function category(Request $request) {
+    public function category(Request $request)
+    {
         return view('ingredients.ingredients-category');
     }
 
-    public function recipes(Request $request) {
+    public function recipes(Request $request)
+    {
         return view('ingredients.ingredients-recipes');
     }
 
-    public function createIngredients(Request $request) {
+    public function createIngredients(Request $request)
+    {
         return view('ingredients.create-ingredients');
     }
 
-    public function createCategory(Request $request) {
+    public function createCategory(Request $request)
+    {
         return view('ingredients.create-category');
     }
 
-    public function createRecipes(Request $request) {
+    public function createRecipes(Request $request)
+    {
         return view('ingredients.create-recipes');
     }
 
-    public function semiFinishedRecipes(Request $request) {
+    public function semiFinishedRecipes(Request $request)
+    {
         return view('ingredients.semi-finished-recipes');
     }
 
-    public function createSemiFinishedRecipes(Request $request) {
+    public function createSemiFinishedRecipes(Request $request)
+    {
         return view('ingredients.create-semi-finished-recipes');
     }
-
 }

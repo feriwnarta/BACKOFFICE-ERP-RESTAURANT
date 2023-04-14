@@ -4,35 +4,49 @@
     @include('partials.sidebar')
 @endsection
 
-@section('page')
+@section('appbar')
     <x-navbar.navbar search="false">
         <x-slot:title>
             <div class="navbar-title">Category</div>
         </x-slot:title>
 
     </x-navbar.navbar>
+@endsection
 
-    <div id="progress-bar"></div>
-
+@section('page')
     <div id="content-loaded">
 
-        <div id="create-category">
-            <div>Create Your Category</div>
+        <div id="row g-0">
 
-            <form id="form-create-category">
-                <div class="mb-3">
-                    <label for="itemName" class="form-label">Item Name</label>
-                    <input type="text" class="form-control" name="item-name" placeholder="Chamie">
+            <div class="col-sm-7 offset-1 create-category">
+
+                <div class="subtitle-2-medium">Create Your Category</div>
+
+                <div class="content-information">
+
+                    <x-form.input-default id="itemName" class="" name="" placeHolder="Input your category name"
+                        label="Item Name">
+                    </x-form.input-default>
+
+
+
+                    <div id="ctaActionCategory" class="btn-action-create">
+
+                        <div class="d-flex flex-row justify-content-end">
+
+                            <x-button.text-only-outlined class="" id="" text="Cancel" onClick="">
+                            </x-button.text-only-outlined>
+
+
+                            <x-button.text-only-primary class="margin-left-16" id="btnSettingInventory" onClick="saveMenu()"
+                                text="Save"> </x-button.text-only-primary>
+
+                        </div>
+                    </div>
+
                 </div>
+            </div>
 
-
-
-                <div class="d-flex flex-row justify-content-end btn-action-create-category">
-                    <button type="submit" class="btn btn-primary me-2">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-
-            </form>
         </div>
 
     </div>

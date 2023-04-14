@@ -8,12 +8,35 @@ class PurchasingController extends Controller
 {
     public function supplier(Request $request)
     {
-        return view('purchasing.purchasing-supplier');
+        $data = [
+            'suppliers' => [
+                [
+                    'name' => 'PT Meat Fresh',
+                    'address' => 'Ruko Golf Island, PIK',
+                    'phone' => '0812-0987-4567',
+                    'email' => 'meat.fresh@gmail.com',
+                ]
+            ]
+        ];
+
+        return view('purchasing.purchasing-supplier', $data);
     }
 
     public function purchaseOrder(Request $request)
     {
-        return view('purchasing.purchasing-purchase-order');
+        $data = [
+            'po' => [
+                [
+                    'date' => 'Rabu,08 Des 2022',
+                    'supplier' => 'PT Meat Supplier',
+                    'order_no' => '#02030405',
+                    'total' => '1.200.000',
+                    'status' => 'Created',
+                ]
+            ]
+        ];
+
+        return view('purchasing.purchasing-purchase-order', $data);
     }
 
     public function createPo(Request $request)

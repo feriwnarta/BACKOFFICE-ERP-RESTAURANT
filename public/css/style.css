@@ -22,6 +22,13 @@ html {
     max-width: 13.18rem;
 }
 
+.no-data {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /*-----------------------------------------------------
    WRAPPER STYLE
 -------------------------------------------------------*/
@@ -305,6 +312,24 @@ input[type="checkbox"]:checked {
 }
 
 /* ---------------------------------------------------
+    CREATE CATEGORY PAGE STYLE
+----------------------------------------------------- */
+
+.create-category {
+    height: 83vh;
+    position: relative;
+}
+
+
+/* ---------------------------------------------------
+    LIBRARY INGREDIENTS PAGE STYLE
+----------------------------------------------------- */
+.create-ingredients {
+    height: 83vh;
+    position: relative;
+}
+
+/* ---------------------------------------------------
     PO PAGE STYLE
 ----------------------------------------------------- */
 .table-po {
@@ -391,7 +416,7 @@ input[type="checkbox"]:checked {
     line-height: 1.25rem;
 }
 
-.body-modal-create-po {
+.body-modal {
     margin: 1.18rem 1.5rem 2.5rem 1.25rem;
 }
 
@@ -451,7 +476,7 @@ select {
     position: relative;
 }
 
-.btn-action-create-supplier {
+.btn-action-create {
     position: absolute;
     bottom: 2.25rem;
     right: 0%;

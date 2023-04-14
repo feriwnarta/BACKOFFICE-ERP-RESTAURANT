@@ -5,7 +5,7 @@
     @include('partials.sidebar')
 @endsection
 
-@section('page')
+@section('appbar')
     <x-navbar.navbar>
         <x-slot:title>
             <div class="navbar-title">Purchase Order</div>
@@ -26,38 +26,51 @@
             onClick="changeContent('purchasing/purchase-order/create-po')"></x-button.text-only-primary>
 
     </x-navbar.navbar>
+@endsection
 
-    <div id="content-loaded">
-        <div class="row g-0">
-            <table id="" class="table borderless table-hover">
-                <thead class="table-head-color">
-                    <tr>
-                        <th>Date</th>
-                        <th>Supplier</th>
-                        <th>Order No.</th>
-                        <th>Total</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="listPurchaseOrder">
-                    {{-- id nanti diisi dengan id po dari databse --}}
-                    <tr class="items-table-head-color" id="po1">
-                        <td>Rabu,08 Des 2022</td>
-                        <td>PT Meat Supplier</td>
-                        <td>#02030405</td>
-                        <td>1.200.000</td>
-                        <td>
-                            <div class="status-po">
-                                <div class="title-status-po">
-                                    <i class="plus-circle-icon-bg"></i>
-                                    Created
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+@section('page')
 
-                </tbody>
-            </table>
+    @if (!isset($po))
+        {{-- no data display --}}
+        <img src="{{ asset('img/no-data.png') }}" alt="no-data" width="200px" class="no-data">
+    @else
+        <div id="content-loaded">
+            <div class="row g-0">
+                <table id="" class="table borderless table-hover">
+                    <thead class="table-head-color">
+                        <tr>
+                            <th>Date</th>
+                            <th>Supplier</th>
+                            <th>Order No.</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listPurchaseOrder">
+
+                        @foreach ($po as $itemPo)
+                            {{-- id nanti diisi dengan id po dari databse --}}
+                            <tr class="items-table-head-color" id="po1">
+                                <td>{{ $itemPo['date'] }}</td>
+                                <td>{{ $itemPo['supplier'] }}</td>
+                                <td>{{ $itemPo['order_no'] }}</td>
+                                <td>{{ $itemPo['total'] }}</td>
+                                <td>
+                                    <div class="status-po">
+                                        <div class="title-status-po">
+                                            <i class="plus-circle-icon-bg"></i>
+                                            {{ $itemPo['status'] }}
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+
+
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    @endif
 @endsection
