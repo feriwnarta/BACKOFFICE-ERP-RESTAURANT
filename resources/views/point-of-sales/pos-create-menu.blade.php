@@ -4,13 +4,15 @@
     @include('partials.sidebar')
 @endsection
 
-@section('page')
+@section('appbar')
     <x-navbar.navbar search="false">
         <x-slot:title>
             <div class="navbar-title">Create Menu</div>
         </x-slot:title>
     </x-navbar.navbar>
+@endsection
 
+@section('page')
     <div class="create-menu-content">
         <div class="row g-0">
             <div class="col-sm-7 offset-1">

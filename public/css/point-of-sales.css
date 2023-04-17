@@ -12,7 +12,8 @@
 
 #form-create-category {
     margin-top: 1.75rem;
-    width: 41.5rem;
+    max-width: 100%;
+
 }
 
 label {
@@ -45,5 +46,4 @@ input {
     position: absolute;
     bottom: 2.25rem;
     right: 20%;
-
 }

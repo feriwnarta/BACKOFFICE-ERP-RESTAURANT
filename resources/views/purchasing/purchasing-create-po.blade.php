@@ -4,18 +4,18 @@
     @include('partials.sidebar')
 @endsection
 
-@section('page')
+@section('appbar')
     <x-navbar.navbar search="false">
         <x-slot:title>
             <div class="navbar-title">Create Po</div>
         </x-slot:title>
     </x-navbar.navbar>
+@endsection
 
-
-
+@section('page')
     <div class="create-menu-content">
         <div class="row g-0">
-            <div class="col-sm-6 offset-1">
+            <div class="col-sm-7 offset-1">
 
                 {{-- Title --}}
                 <div class="subtitle-2-medium">Create Purchase Order</div>
@@ -95,7 +95,7 @@
 
     <x-modal.modal-scrollable id="manageRecipePoModal" title="Add Ingredients" icon="">
 
-        <div class="body-modal-create-po">
+        <div class="body-modal">
             {{-- add ingredients body --}}
             <form class="d-flex ">
                 <input class="form-control full-search-bar clear container-fluid" type="search" placeholder="Search"

@@ -13,11 +13,13 @@ class TextOnlyOutlined extends Component
     public string $text;
     public string $onClick;
     public string $dismiss;
+    public string $toggle;
+    public string $target;
 
     /**
      * Create a new component instance.
      */
-    public function __construct(string $id, string $class, string $text, string $onClick, string $dismiss = '')
+    public function __construct(string $id, string $class, string $text, string $onClick, string $dismiss = '', string $toogle = '', string $target = '')
     {
 
         $this->id = $id;
@@ -25,6 +27,8 @@ class TextOnlyOutlined extends Component
         $this->text = $text;
         $this->onClick = $onClick;
         $this->dismiss = $dismiss;
+        $this->target = $target;
+        $this->toggle = $toogle;
     }
 
     /**

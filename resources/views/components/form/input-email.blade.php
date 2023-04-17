@@ -3,7 +3,7 @@
         <label for="{{ $id }}" class="form-label input-label">{{ $label }}</label>
     @endif
 
-    <input type="name" name="{{ $name }}" class="form-control input-default {{ $class }}"
+    <input type="email" name="{{ $name }}" class="form-control input-default {{ $class }}"
         id="{{ $id }}" placeholder="{{ $placeHolder }}">
 
     <div id="{{ $id }}" class="{{ $class }}-error input-error">
