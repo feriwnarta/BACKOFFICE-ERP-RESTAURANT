@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\purchasingModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class PurchasingController extends Controller
 {
@@ -48,7 +51,7 @@ class PurchasingController extends Controller
     {
         // panggil service yang mengambil detail data po berdasarkan id
 
-        // dummy data 
+        // dummy data
         $data = [
             'supplier_data' => [
                 'name' => 'PT MEAT FRESH',
@@ -91,6 +94,38 @@ class PurchasingController extends Controller
 
     public function createSupplier(Request $request)
     {
+
         return view('purchasing.purchasing-create-supplier');
+    }
+
+    public function storeSupplier(Request $request){
+        $uuid = Str::uuid();
+        $supplierName = $request->supplierName;
+        $supplierPhone = $request->phoneNumber;
+        $supplierEmail = $request->supplierEmail;
+        $supplierAddress = $request->supplierAddress;
+        $supplierCity = $request->supplierCity;
+        $supplierState = $request->supplierState;
+        $supplierZip = $request->supplierZip;
+//        echo $supplierName;
+
+        $data = [
+            "uuid"=>$uuid,
+            "supplierName"=>$supplierName,
+            "supplierPhone"=>$supplierPhone,
+            "supplierEmail"=>$supplierEmail,
+            "supplierAddress"=>$supplierAddress,
+            "supplierCity"=>$supplierCity,
+            "supplierState"=>$supplierState,
+            "supplierZip"=>$supplierZip,
+        ];
+
+
+
+        $storeSupplier = new purchasingModel();
+//        $storeSupplier->createSupplier($uuid,$supplierName,$supplierPhone,$supplierEmail,$supplierAddress,$supplierCity,$supplierZip);
+       echo $storeSupplier->createSupplier($data);
+//        $storeSupplier->debug($data);
+
     }
 }

@@ -4,6 +4,8 @@ $(window).on("load", function () {
     dataTableInit();
 });
 
+
+
 // initialize sidebar mana yang terbuka
 function initSidebar() {
     let location = window.location.pathname;

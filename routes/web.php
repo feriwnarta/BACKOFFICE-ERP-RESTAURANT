@@ -43,7 +43,7 @@ Route::controller(\App\Http\Controllers\IngredientsController::class)->group(fun
 
 // Routes Untuk Menu inventory
 Route::controller(\App\Http\Controllers\InventoryController::class)->group(function () {
-    Route::get('inventory/summary', 'summary');         
+    Route::get('inventory/summary', 'summary');
     Route::get('inventory/stock-opname', 'stockOpname');
 });
 
@@ -59,4 +59,5 @@ Route::controller(\App\Http\Controllers\PurchasingController::class)->group(func
     Route::get('purchasing/purchase-order', 'purchaseOrder');
     Route::get('purchasing/purchase-order/create-po', 'createPo');
     Route::get('purchasing/purchase-order/{id}', 'detailPurchaseOrder');
+    Route::post('purchasing/supplier/store-supplier', 'storeSupplier');
 });
