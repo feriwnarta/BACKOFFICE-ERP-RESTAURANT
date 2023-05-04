@@ -47,7 +47,7 @@
                             <div class="col">
                                 <div class="subtitle-3-medium">Quantity</div>
                                 <div id="divider" class="margin-top-12"></div>
-                                <x-form.input-default id="idInputPriceMenu" class="margin-top-12 input-format-price"
+                                <x-form.input-default id="idInputPriceQuantity" class="margin-top-12 input-quantity"
                                     name="" placeHolder="10" label=""></x-form.input-default>
                             </div>
                             <div class="col">
@@ -180,4 +180,9 @@
 
         </x-modal.modal-input>
     </div>
+@endsection
+
+
+@section('footer-script')
+    <script src="{{ asset('js/ingredients.js') }}"></script>
 @endsection

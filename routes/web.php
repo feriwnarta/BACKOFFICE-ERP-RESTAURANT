@@ -43,7 +43,7 @@ Route::controller(\App\Http\Controllers\IngredientsController::class)->group(fun
 
 // Routes Untuk Menu inventory
 Route::controller(\App\Http\Controllers\InventoryController::class)->group(function () {
-    Route::get('inventory/summary', 'summary');
+    Route::get('inventory/summary', 'summary');         
     Route::get('inventory/stock-opname', 'stockOpname');
 });
 

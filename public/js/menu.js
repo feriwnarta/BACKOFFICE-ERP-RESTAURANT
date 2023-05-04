@@ -12,17 +12,20 @@ $(window).on("load", function () {
     resetModal();
 });
 
-function mustNumber(tag) {
-    $(`.${tag}`).on("input", function () {
-        let rs = $(this).val();
+// function mustNumber(tag) {
 
-        if (isNaN(rs)) {
-            rs = rs.replace(/[^\d]/g, "");
-        }
+//     $(`.${tag}`).on("input", function () {
 
-        $(this).val(rs);
-    });
-}
+//         console.log('test');
+//         let rs = $(this).val();
+
+//         if (isNaN(rs)) {
+//             rs = rs.replace(/[^\d]/g, "");
+//         }
+
+//         $(this).val(rs);
+//     });
+// }
 
 // fungsi untuk mengubah gambar image pos
 function changeImagePos() {
