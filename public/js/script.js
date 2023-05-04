@@ -215,3 +215,15 @@ function convertInputToRupiah(tag) {
         }
     });
 }
+
+function mustNumber(tag) {
+    $(`.${tag}`).on("input", function () {
+        let rs = $(this).val();
+
+        if (isNaN(rs)) {
+            rs = rs.replace(/[^\d]/g, "");
+        }
+
+        $(this).val(rs);
+    });
+}
