@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\Model;
 class purchasingModel extends Model
 {
     use HasFactory;
-    protected $table;
+    protected $table="supplier";
     protected $fillable=[];
 
-    public function createSupplier(array $data){
+
+
+    public function createSupplier(array $data):bool{
     $this->table="supplier";
     $this->fillable =['uuid','supplier_name','phone_number','supplier_email','supplier_address','city','zip','state'];
     $this->uuid = $data['uuid'];
@@ -23,18 +25,24 @@ class purchasingModel extends Model
     $this->city = $data['supplierCity'];
     $this->state = $data['supplierState'];
     $this->zip = $data['supplierZip'];
+//    $this->save();
+    if($this->save()==true){
+        return true;
+    }else{
+        return  false;
+    }
 
-        try {
-            $this->save();
-        } catch (\Illuminate\Database\QueryException $e) {
-            return($e->getMessage());
-        }
+//        try {
+//            $this->save();
+//        } catch (\Illuminate\Database\QueryException $e) {
+//            return($e->getMessage());
+//        }
 
     }
 
-    public function debug(array $data){
-        return var_dump($data);
-    }
+//    public function debug(array $data){
+//        return var_dump($data);
+//    }
 
 
 }

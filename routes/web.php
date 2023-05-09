@@ -54,7 +54,7 @@ Route::controller(\App\Http\Controllers\CentralKitchenController::class)->group(
 
 // Routes Untuk Menu Purchasing
 Route::controller(\App\Http\Controllers\PurchasingController::class)->group(function () {
-    Route::get('purchasing/supplier', 'supplier');
+    Route::get('purchasing/supplier', 'supplier')->name("supplier");
     Route::get('purchasing/supplier/create-supplier', 'createSupplier');
     Route::get('purchasing/purchase-order', 'purchaseOrder');
     Route::get('purchasing/purchase-order/create-po', 'createPo');

@@ -29,9 +29,9 @@ $(document).ready(function() {
             url: "../../purchasing/supplier/store-supplier",
             method: 'POST',
             data:data,
-        headers: ("X-CSRF-TOKEN: $('meta[name='csrf-token']').attr('content')"),
+            headers: ("X-CSRF-TOKEN: $('meta[name='csrf-token']').attr('content')"),
             success: function(data) {
-                console.log(data);
+                window.location.href="../supplier";
             }
         });
     });
