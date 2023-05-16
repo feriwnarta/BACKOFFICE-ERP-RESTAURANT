@@ -1,8 +1,7 @@
 
-
     function getUuid(e) {
     var uuid = e.getAttribute('data-uuid');
-    alert(uuid);
+    window.location.href = 'supplier/detail-supplier/'+uuid;
 }
 
 
