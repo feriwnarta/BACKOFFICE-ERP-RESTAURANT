@@ -19,10 +19,10 @@
 
     </x-navbar.navbar>
 @endsection
-
 @section('page')
 
-    @if (!isset($suppliers))
+
+    @if (!isset($data))
         {{-- no data display --}}
         <img src="{{ asset('img/no-data.png') }}" alt="no-data" width="200px" class="no-data">
     @else
@@ -31,32 +31,31 @@
                 <table id="" class="table borderless table-hover">
                     <thead class="table-head-color">
                         <tr>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>Phone</th>
-                            <th>Email</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
                         </tr>
                     </thead>
                     <tbody id="listPurchaseOrder">
-
-                        @foreach ($suppliers as $dataSupplier)
-                            {{-- id nanti diisi dengan id po dari databse --}}
-                            <tr class="items-table-head-color" id="po1">
-                                <td>{{ $dataSupplier['name'] }}</td>
-                                <td>{{ $dataSupplier['address'] }}</td>
-                                <td>{{ $dataSupplier['phone'] }}</td>
-                                <td>{{ $dataSupplier['email'] }}</td>
+{{--                    @dd($suppliers)--}}
+                        @foreach ($data as $dataSupplier)
+{{--                             id nanti diisi dengan id po dari databse--}}
+                            <tr class="items-table-head-color" id="po1" style="cursor: pointer">
+                                <td scope="row" onclick="getUuid(this)" data-uuid="{{$dataSupplier['uuid']}}">{{ $dataSupplier['name'] }}</td>
+                                <td scope="row" onclick="getUuid(this)" data-uuid="{{$dataSupplier['uuid']}}">{{ $dataSupplier['address'] }}</td>
+                                <td scope="row" onclick="getUuid(this)" data-uuid="{{$dataSupplier['uuid']}}">{{ $dataSupplier['phone'] }}</td>
+                                <td scope="row" onclick="getUuid(this)" data-uuid="{{$dataSupplier['uuid']}}">{{ $dataSupplier['email'] }}</td>
 
                             </tr>
                         @endforeach
-
-
-
                     </tbody>
                 </table>
-
             </div>
         </div>
     @endif
+@endsection
 
+@section('footer-script')
+    <script src="{{asset("js/supplier.js")}}"></script>
 @endsection

@@ -2,24 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\purchasingModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 
 class PurchasingController extends Controller
 {
     public function supplier(Request $request)
     {
-        $data = [
-            'suppliers' => [
-                [
-                    'name' => 'PT Meat Fresh',
-                    'address' => 'Ruko Golf Island, PIK',
-                    'phone' => '0812-0987-4567',
-                    'email' => 'meat.fresh@gmail.com',
-                ]
-            ]
-        ];
+        // Mendapatkan data dari tabel suppliers menggunakan Eloquent ORM
+        $suppliers = purchasingModel::orderBy('created_at','DESC')->select('uuid','supplier_name','supplier_email','supplier_address','phone_number')->get();
 
-        return view('purchasing.purchasing-supplier', $data);
+        foreach ($suppliers as $supplier) {
+            $data[] =
+                    [
+                        "uuid" =>$supplier['uuid'],
+                        'name' => $supplier->supplier_name,
+                        'address' => $supplier->supplier_address,
+                        'phone' => $supplier->phone_number,
+                        'email' => $supplier->supplier_email,
+                    ];
+
+        }
+
+
+
+
+        return view('purchasing.purchasing-supplier', compact('data'));
     }
 
     public function purchaseOrder(Request $request)
@@ -48,7 +59,7 @@ class PurchasingController extends Controller
     {
         // panggil service yang mengambil detail data po berdasarkan id
 
-        // dummy data 
+        // dummy data
         $data = [
             'supplier_data' => [
                 'name' => 'PT MEAT FRESH',
@@ -91,6 +102,44 @@ class PurchasingController extends Controller
 
     public function createSupplier(Request $request)
     {
+
         return view('purchasing.purchasing-create-supplier');
+    }
+
+    public function storeSupplier(Request $request){
+
+        $uuid = Str::uuid();
+        $supplierName = $request->supplierName;
+        $supplierPhone = $request->phoneNumber;
+        $supplierEmail = $request->supplierEmail;
+        $supplierAddress = $request->supplierAddress;
+        $supplierCity = $request->supplierCity;
+        $supplierState = $request->supplierState;
+        $supplierZip = $request->supplierZip;
+        $data = [
+            "uuid"=>$uuid,
+            "supplierName"=>$supplierName,
+            "supplierPhone"=>$supplierPhone,
+            "supplierEmail"=>$supplierEmail,
+            "supplierAddress"=>$supplierAddress,
+            "supplierCity"=>$supplierCity,
+            "supplierState"=>$supplierState,
+            "supplierZip"=>$supplierZip,
+        ];
+        $storeSupplier = new purchasingModel();
+        $response_message=$storeSupplier->createSupplier($data);
+        echo $response_message;
+//        if(){
+//             $response=[
+//                "message_code"=>"success"
+//            ];
+//             return json_encode($response);
+//        }else{
+//             $response=[
+//                "message_status"=>"failed"
+//            ];
+//            return json_encode($response);
+//        }
+
     }
 }
