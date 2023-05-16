@@ -129,17 +129,13 @@ class PurchasingController extends Controller
         $storeSupplier = new purchasingModel();
         $response_message=$storeSupplier->createSupplier($data);
         echo $response_message;
-//        if(){
-//             $response=[
-//                "message_code"=>"success"
-//            ];
-//             return json_encode($response);
-//        }else{
-//             $response=[
-//                "message_status"=>"failed"
-//            ];
-//            return json_encode($response);
-//        }
 
+    }
+
+    public function detailSupplier($id){
+        $supplier = new purchasingModel();
+        $val = $supplier->getSupplier($id);
+
+        return view('purchasing.purchasing-detail-supplier',$val);
     }
 }

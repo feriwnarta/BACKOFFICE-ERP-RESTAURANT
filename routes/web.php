@@ -60,4 +60,5 @@ Route::controller(\App\Http\Controllers\PurchasingController::class)->group(func
     Route::get('purchasing/purchase-order/create-po', 'createPo');
     Route::get('purchasing/purchase-order/{id}', 'detailPurchaseOrder');
     Route::post('purchasing/supplier/store-supplier', 'storeSupplier');
+    Route::get('purchasing/supplier/detail-supplier/{id}', 'detailSupplier');
 });

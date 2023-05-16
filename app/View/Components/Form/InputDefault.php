@@ -13,18 +13,20 @@ class InputDefault extends Component
     public string $name;
     public string $placeHolder;
     public string $label;
-    
+    public string $val;
+
 
     /**
      * Create a new component instance.
      */
-    public function __construct(string $id, string $class, string $name, string $placeHolder, string $label)
+    public function __construct(string $id, string $class, string $name, string $placeHolder, string $label,string $val="kong")
     {
         $this->id = $id;
         $this->class = $class;
         $this->name = $name;
         $this->placeHolder = $placeHolder;
         $this->label = $label;
+        $this->val = $val;
     }
 
     /**

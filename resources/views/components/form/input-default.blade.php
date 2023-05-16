@@ -4,7 +4,7 @@
     @endif
 
     <input type="name" name="{{ $name }}" class="form-control input-default {{ $class }}"
-        id="{{ $id }}" placeholder="{{ $placeHolder }}">
+        id="{{ $id }}" placeholder="{{ $placeHolder }}" value="{{ $val  }}" >
 
     
 
