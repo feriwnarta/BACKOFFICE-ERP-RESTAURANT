@@ -42,7 +42,7 @@ class purchasingModel extends Model
     }
 
     public function getSupplier($id){
-        $data = DB::table('supplier')->where('uuid',$id)->select("uuid","supplier_name","phone_number","supplier_email","supplier_address","city","state","zip")->get()->toArray();
+        $data = DB::table('supplier')->where('uuid',"=",$id)->select("uuid","supplier_name","phone_number","supplier_email","supplier_address","city","state","zip")->get(true)->toArray();
         return $data;
 
     }

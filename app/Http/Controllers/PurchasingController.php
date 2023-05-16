@@ -133,9 +133,24 @@ class PurchasingController extends Controller
     }
 
     public function detailSupplier($id){
-        $supplier = new purchasingModel();
-        $val = $supplier->getSupplier($id);
+        $supplier = DB::table('supplier')->where('uuid',"=",$id)->select("uuid","supplier_name","phone_number","supplier_email","supplier_address","city","state","zip")->get();
 
-        return view('purchasing.purchasing-detail-supplier',$val);
+        $dataSupplier =[
+            "supplierUuid"=>$supplier[0]->uuid,
+            "supplierName"=>$supplier[0]->supplier_name,
+            "supplierPhone"=>$supplier[0]->phone_number,
+            "supplierEmail"=>$supplier[0]->supplier_email,
+            "supplierAddress"=>$supplier[0]->supplier_address,
+            "supplierCity"=>$supplier[0]->city,
+            "supplierState"=>$supplier[0]->state,
+            "supplierZip"=>$supplier[0]->zip,
+        ];
+
+
+
+
+
+
+        return view('purchasing.purchasing-detail-supplier',$dataSupplier);
     }
 }

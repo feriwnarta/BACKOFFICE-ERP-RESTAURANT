@@ -23,11 +23,11 @@
 
                 <div class="content-information">
                     <x-form.input-default id="supplierName" class="" name="" placeHolder="Input your supplier name"
-                        label="Supplier Name" val="testing">
+                        label="Supplier Name" >
                     </x-form.input-default>
 
                     <x-form.input-default id="supplierPhone" class="" name="" placeHolder="+62"
-                        label="Phone Number" val = "anjing">
+                        label="Phone Number" >
                     </x-form.input-default>
 
                     <x-form.input-email id="supplierEmail" class="" name=""
