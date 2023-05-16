@@ -26,12 +26,12 @@
                         label="Supplier Name">
                     </x-form.input-default>
 
-                    <x-form.input-default id="supplierPhone" class="" name="" placeHolder="+62"
+                    <x-form.input-default id="supplierPhone" class="input-supplier-phone" name="" placeHolder="+62"
                         label="Phone Number">
                     </x-form.input-default>
 
                     <x-form.input-email id="supplierEmail" class="" name=""
-                        placeHolder="Input your supplier email" label="Email" >
+                        placeHolder="Input your supplier email" label="Email">
                     </x-form.input-email>
 
                     <x-form.input-default id="supplierAddress" class="" name=""
@@ -73,7 +73,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 @section('footer-script')
     <script src="{{ asset('js/create-supplier.js') }}"></script>
