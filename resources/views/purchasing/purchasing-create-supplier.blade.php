@@ -73,7 +73,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 @section('footer-script')
     <script src="{{ asset('js/create-supplier.js') }}"></script>

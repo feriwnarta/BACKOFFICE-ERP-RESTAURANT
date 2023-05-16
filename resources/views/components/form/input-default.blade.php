@@ -6,8 +6,9 @@
     <input type="name" name="{{ $name }}" class="form-control input-default {{ $class }}"
         id="{{ $id }}" placeholder="{{ $placeHolder }}" value="{{ $val  }}" >
 
-    <div id="{{ $id }}" class="{{ $class }}-error input-error">
+    
 
+    <div id="{{ $id }}" class="{{ $class }}-error input-error">
     </div>
 
 </div>
