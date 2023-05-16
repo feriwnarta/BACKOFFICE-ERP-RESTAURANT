@@ -13,7 +13,7 @@ class PurchasingController extends Controller
     public function supplier(Request $request)
     {
         // Mendapatkan data dari tabel suppliers menggunakan Eloquent ORM
-        $suppliers = purchasingModel::orderBy('created_at','DESC')->get();
+        $suppliers = purchasingModel::orderBy('created_at','DESC')->select('uuid','supplier_name','supplier_email','supplier_address','phone_number')->get();
 
         foreach ($suppliers as $supplier) {
             $data[] =
@@ -24,8 +24,6 @@ class PurchasingController extends Controller
                         'phone' => $supplier->phone_number,
                         'email' => $supplier->supplier_email,
                     ];
-
-
 
         }
 

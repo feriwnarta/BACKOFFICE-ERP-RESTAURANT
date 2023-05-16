@@ -19,7 +19,6 @@
 
     </x-navbar.navbar>
 @endsection
-
 @section('page')
 
 
@@ -40,7 +39,6 @@
                     </thead>
                     <tbody id="listPurchaseOrder">
 {{--                    @dd($suppliers)--}}
-
                         @foreach ($data as $dataSupplier)
 {{--                             id nanti diisi dengan id po dari databse--}}
                             <tr class="items-table-head-color" id="po1" style="cursor: pointer">
@@ -51,9 +49,6 @@
 
                             </tr>
                         @endforeach
-
-
-
                     </tbody>
                 </table>
             </div>

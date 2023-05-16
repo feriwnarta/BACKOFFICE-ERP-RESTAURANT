@@ -31,7 +31,7 @@
                     </x-form.input-default>
 
                     <x-form.input-email id="supplierEmail" class="" name=""
-                        placeHolder="Input your supplier email" label="Email">
+                        placeHolder="Input your supplier email" label="Email" >
                     </x-form.input-email>
 
                     <x-form.input-default id="supplierAddress" class="" name=""
