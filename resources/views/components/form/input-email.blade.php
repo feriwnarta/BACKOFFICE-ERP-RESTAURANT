@@ -4,7 +4,7 @@
     @endif
 
     <input type="email" name="{{ $name }}" class="form-control input-default {{ $class }}"
-        id="{{ $id }}" placeholder="{{ $placeHolder }}">
+        id="{{ $id }}" placeholder="{{ $placeHolder }}" value="{{$val}}">
 
     <div id="{{ $id }}" class="{{ $class }}-error input-error">
 

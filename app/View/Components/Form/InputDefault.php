@@ -19,7 +19,7 @@ class InputDefault extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(string $id, string $class, string $name, string $placeHolder, string $label,string $val="kong")
+    public function __construct(string $id, string $class, string $name, string $placeHolder, string $label,string $val="")
     {
         $this->id = $id;
         $this->class = $class;
