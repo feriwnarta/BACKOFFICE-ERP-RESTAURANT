@@ -4,12 +4,9 @@ function changeContent(url) {
 
 function changeContentInnerChild(url, method) {
     window.location.pathname = url;
-
-    
 }
 
 function contentRequestNav(url, method, tag, idOnInit, idBeforeInit) {
-
     // switchNavTitle(idOnInit, idBeforeInit);
 
     window.location.pathname = url;
@@ -20,8 +17,6 @@ function contentRequestNav(url, method, tag, idOnInit, idBeforeInit) {
     //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
     //     },
     // });
-
-    
 
     // $.ajax({
     //     url: url,
@@ -51,12 +46,10 @@ function contentRequestNav(url, method, tag, idOnInit, idBeforeInit) {
     //     setTimeout(function() {
     //         $("#progress-bar").width('0%');
     //       }, 500);
-        
+
     //     changeWidthTitle();
     //     // window.history.pushState(null, null, url); // -> untuk menyimpan url jquery ke history browser
     // });
-
-
 }
 
 function contentRequest(url, method) {

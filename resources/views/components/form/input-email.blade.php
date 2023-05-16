@@ -7,6 +7,7 @@
         id="{{ $id }}" placeholder="{{ $placeHolder }}">
 
     <div id="{{ $id }}" class="{{ $class }}-error input-error">
+
     </div>
 
 </div>
