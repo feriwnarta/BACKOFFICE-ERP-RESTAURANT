@@ -153,4 +153,33 @@ class PurchasingController extends Controller
 
         return view('purchasing.purchasing-detail-supplier',$dataSupplier);
     }
+
+    public function updateSupplier(){
+        $uuid = $_POST['uuid'];
+        $supplierName= $_POST['supplierName'];
+        $supplierPhone = $_POST['phoneNumber'];
+        $supplierEmail = $_POST['supplierEmail'];
+        $supplierAddress = $_POST['supplierAddress'];
+        $supplierCity = $_POST['supplierCity'];
+        $supplierState = $_POST['supplierState'];
+        $supplierZip = $_POST['supplierZip'];
+
+        $data =[
+            "uuid"=>$uuid,
+            "supplierName"=>$supplierName,
+            "supplierPhone"=>$supplierPhone,
+            "supplierEmail"=>$supplierEmail,
+            "supplierAddress"=>$supplierAddress,
+            "supplierCity"=>$supplierCity,
+            "supplierState"=>$supplierState,
+            "supplierZip"=>$supplierZip,
+        ];
+
+
+
+        $updateSupplier = new purchasingModel();
+        $data=$updateSupplier->updateSupplier($data);
+        $result = ($data == 1)?"Berhasil":"Gagal";
+        echo json_encode($result,JSON_PRETTY_PRINT);
+    }
 }

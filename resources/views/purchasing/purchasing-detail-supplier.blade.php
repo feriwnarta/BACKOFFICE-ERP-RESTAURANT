@@ -61,7 +61,7 @@
 
                             <x-button.text-only-outlined class="" id="" text="Cancel" onClick="">
                             </x-button.text-only-outlined>
-                            <x-button.text-only-primary class="margin-left-16" id="btnSettingInventory" onClick="saveMenu()"
+                            <x-button.text-only-primary class="margin-left-16" id="btnSave" onClick="saveMenu()"
                                                         text="Save"> </x-button.text-only-primary>
 
                         </div>
@@ -76,5 +76,5 @@
 
 @endsection
 @section('footer-script')
-    <script src="{{ asset('js/create-supplier.js') }}"></script>
+    <script src="{{ asset('js/detail-supplier.js') }}"></script>
 @endsection
