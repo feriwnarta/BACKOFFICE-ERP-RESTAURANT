@@ -47,5 +47,28 @@ class purchasingModel extends Model
 
     }
 
+    public function updateSupplier(array $data){
+        $this->uuid = $data['uuid'];
+        $this->supplier_name = $data['supplierName'];
+        $this->phone_number = $data['supplierPhone'];
+        $this->supplier_email = $data['supplierEmail'];
+        $this->supplier_address = $data['supplierAddress'];
+        $this->city = $data['supplierCity'];
+        $this->state = $data['supplierState'];
+        $this->zip = $data['supplierZip'];
+
+        $result = DB::table('supplier')->where("uuid","=",$this->uuid)->update([
+            "supplier_name"=>$this->supplier_name,
+            "phone_number"=>$this->phone_number,
+            "supplier_email"=>$this->supplier_email,
+            "supplier_address"=>$this->supplier_address,
+            "city"=>$this->city,
+            "state"=>$this->state,
+            "zip"=>$this->zip,
+        ]);
+
+        return $result;
+    }
+
 
 }

@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     // Send Data to Create Supplier
     btnSettingInventory.addEventListener("click", function () {
         var supplierName = document.getElementById("supplierName").value;
