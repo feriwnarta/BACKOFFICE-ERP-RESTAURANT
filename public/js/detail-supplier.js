@@ -38,8 +38,7 @@ $(document).ready(function () {
             success: function (data) {
                 var result = JSON.parse(data);
                 alert (result);
-
-                // window.location.href = "../supplier";
+                window.location.href = "../detail-supplier/"+uuid;
             },
         });
     });

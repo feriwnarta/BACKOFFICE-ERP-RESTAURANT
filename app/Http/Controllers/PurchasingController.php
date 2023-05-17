@@ -158,7 +158,7 @@ class PurchasingController extends Controller
         $uuid = $_POST['uuid'];
         $supplierName= $_POST['supplierName'];
         $supplierPhone = $_POST['phoneNumber'];
-        $supplierEmail = $_POST['supplierName'];
+        $supplierEmail = $_POST['supplierEmail'];
         $supplierAddress = $_POST['supplierAddress'];
         $supplierCity = $_POST['supplierCity'];
         $supplierState = $_POST['supplierState'];
@@ -174,6 +174,8 @@ class PurchasingController extends Controller
             "supplierState"=>$supplierState,
             "supplierZip"=>$supplierZip,
         ];
+
+
 
         $updateSupplier = new purchasingModel();
         $data=$updateSupplier->updateSupplier($data);
