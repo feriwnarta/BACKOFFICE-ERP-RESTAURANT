@@ -39,10 +39,9 @@
                     {{-- Supplier --}}
 
                     <x-button.select-button placeHolder="" label="Supplier" class="margin-top-16" id="supplier">
-                        <option value="pt1">PT Meet Fresh 1</option>
-                        <option value="pt2">PT Meet Fresh 2</option>
-                        <option value="pt3">PT Meet Fresh 3</option>
-
+                        @foreach($datas as $data)
+                            <option value="senja3">{{$data['supplier']['supplierName']}}</option>
+                        @endforeach
                     </x-button.select-button>
 
 
@@ -84,10 +83,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
         </div>
     </div>
