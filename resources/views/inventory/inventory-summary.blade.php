@@ -28,4 +28,44 @@
 @endsection
 
 @section('page')
+    <div id="content-loaded">
+        <div class="row g-0">
+            <table id="" class="table borderless table-hover">
+                <thead class="table-head-color">
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Last Purchase</th>
+                    <th>Stock</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+{{--                <tbody id="listPurchaseOrder">--}}
+
+
+{{--                @foreach ($datas as $data)--}}
+{{--                    --}}{{-- id nanti diisi dengan id po dari databse --}}
+{{--                    <tr class="items-table-head-color" id="po1">--}}
+{{--                        <td>{{ $data['date'] }}</td>--}}
+{{--                        <td>{{ $data['supplier'] }}</td>--}}
+{{--                        <td>{{ $data['order_number'] }}</td>--}}
+{{--                        <td>{{ $data['total'] }}</td>--}}
+{{--                        <td>--}}
+{{--                            <div class="status-po">--}}
+{{--                                <div class="title-status-po">--}}
+{{--                                    <i class="plus-circle-icon-bg"></i>--}}
+{{--                                    {{ $data['status'] }}--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
+{{--                @endforeach--}}
+
+
+
+{{--                </tbody>--}}
+            </table>
+        </div>
+    </div>
 @endsection

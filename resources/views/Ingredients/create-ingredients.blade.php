@@ -34,9 +34,10 @@
                             </x-form.input-default>
 
                             <x-button.select-button placeHolder="" label="Category" class="">
-                                <option value="chabihun1">Daging</option>
-                                <option value="chabihun2">Sayur</option>
-                                <option value="chabihun3">Ikan</option>
+                                <option value="null">Select</option>
+                                @foreach($datas as $data)
+                                <option value="{{$data['uuidCategory']}}">{{$data['category']}}</option>
+                                @endforeach
                             </x-button.select-button>
                         </div>
                     </div>

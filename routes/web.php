@@ -36,6 +36,7 @@ Route::controller(\App\Http\Controllers\IngredientsController::class)->group(fun
     Route::get('ingredients/recipes', 'recipes');
     Route::get('ingredients/library/create-ingredients', 'createIngredients');
     Route::get('ingredients/category/create-category', 'createCategory');
+    Route::post('ingredients/category/store-category', 'storeCategory');
     Route::get('ingredients/recipes/create-recipes', 'createRecipes');
     Route::get('ingredients/recipes/semi-finished-recipes', 'semiFinishedRecipes');
     Route::get('ingredients/recipes/create-semi-finished-recipes', 'createSemiFinishedRecipes');

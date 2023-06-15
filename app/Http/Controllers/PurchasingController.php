@@ -75,7 +75,6 @@ class PurchasingController extends Controller
         }
 
 
-
         return view('purchasing.purchasing-create-po',compact('datas'));
     }
 
