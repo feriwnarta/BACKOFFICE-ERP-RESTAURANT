@@ -30,7 +30,7 @@
 
 @section('page')
 
-    @if (!isset($po))
+    @if (!isset($datas))
         {{-- no data display --}}
         <img src="{{ asset('img/no-data.png') }}" alt="no-data" width="200px" class="no-data">
     @else
@@ -48,18 +48,19 @@
                     </thead>
                     <tbody id="listPurchaseOrder">
 
-                        @foreach ($po as $itemPo)
+
+                        @foreach ($datas as $data)
                             {{-- id nanti diisi dengan id po dari databse --}}
                             <tr class="items-table-head-color" id="po1">
-                                <td>{{ $itemPo['date'] }}</td>
-                                <td>{{ $itemPo['supplier'] }}</td>
-                                <td>{{ $itemPo['order_no'] }}</td>
-                                <td>{{ $itemPo['total'] }}</td>
+                                <td>{{ $data['date'] }}</td>
+                                <td>{{ $data['supplier'] }}</td>
+                                <td>{{ $data['order_number'] }}</td>
+                                <td>{{ $data['total'] }}</td>
                                 <td>
                                     <div class="status-po">
                                         <div class="title-status-po">
                                             <i class="plus-circle-icon-bg"></i>
-                                            {{ $itemPo['status'] }}
+                                            {{ $data['status'] }}
                                         </div>
                                     </div>
                                 </td>

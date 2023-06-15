@@ -104,7 +104,7 @@ function addItems() {
                     });
                 } else {
                     isEmpty = !isEmpty;
-                    alert("order dan price tidak boleh kosong");
+                    alert("Order And Price Cannot Be Empty");
                 }
             }
         );
@@ -128,7 +128,6 @@ function makeListPo(dataIngredientsPo) {
 
     dataIngredientsPo.forEach((itemPo) => {
         html += `
-
         <div class="input-ingredient-detail margin-top-32" id="${itemPo.id}">
                     <div class="subtitle-3-bold item-name text-center">${itemPo.name}</div>
                     <div class="d-flex flex-row align-items-end margin-top-32 margin-bottom-32 wrapper-table-po">
@@ -170,10 +169,8 @@ function makeListPo(dataIngredientsPo) {
                         </div>
                     </div>
 
-                </div> 
-
+                </div>
         `;
-
         html += "</div>";
 
         $(".list-items-po").html(html);
@@ -262,7 +259,7 @@ function insertOrder(itemPo) {
                         </div>
                     </div>
 
-                </div> 
+                </div>
                 `;
             });
 
@@ -317,22 +314,22 @@ function getAllIngredients() {
 
         result.forEach((item) => {
             itemsHtml += `
-            
+
         <div class="items-ingredients">
             <div class="row d-flex align-items-center">
                     <div class="col-sm-11">
                         <div class="item-ingredients d-flex flex-row align-items-center">
-                        
+
                         <div>
                             <img class="items-ingredient-img" src="${item.item_image}" alt="">
                         </div>
 
 
-                        
+
                         <div class="body-text-regular name-item-ingredient">${item.item_name}
 
                         </div>
-                        
+
                         </div>
                     </div>
                     <div class="col-sm-1">
@@ -566,21 +563,41 @@ function createPo() {
     let outlet = $("#outlet").val();
     let supplier = $("#supplier").val();
     let note = $("#note").val();
-    // console.log(dataInputIngredients);
+    let total_price =parseInt( $(".total-price").html());
+    let token = $('meta[name="csrf-token"]').attr("content");
+
+
 
     // send data json
 
-    let json = [
+    let data=
         {
+            _token:token,
             tanggal: tanggal,
             outlet: outlet,
             supplier: supplier,
             note: note,
             item_po: dataInputIngredients,
-        },
-    ];
+            total : total_price
+        };
 
-    json = JSON.stringify(json);
+    $.ajax({
+        url:"../../purchasing/purchase-order/store-po",
+        method: "POST",
+        headers:
+            "X-CSRF-TOKEN: $('meta[name='csrf-token']').attr('content')",
+        data:data,
+        success:function (response){
+            console.log(response);
+            // if (response == true){
+            //     alert("Add Purchase Order is Successful!");
+            //     window.location.href="../purchase-order";
+            // }else{
+            //     alert("Add Purchase Order is Failed!");
+            //     window.location.href="../purchase-order";
+            // }
+        }
+    });
 
     // send json to api
 }
