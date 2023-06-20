@@ -31,16 +31,16 @@ class IngredientsController extends Controller
 
     public function createIngredients(Request $request)
     {
-//        Get Katergori from category_ingredients;
-        $categories = DB::table("category_ingredients")->select("uuid_category","category_name")->get(true)->toArray();
-        foreach ($categories as $category){
-            $datas[]=[
-                "category"=>$category->category_name,
-                "uuidCategory"=>$category->uuid_category
+        //        Get Katergori from category_ingredients;
+        $categories = DB::table("category_ingredients")->select("uuid_category", "category_name")->get(true)->toArray();
+        foreach ($categories as $category) {
+            $datas[] = [
+                "category" => $category->category_name,
+                "uuidCategory" => $category->uuid_category
             ];
         }
-//        var_dump($datas);
-        return view('ingredients.create-ingredients',compact("datas"));
+        //        var_dump($datas);
+        return view('ingredients.create-ingredients', compact("datas"));
     }
 
     public function createCategory(Request $request)
@@ -52,8 +52,8 @@ class IngredientsController extends Controller
         $categoryName = $_POST['categoryName'];
         $created_by = "Admin";
         $data = [
-            "categoryName"=>$categoryName,
-            "createdBy"=>$created_by
+            "categoryName" => $categoryName,
+            "createdBy" => $created_by
         ];
         $storeCategory = new ingredientsModel();
         $result = $storeCategory->storeCategory($data);

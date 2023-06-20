@@ -227,3 +227,28 @@ function mustNumber(tag) {
         $(this).val(rs);
     });
 }
+
+function mustNumberId(tag) {
+    $(`#${tag}`).on("input", function () {
+        let rs = $(this).val();
+
+        if (isNaN(rs)) {
+            rs = rs.replace(/[^\d]/g, "");
+        }
+
+        $(this).val(rs);
+    });
+}
+
+// mereset isi modal, saat di dismiss
+function resetModal() {
+    $(".modal").on("hidden.bs.modal", function () {
+        $(this)
+            .find("input:not([type=hidden]),textarea,select")
+            .val("")
+            .end()
+            .find("input[type=checkbox], input[type=radio]")
+            .prop("checked", "")
+            .end();
+    });
+}
