@@ -14,12 +14,13 @@ class TextOnlyPrimary extends Component
     public string $onClick;
     public string $toggle;
     public string $target;
+    public string $type;
 
     /**
      * @param string $id
      * @param string $text
      */
-    public function __construct(string $id, string $class, string $text, string $onClick, string $toogle = '', string $target = '')
+    public function __construct(string $id, string $class, string $text, string $onClick, string $toogle = '', string $target = '',  string $type = 'button')
     {
         $this->id = $id;
         $this->class = $class;
@@ -27,6 +28,7 @@ class TextOnlyPrimary extends Component
         $this->onClick = $onClick;
         $this->toggle = $toogle;
         $this->target = $target;
+        $this->type = $type;
     }
 
 

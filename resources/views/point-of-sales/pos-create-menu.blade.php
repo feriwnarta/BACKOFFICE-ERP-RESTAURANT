@@ -198,8 +198,8 @@
                                             <input class="red-input checkbox" type="checkbox" />
                                         </td>
                                         <td>
-                                            <x-form.input-default id="" class="input-format-price-setting-modal" name=""
-                                                placeHolder="" label=""></x-form.input-default>
+                                            <x-form.input-default id="" class="input-format-price-setting-modal"
+                                                name="" placeHolder="" label=""></x-form.input-default>
                                         </td>
                                     </tr> --}}
                                 </tbody>

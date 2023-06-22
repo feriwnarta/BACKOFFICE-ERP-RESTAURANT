@@ -8,7 +8,6 @@ $(window).on("load", function () {
     changeImagePos();
     convertRupiahModal("input-format-price-modal");
     convertRupiahModal("input-format-price-setting-modal");
-
     resetModal();
 });
 

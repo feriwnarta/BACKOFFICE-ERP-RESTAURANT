@@ -20,95 +20,99 @@
                 <div class="subtitle-2-medium">Create Ingredients</div>
 
                 <div class="content-information">
+                    <form id="formSaveIngredient" action="">
 
-                    <div class="row align-items-start">
-                        <div class="col-sm-2">
-                            <div class="image-picker">
-                                <img id="" src="{{ asset('img/image-pos.png') }}" alt="" srcset=""
-                                    class="img-fluid">
+                        <div class="row align-items-start">
+                            <div class="col-sm-2">
+                                <div class="image-picker">
+                                    <img id="" src="{{ asset('img/image-pos.png') }}" alt="" srcset=""
+                                        class="img-fluid">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-10">
-                            <x-form.input-default id="productName" class="" name="" placeHolder="Daging ayam"
-                                label="Item Name">
-                            </x-form.input-default>
+                            <div class="col-sm-10">
+                                <x-form.input-default id="productName" optional="required" class="" name=""
+                                    placeHolder="Daging ayam" label="Item Name">
 
-                            <x-button.select-button placeHolder="" label="Category" class="">
-                                <option value="null">Select</option>
-                                @foreach($datas as $data)
-                                <option value="{{$data['uuidCategory']}}">{{$data['category']}}</option>
-                                @endforeach
-                            </x-button.select-button>
-                        </div>
-                    </div>
+                                </x-form.input-default>
 
-
-                    <div class="margin-top-32">
-                        <div class="row">
-                            <div class="col">
-                                <div class="subtitle-3-medium">Quantity</div>
-                                <div id="divider" class="margin-top-12"></div>
-                                <x-form.input-default id="idInputPriceQuantity" class="margin-top-12 input-quantity"
-                                    name="" placeHolder="10" label=""></x-form.input-default>
-                            </div>
-                            <div class="col">
-                                <div class="subtitle-3-medium">Unit</div>
-                                <div id="divider" class="margin-top-12"></div>
-                                <x-button.select-button placeHolder="" label="" class="margin-top-12">
-                                    <option value="chabihun1">Ekor</option>
-                                    <option value="chabihun2">Potong</option>
+                                <x-button.select-button placeHolder="" label="Category" class="" optional="required"
+                                    id="categorySelect">
+                                    <option value="null">Select</option>
+                                    @foreach ($datas as $data)
+                                        <option value="{{ $data['uuidCategory'] }}">{{ $data['category'] }}</option>
+                                    @endforeach
                                 </x-button.select-button>
                             </div>
                         </div>
-                    </div>
 
-                    {{-- Inventory --}}
-                    <div id="inventoryMenu" class="margin-top-32">
-                        <div class="subtitle-3-medium">Inventory</div>
-                        <div id="divider" class="margin-top-12"></div>
-
-                        <div class="inventory-list">
-
+                        <div class="margin-top-32">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="subtitle-3-medium">Quantity</div>
+                                    <div id="divider" class="margin-top-12"></div>
+                                    <x-form.input-default id="idInputPriceQuantity" class="margin-top-12 input-quantity"
+                                        name="" placeHolder="10" label="" optional="required">
+                                    </x-form.input-default>
+                                </div>
+                                <div class="col">
+                                    <div class="subtitle-3-medium">Unit</div>
+                                    <div id="divider" class="margin-top-12"></div>
+                                    <x-button.select-button placeHolder="" label="" class="margin-top-12" id="unit"
+                                        optional="required">
+                                        <option value="chabihun1">Ekor</option>
+                                        <option value="chabihun2">Potong</option>
+                                    </x-button.select-button>
+                                </div>
+                            </div>
                         </div>
 
-                        <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"
-                            onClick="" text="Setting Inventory" toogle="modal" target="#manageInventoryModal">
+                        {{-- Inventory --}}
+                        <div id="inventoryMenu" class="margin-top-32">
+                            <div class="subtitle-3-medium">Inventory</div>
+                            <div id="divider" class="margin-top-12"></div>
 
-                        </x-button.text-only-primary>
-                    </div>
+                            <div class="inventory-list">
 
-                    {{-- COGS --}}
-                    <div id="cogsMenu" class="margin-top-32">
-                        <div class="subtitle-3-medium">COGS</div>
-                        <div id="divider" class="margin-top-12"></div>
+                            </div>
 
-                        <div class="cogs-list">
+                            <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"
+                                onClick="settingInventory()" text="Setting Inventory" toogle="modal"
+                                target="#manageInventoryModal">
 
+                            </x-button.text-only-primary>
                         </div>
 
-                        <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"
-                            onClick="" text="Setting COGS" toogle="modal" target="#manageCogsModal">
+                        {{-- COGS --}}
+                        <div id="cogsMenu" class="margin-top-32">
+                            <div class="subtitle-3-medium">COGS</div>
+                            <div id="divider" class="margin-top-12"></div>
 
-                        </x-button.text-only-primary>
-                    </div>
+                            <div class="cogs-list">
 
+                            </div>
 
-                    {{-- CTA --}}
-                    <div id="ctaActionMenu" class="margin-top-32">
+                            <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"
+                                onClick="settingCogs()" text="Setting COGS" toogle="modal" target="#manageCogsModal">
 
-                        <div class="d-flex flex-row justify-content-end">
-
-                            <x-button.text-only-outlined class="" id="" text="Cancel" onClick="">
-                            </x-button.text-only-outlined>
-
-
-                            <x-button.text-only-primary class="margin-left-16" id="btnSettingInventory" onClick=""
-                                text="Save"> </x-button.text-only-primary>
-
+                            </x-button.text-only-primary>
                         </div>
-                    </div>
 
 
+                        {{-- CTA --}}
+                        <div id="ctaActionMenu" class="margin-top-32">
+
+                            <div class="d-flex flex-row justify-content-end">
+
+                                <x-button.text-only-outlined class="" id="" text="Cancel" onClick="">
+                                </x-button.text-only-outlined>
+
+
+                                <x-button.text-only-primary class="margin-left-16" id="Save" onClick=""
+                                    text="Save" type="submit"> </x-button.text-only-primary>
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -155,16 +159,7 @@
                     </tr>
                 </thead>
                 <tbody id="listVariantOnCogs">
-                    {{-- <tr>
-                        <td>BHP 01</td>
-                        <td>
-                            <input class="red-input checkbox" type="checkbox" />
-                        </td>
-                        <td>
-                            <x-form.input-default id="" class="input-format-price-setting-modal" name=""
-                                placeHolder="" label=""></x-form.input-default>
-                        </td>
-                    </tr> --}}
+                 
                 </tbody>
             </table>
 

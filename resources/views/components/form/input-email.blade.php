@@ -4,10 +4,10 @@
     @endif
 
     <input type="email" name="{{ $name }}" class="form-control input-default {{ $class }}"
-        id="{{ $id }}" placeholder="{{ $placeHolder }}" value="{{$val}}">
+        id="{{ $id }}" placeholder="{{ $placeHolder }}" value="{{$val}}" {{ $optional }}>
 
     <div id="{{ $id }}" class="{{ $class }}-error input-error">
-
+        
     </div>
 
 </div>
