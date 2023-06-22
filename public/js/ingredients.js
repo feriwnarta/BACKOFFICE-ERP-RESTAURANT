@@ -1,11 +1,6 @@
 $(window).on("load", function () {
     mustNumber("input-quantity");
     saveIngredient();
-    Toast.success(
-        $("body"),
-        "Data berhasil disimpan",
-        "Data Anda berhasil disimpan.Terima kasih!"
-    );
 });
 
 function saveIngredient() {
@@ -79,7 +74,11 @@ function saveIngredient() {
                 cogs.length > 0
             )
         ) {
-            Toast.success($("body"));
+            Toast.showError(
+                $("body"),
+                "Error",
+                "Pastikan semua field / inputan terisi"
+            );
 
             return;
         }
