@@ -1,7 +1,22 @@
 $(window).on("load", function () {
     mustNumber("input-quantity");
-    saveIngredient();
+    // saveIngredient();
 });
+
+
+// function saveMenu(){
+//     let itemName = $("#productName").val();
+//     let category = $("#categorySelect").val();
+//     let quantity = $("#idInputPriceQuantity").val();
+//     let unit = $("#unit").val();
+//     var data ={
+//         itemName:itemName,
+//         category:category,
+//         quantity:quantity,
+//         unit:unit,
+//     }
+//     console.log(data);
+// }
 
 function saveIngredient() {
     $("#formSaveIngredient").submit(function (event) {
@@ -14,6 +29,10 @@ function saveIngredient() {
         let category = $("#categorySelect").val();
         let quantity = $("#idInputPriceQuantity").val();
         let unit = $("#unit").val();
+
+
+
+
 
         /**
          * data inventory
@@ -64,36 +83,48 @@ function saveIngredient() {
                 }
             });
 
-        if (
-            !(
-                itemName !== null &&
-                category !== "null" &&
-                quantity !== null &&
-                unit !== null &&
-                inventory.length > 0 &&
-                cogs.length > 0
-            )
-        ) {
-            Toast.showError(
-                $("body"),
-                "Error",
-                "Pastikan semua field / inputan terisi"
-            );
-
-            return;
-        }
+        // if (
+        //     !(
+        //         itemName !== null &&
+        //         category !== "null" &&
+        //         quantity !== null &&
+        //         unit !== null &&
+        //         inventory.length > 0 &&
+        //         cogs.length > 0
+        //     )
+        // ) {
+        //     Toast.showError(
+        //         $("body"),
+        //         "Error",
+        //         "Pastikan semua field / inputan terisi"
+        //     );
+        //
+        //     return;
+        // }
 
         //* data yang perlu dikirim ke db
+        var token = $('meta[name="csrf-token"]').attr("content");
         let formatData = {
+            _token:token,
             itemName: itemName,
             category: category,
             quantity: quantity,
             unit: unit,
-            inventory: inventory[0],
-            cogs: cogs[0],
         };
 
-        console.log(formatData);
+        $.ajax({
+            url:"../library/store-ingredients",
+            method:"POST",
+            data:formatData,
+            success:function (response){
+                if(response == 1){
+                    alert("Add Ingredient Success!");
+                    window.location.href = "../library";
+                }
+            }
+        })
+
+        // console.log(formatData);
     });
 }
 /**
@@ -129,7 +160,7 @@ function setInventory() {
                         ? `<td class="product-name-replace text-danger">${productName}</td>`
                         : `<td class="product-name-replace">${productName}</td>`
                 }
-                    
+
                     <td>
                         <input id="trackStockReplace" class="red-input checkbox" type="checkbox" ${
                             trackStock ? "checked" : ""
@@ -179,7 +210,7 @@ function confirmCogs() {
                 <tr>
                     <th>Variant</th>
                     <th>Track COGS</th>
-                    <th>Average Cost</th> 
+                    <th>Average Cost</th>
                 </tr>
         </thead>
 
@@ -223,7 +254,7 @@ function settingInventory() {
             ? "<td class='product-name text-danger'>Masukan item name terlebih dahulu</td>"
             : `<td class="product-name">${productName}</td>`
     }
- 
+
     <td>
         <input id="trackStock" class="red-input checkbox" type="checkbox"/>
     </td>

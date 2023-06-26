@@ -5,18 +5,46 @@ namespace App\Http\Controllers;
 use App\Models\ingredientsModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 
 class IngredientsController extends Controller
 {
     public function library(Request $request)
     {
-        $data = [
-            //   'ingredients_library' => [
+        $results = DB::table('ingredient')
+            ->select('ingredient.uuid_ingredient','ingredient.name_ingredient','category_ingredients.category_name as category_ingredient','ingredient.minimum_stock','ingredient.unit')
+            ->join('category_ingredients','ingredient.category_ingredient','=','category_ingredients.uuid_category')
+            ->get()
+            ->toArray();
+        $count = DB::table('ingredient')->get()->count();
+        if ($count > 0 ){
 
-            //   ]
-        ];
-        return view('ingredients.ingredients-library', $data);
+        foreach ($results as $result){
+//            $data = [
+//                   'ingredients_library' => [
+//                        "uuid_ingredient"=>$result->uuid_ingredient,
+//                        "name_ingredient"=>$result->name_ingredient,
+//                        "category_ingredient"=>$result->category_ingredient,
+//                        "minimum_stock"=>$result->minimum_stock,
+//                        "unit_ingredient"=>$result->unit,
+//                   ]
+//            ];
+            $datas[] = [
+
+                    "uuid_ingredient"=>$result->uuid_ingredient,
+                    "name_ingredient"=>$result->name_ingredient,
+                    "category_ingredient"=>$result->category_ingredient,
+                    "minimum_stock"=>$result->minimum_stock,
+                    "unit_ingredient"=>$result->unit,
+
+            ];
+        }
+        }else{
+            $datas[] = null;
+        }
+
+        return view('ingredients.ingredients-library', compact('datas'));
     }
 
     public function category(Request $request)
@@ -33,14 +61,38 @@ class IngredientsController extends Controller
     {
         //        Get Katergori from category_ingredients;
         $categories = DB::table("category_ingredients")->select("uuid_category", "category_name")->get(true)->toArray();
+        $count = DB::table("category_ingredients")->select("uuid_category", "category_name")->get(true)->count();
+        if ($count==0){
+            $datas[]=[
+                "category" => "",
+                "uuidCategory" => ""
+            ];
+        }
         foreach ($categories as $category) {
             $datas[] = [
                 "category" => $category->category_name,
                 "uuidCategory" => $category->uuid_category
             ];
         }
-        //        var_dump($datas);
+
         return view('ingredients.create-ingredients', compact("datas"));
+    }
+
+    public function storeIngredients(Request $request){
+            $uuid = Str::uuid();
+            $itemName = $_POST['itemName'];
+            $category = $_POST['category'];
+            $qty = $_POST['quantity'];
+            $unit = $_POST['unit'];
+            $result = DB::table('ingredient')->insert([
+                "uuid_ingredient"=>$uuid,
+                "category_ingredient"=>$category,
+                "name_ingredient"=>$itemName,
+                "minimum_stock"=>$qty,
+                "unit"=>$unit,
+            ]);
+
+            echo $result;
     }
 
     public function createCategory(Request $request)

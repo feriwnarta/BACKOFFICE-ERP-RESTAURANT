@@ -46,7 +46,6 @@
                                 <td scope="row" onclick="getUuid(this)" data-uuid="{{$dataSupplier['uuid']}}">{{ $dataSupplier['address'] }}</td>
                                 <td scope="row" onclick="getUuid(this)" data-uuid="{{$dataSupplier['uuid']}}">{{ $dataSupplier['phone'] }}</td>
                                 <td scope="row" onclick="getUuid(this)" data-uuid="{{$dataSupplier['uuid']}}">{{ $dataSupplier['email'] }}</td>
-
                             </tr>
                         @endforeach
                     </tbody>
