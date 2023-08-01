@@ -10,6 +10,38 @@ use Illuminate\Support\Str;
 
 class IngredientsController extends Controller
 {
+
+    public function getAllIngredients(){
+        $results = DB::table('ingredient')->get();
+        foreach ($results as $result){
+            $datas[]=[
+                "uuidIngredient"=>$result->uuid_ingredient,
+                "name_ingredient"=>$result->name_ingredient,
+                "category_ingredient"=>$result->category_ingredient,
+                "minimum_stock"=>$result->minimum_stock,
+                "unit"=>$result->name_ingredient,
+            ];
+            return $datas;
+        }
+    }
+
+    public function getIngredient(){
+        $idIngredient =$_POST['idIngredient'];
+        $results = DB::table('ingredient')
+            ->where('uuid_ingredient','=',$idIngredient)
+            ->get()
+            ->toArray();
+        foreach ($results as $result){
+            $data = [
+                "idIngredient"=>$result->uuid_ingredient,
+                "nameIngredient"=>$result->name_ingredient,
+                "unitIngredient"=>$result->unit,
+            ];
+        }
+
+        return $data;
+
+    }
     public function library(Request $request)
     {
         $results = DB::table('ingredient')

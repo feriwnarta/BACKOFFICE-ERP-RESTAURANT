@@ -18,7 +18,6 @@ function changeInputDatePlaceHolder() {
 function addItems() {
     // bersihkan item po yang sudah diceklis, dan ambil ceklis terbaru
     itemPo = [];
-
     if (!nextAdd) {
         $(".list-of-ingredients-modal")
             .find(".items-ingredients")
@@ -26,21 +25,20 @@ function addItems() {
                 let checked =
                     $(this).find('input[type="checkbox"]').is(":checked") ==
                     true;
-
                 if (checked) {
                     let idItem = $(this)
                         .find('input[type="checkbox"]')
                         .attr("id");
                     itemPo.push(idItem);
+
                 }
             });
-
         if (itemPo !== undefined && itemPo !== null && itemPo.length > 0) {
-            insertOrder(itemPo);
+           insertOrder(itemPo) ;
         }
+
     } else {
         let inputIngredients = [];
-
         let isEmpty = false;
 
         $(".list-of-ingredients-modal .input-ingredient-detail").each(
@@ -121,11 +119,14 @@ function addItems() {
             $("#manageRecipePoModal").modal("hide");
         }
     }
+
+
+
 }
 
 function makeListPo(dataIngredientsPo) {
-    let html = "";
 
+    let html = "";
     dataIngredientsPo.forEach((itemPo) => {
         html += `
         <div class="input-ingredient-detail margin-top-32" id="${itemPo.id}">
@@ -179,6 +180,7 @@ function makeListPo(dataIngredientsPo) {
 }
 
 function insertOrder(itemPo) {
+
     $(".list-of-ingredients-modal").html('<div class="spinner"></div>');
 
     $(".spinner").addClass(
@@ -190,6 +192,12 @@ function insertOrder(itemPo) {
     let dataDetailItems = requestDetailsIngredient({
         itemPo: itemPo,
     });
+
+    console.log(dataDetailItems);
+
+
+
+
 
     // contoh data balikan item po
     // [
@@ -272,11 +280,10 @@ function insertOrder(itemPo) {
     }
 }
 
-function requestAllIngredients() {
-    // ajax request
-}
+
 
 function getAllIngredients() {
+
     $(".list-of-ingredients-modal").html('<div class="spinner"></div>');
 
     $(".spinner").addClass(
@@ -284,48 +291,39 @@ function getAllIngredients() {
     );
 
     // request ajax untuk dapatkan item ingredients
-    // requestAllIngredients();
-    // dummy data
-    let result = [
-        {
-            id: "1",
-            item_name: "ayam",
-            item_image: "/img/chicken.png",
-            in_stock: "10",
-        },
-        {
-            id: "2",
-            item_name: "ayam 2",
-            item_image: "/img/chicken.png",
-            in_stock: "20",
-        },
-    ];
+    $.ajax({
+        url:"../../ingredients/ingredients",
+        method : "get",
+        success:function (response){
 
-    // save data result all ingredients dari databse ke array dataIngredientsPo
-    dataIngredientsPo = result;
+            $(response).each(function (index,element){
+                let result = [
+                    {
+                        id: element.uuidIngredient,
+                        item_name: element.name_ingredient,
+                        item_image: "/img/chicken.png",
+                        in_stock: "10",
+                    },
+                ];
+            dataIngredientsPo = result;
+                setTimeout(function () {
+                    // hapus efek loading jika sudah selesai
+                    $(".spinner").removeClass(
+                        "spinner-border color-spinner-primary margin-top-24"
+                    );
 
-    setTimeout(function () {
-        // hapus efek loading jika sudah selesai
-        $(".spinner").removeClass(
-            "spinner-border color-spinner-primary margin-top-24"
-        );
+                    let itemsHtml = ``;
 
-        let itemsHtml = ``;
-
-        result.forEach((item) => {
-            itemsHtml += `
+                    result.forEach((item) => {
+                        itemsHtml += `
 
         <div class="items-ingredients">
             <div class="row d-flex align-items-center">
                     <div class="col-sm-11">
                         <div class="item-ingredients d-flex flex-row align-items-center">
-
                         <div>
                             <img class="items-ingredient-img" src="${item.item_image}" alt="">
                         </div>
-
-
-
                         <div class="body-text-regular name-item-ingredient">${item.item_name}
 
                         </div>
@@ -340,10 +338,15 @@ function getAllIngredients() {
             <div id="divider" class="margin-top-20"></div>
         </div>
         `;
-        });
+                    });
+                    $(".list-of-ingredients-modal").html(itemsHtml);
+                }, 1500);
+            });
+        }
+    })
+    // save data result all ingredients dari databse ke array dataIngredientsPo
 
-        $(".list-of-ingredients-modal").html(itemsHtml);
-    }, 1500);
+
 }
 
 // fungsi untuk request dapatkan semua ingredients dari databse
@@ -381,7 +384,8 @@ function requestDataJson(url, method, data) {
     });
 }
 
-function requestDetailsIngredient({ itemPo }) {
+function
+requestDetailsIngredient({ itemPo }) {
     // dummy data isi dari listIdIngredients
 
     // id dari checkbox item yang di check
@@ -394,21 +398,32 @@ function requestDetailsIngredient({ itemPo }) {
 
     // let json = requestDataJson({url: url, method: 'GET', data : itemPo});
 
+
     // dummy data balikan dari requestDataJson
-    return [
-        {
-            id_item: "1",
-            item_name: "ayam jantan",
-            unit: "Ekor",
-            in_stock: "15",
-        },
-        {
-            id_item: "2",
-            item_name: "ayam broiler",
-            unit: "Ekor",
-            in_stock: "30",
-        },
-    ];
+
+    let data=[];
+    let token = $('meta[name="csrf-token"]').attr("content");
+    $(itemPo).each(function (index,element){
+        var dataApi = {
+            _token : token,
+            idIngredient : element
+        };
+        $.ajax({
+            url:"../../ingredients/ingredient",
+            method:"POST",
+            data : dataApi,
+            success:function (response){
+               var result ={
+                           id_item: response.idIngredient,
+                           item_name: response.nameIngredient,
+                           unit: response.unitIngredient,
+                           in_stock: "15",
+               };
+               data.push(result);
+            },
+        })
+    });
+    return data;
 }
 
 function countTotalItemIngredients() {
@@ -522,42 +537,35 @@ function countTotalItemIngredients() {
                         }
                         return item;
                     });
-
                     dataInputIngredients = data;
-
                     grandTotal(dataInputIngredients);
                 }
             });
     });
-
     nextAdd = !nextAdd;
     btnManageRecipeClicked();
 }
 
 function grandTotal(dataInputIngredients) {
     let grandTotal = 0;
-
     dataInputIngredients.map((item) => {
         let order = item.order;
         let price = parseFloat(item.price.replace(/\./g, "").replace(",", "."));
         let total = order * price;
-
         grandTotal += total;
     });
-
     $(".total-price").html(grandTotal);
 }
 
 function btnManageRecipeClicked() {
     $("#btnManageRecipe").click(function () {
         getAllIngredients();
-
         $("#btnAddIngredients").click(function () {
             addItems();
+            // console.log("testing");
         });
     });
 }
-
 function createPo() {
     let tanggal = $("#dateInput").val();
     let outlet = $("#outlet").val();
@@ -588,14 +596,14 @@ function createPo() {
             "X-CSRF-TOKEN: $('meta[name='csrf-token']').attr('content')",
         data:data,
         success:function (response){
-            console.log(response);
-            // if (response == true){
-            //     alert("Add Purchase Order is Successful!");
-            //     window.location.href="../purchase-order";
-            // }else{
-            //     alert("Add Purchase Order is Failed!");
-            //     window.location.href="../purchase-order";
-            // }
+            // console.log(response);
+            if (response == true){
+                alert("Add Purchase Order is Successful!");
+                window.location.href="../purchase-order";
+            }else{
+                alert("Add Purchase Order is Failed!");
+                window.location.href="../purchase-order";
+            }
         }
     });
 

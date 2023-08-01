@@ -104,7 +104,6 @@
         </div>
 
 
-
         <x-slot:footer>
             <x-button.text-only-outlined class="" id="btnCancelIngredients" text="Cancel" onClick=""
                 dismiss="modal">

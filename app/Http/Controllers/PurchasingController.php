@@ -10,7 +10,6 @@ use Illuminate\Support\Str;
 use PHPUnit\Exception;
 use function Sodium\randombytes_uniform;
 
-
 class PurchasingController extends Controller
 {
     public function supplier(Request $request, purchasingModel $purchasingModel)
@@ -33,7 +32,6 @@ class PurchasingController extends Controller
         }
         return view('purchasing.purchasing-supplier', compact('data'));
     }
-
     public function purchaseOrder(Request $request)
     {
         $purchaseOrders = purchaseOrder::orderBy("created_at", "DESC")->select("uuid_po", "uuid_supplier", "uuid_outlet", "order_number", "created_by", "created_date", "total", "notes")->get();
@@ -52,7 +50,7 @@ class PurchasingController extends Controller
                     "status" => "Created"
                 ];
         }
-        return view('purchasing.purchasing-purchase-order', []);
+        return view('purchasing.purchasing-purchase-order', compact('datas'));
     }
 
     public function createPo(Request $request)
@@ -124,7 +122,6 @@ class PurchasingController extends Controller
     public function detailPurchaseOrder(Request $request, string $id)
     {
         // panggil service yang mengambil detail data po berdasarkan id
-
         // dummy data
         $data = [
             'supplier_data' => [
@@ -162,7 +159,6 @@ class PurchasingController extends Controller
                 // ...
             ]
         ];
-
         return view('purchasing.purchasing-details-po', $data);
     }
 

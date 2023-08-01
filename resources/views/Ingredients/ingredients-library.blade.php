@@ -38,15 +38,12 @@
                             <td>{{$data['minimum_stock']}}</td>
                             <td>{{$data['unit_ingredient']}}</td>
                         </tr>
-
                     @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-
     @else
-
         <img src="{{ asset('img/no-data.png') }}" alt="no-data" width="200px" class="no-data">
     @endif
 @endsection

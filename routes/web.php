@@ -32,6 +32,8 @@ Route::controller(\App\Http\Controllers\PosController::class)->group(function ()
 // Routes Untuk Menu Ingredients
 Route::controller(\App\Http\Controllers\IngredientsController::class)->group(function () {
     Route::get('ingredients/library', 'library');
+    Route::get('ingredients/ingredients', 'getAllIngredients');
+    Route::post('ingredients/ingredient', 'getIngredient');
     Route::get('ingredients/category', 'category');
     Route::get('ingredients/recipes', 'recipes');
     Route::get('ingredients/library/create-ingredients', 'createIngredients');
