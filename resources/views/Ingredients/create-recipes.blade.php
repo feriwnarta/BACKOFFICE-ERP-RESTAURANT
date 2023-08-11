@@ -44,45 +44,6 @@
                             </x-button.select-button>
                         </div>
                     </div>
-                    <div class="row ">
-                        <div class="col-lg-12">
-                            <p class="mt-lg-5">Recipe</p>
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Ingredients</th>
-                                    <th scope="col">Usage</th>
-                                    <th scope="col">Cooking Type</th>
-                                    <th scope="col">Avg Cost</th>
-                                    <th scope="col">Lastbuy Cost</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td><select>
-                                            <option value="testing"></option>
-                                        </select></td>
-                                    <td>@mdo</td>
-                                    <td>Action</td>
-                                </tr>
-                                <tr>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>Action</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>Action</td>
-                                </tr>
-                                </tbody>
-
-                            </table>
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
         </div>
