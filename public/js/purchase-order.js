@@ -588,7 +588,6 @@ function createPo() {
             item_po: dataInputIngredients,
             total : total_price
         };
-
     $.ajax({
         url:"../../purchasing/purchase-order/store-po",
         method: "POST",
@@ -606,6 +605,5 @@ function createPo() {
             }
         }
     });
-
     // send json to api
 }

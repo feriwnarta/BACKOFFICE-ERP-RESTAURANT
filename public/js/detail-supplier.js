@@ -3,7 +3,6 @@ $(document).ready(function () {
     var url = document.URL;
     url = url.split("/")
     var uuid = url[6];
-
     // Send Data to Create Supplier
     btnSave.addEventListener("click", function () {
         var supplierName = document.getElementById("supplierName").value;
@@ -42,5 +41,4 @@ $(document).ready(function () {
             },
         });
     });
-
 });
