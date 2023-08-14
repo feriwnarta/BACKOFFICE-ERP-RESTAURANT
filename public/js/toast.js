@@ -27,9 +27,6 @@
  * 
  */
 
-
-
-
 class Toast {
     static showSuccess(element, title, message) {
         let styleHeader = `
