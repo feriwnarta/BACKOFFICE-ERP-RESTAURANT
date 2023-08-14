@@ -370,17 +370,17 @@ input[type="number"]:not([step="any"])::-webkit-outer-spin-button {
     font-weight: 400;
     line-height: 20px;
     /* 142.857% */
+
+    text-overflow: ellipsis;
+    padding-right: 30px;
 }
 
 .create-recipes-select:focus {
     outline: 3px solid white;
-    border: none !important;
+    border: 1px solid white !important;
+    box-shadow: none;
 }
 
-.create-recipes-select:active {
-    outline: 3px solid white;
-    border: none !important;
-}
 
 
 /* ---------------------------------------------------
