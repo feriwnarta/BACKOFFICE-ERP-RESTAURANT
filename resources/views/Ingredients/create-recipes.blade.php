@@ -75,7 +75,7 @@
                                     </td>
                                 </tr>
 
-                                <tr>
+                                {{-- <tr id="totalAvgAndLastCost">
                                     <td colspan="4" class="span-all-columns"
                                         style="padding-bottom: 10px; border-right: none;">
                                         <div>Total Average & Last Cost</div>
@@ -87,7 +87,7 @@
                                         <p class="body-text-bold" id="totalLastCost">Rp.</p>
                                     </td>
                                     <td></td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                         </table>
                     </div>

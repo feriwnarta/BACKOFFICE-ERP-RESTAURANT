@@ -4,6 +4,22 @@ $(function () {
     addItemEquipmentServSuppliesOnClick();
 });
 
+let totalAvgAndLastCost = `
+<tr id="totalAvgAndLastCost">
+                                    <td colspan="4" class="span-all-columns"
+                                        style="padding-bottom: 10px; border-right: none;">
+                                        <div>Total Average & Last Cost</div>
+                                    </td>
+                                    <td colspan="1" style="border-right: none;">
+                                        <p class="body-text-bold" id="totalAvgCost">Rp.</p>
+                                    </td>
+                                    <td colspan="1" style="border-right: none;">
+                                        <p class="body-text-bold" id="totalLastCost">Rp.</p>
+                                    </td>
+                                    <td></td>
+                                </tr>
+`;
+
 let item = `
 <tr class="row-item">
                                                     <td>
@@ -222,7 +238,14 @@ function deleteRow(element) {
 function addIngredientsOnClick() {
     $("#addIngredients").on("click", function () {
         $(repcipe).insertBefore("#divideContent");
+        showTotalAvgAndLastCost();
         sumAvgCost();
         sumLastCost();
     });
+}
+
+function showTotalAvgAndLastCost() {
+    if (totalAvg == 0 && totalLastCost == 0) {
+        $(totalAvgAndLastCost).insertAfter("#divideContent");
+    }
 }
