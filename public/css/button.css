@@ -201,6 +201,21 @@
 
 
 /* ---------------------------------------------------
+    Button icon text
+    Variant = text
+----------------------------------------------------- */
+.icon-text {
+    color: var(--primary-main, #F16622);
+    font-family: 'Poppins Regular';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+
+/* ---------------------------------------------------
     Button Only text
     Variant = Outlined
 ----------------------------------------------------- */

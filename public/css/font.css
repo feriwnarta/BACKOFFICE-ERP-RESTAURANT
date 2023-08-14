@@ -52,6 +52,13 @@
     color: #404040;
 }
 
+.body-text-bold {
+    font-family: 'Poppins Medium';
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #404040;
+}
+
 .caption-medium {
     font-family: 'Poppins Medium';
     font-size: .75rem;
