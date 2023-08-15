@@ -20,8 +20,8 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
         </x-button.dropdown-no-icon>
 
-        <x-button.text-only-secondary id=export-btn class="btn-nav" text="Export" onClick="">
-        </x-button.text-only-secondary>
+        <x-button.text-only-secon dary id=export-btn class="btn-nav" text="Export" onClick="">
+        </x-button.text-only-secon>
         <x-button.text-only-primary id="create-po-btn" class="btn-nav" text="Create PO"
             onClick="changeContent('purchasing/purchase-order/create-po')"></x-button.text-only-primary>
 
@@ -29,7 +29,6 @@
 @endsection
 
 @section('page')
-
     @if (!isset($datas))
         {{-- no data display --}}
         <img src="{{ asset('img/no-data.png') }}" alt="no-data" width="200px" class="no-data">

@@ -41,7 +41,7 @@
 
 
                         {{-- Pricing --}}
-                        <div id="pricingMenu">
+                         <div id="pricingMenu">
                             <div class="subtitle-3-medium">Pricing</div>
                             <div id="divider" class="margin-top-12"></div>
                             <div class="row">
