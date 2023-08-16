@@ -234,18 +234,13 @@ function deleteRow(element) {
     let parent = $(element).closest(".row-recipe");
     parent.remove();
 
-    
-
     deleteTotalAvgAndLastCost();
 }
 
 function deleteTotalAvgAndLastCost() {
-
-
-    if(totalAvg == 0 && totalLastCost == 0) {
-        $('#totalAvgAndLastCost').remove();
+    if (totalAvg == 0 && totalLastCost == 0) {
+        $("#totalAvgAndLastCost").remove();
     }
-
 }
 
 function addIngredientsOnClick() {

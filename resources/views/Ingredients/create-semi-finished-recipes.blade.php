@@ -51,42 +51,7 @@
                             <div id="divider" class="margin-top-12"></div>
 
                             <div class="recipe-table">
-                                <table class="table table-bordered only-underline table-create-recipes body-text-regular">
-                                    <thead>
-                                        <tr class="no-border-side">
-                                            <th scope="col">Ingredients</th>
-                                            <th scope="col">Usage</th>
-                                            <th scope="col">Unit</th>
-                                            <th scope="col">Avg Cost</th>
-                                            <th scope="col">Last Cost</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="table-group-divider">
-
-                                        <tr id="divideContent">
-                                            <td colspan="6" class="span-all-columns"
-                                                style="padding-bottom: 5px; padding-top: 5px;">
-                                                <button class="btn icon-text" type="button" id="addIngredients">
-                                                    + Add ingredients
-                                                </button>
-                                            </td>
-                                        </tr>
-
-                                        <tr id="totalAvgAndLastCost">
-                                            <td colspan="3" class="span-all-columns"
-                                                style="padding-bottom: 10px; border-right: none;">
-                                                <div>Total Average & Last Cost</div>
-                                            </td>
-                                            <td colspan="1" style="border-right: none;">
-                                                <p class="body-text-bold" id="totalAvgCost">Rp.</p>
-                                            </td>
-                                            <td colspan="1" style="border-right: none;">
-                                                <p class="body-text-bold" id="totalLastCost">Rp.</p>
-                                            </td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                               
                             </div>
 
                             <x-button.text-only-primary class="container-fluid margin-top-8" id="btnManageRecipe"
@@ -146,4 +111,9 @@
             </div>
         </div>
     </div>
+@endsection
+
+
+@section('footer-script')
+    <script src="{{ asset('js/create-semi-recipes.js') }}"></script>
 @endsection
