@@ -37,7 +37,7 @@ class PurchasingController extends Controller
         $purchaseOrders = purchaseOrder::orderBy("created_at", "DESC")->select("uuid_po", "uuid_supplier", "uuid_outlet", "order_number", "created_by", "created_date", "total", "notes")->get();
         $countPurchaseOrder = $purchaseOrders->count();
         if ($countPurchaseOrder == 0) {
-            $data = null;
+            $datas = null;
         }
         foreach ($purchaseOrders as $purchaseOrder) {
             $datas[] =

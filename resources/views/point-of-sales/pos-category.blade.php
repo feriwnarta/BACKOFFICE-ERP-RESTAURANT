@@ -19,7 +19,7 @@
 @endsection
 
 @section('page')
-    @if (!isset($categories))
+    @if (empty($datas))
         {{-- no data display --}}
         <img src="{{ asset('img/no-data.png') }}" alt="no-data" width="200px" class="no-data">
     @else
@@ -35,11 +35,11 @@
                     </thead>
                     <tbody id="listCategory">
 
-                        @foreach ($categories as $dataCategory)
+                        @foreach ($datas as $dataCategory)
                             {{-- id nanti diisi dengan id po dari databse --}}
                             <tr class="items-table-head-color" id="{{ $dataCategory['id_category'] }}">
                                 <td>{{ $dataCategory['category_name'] }}</td>
-                                <td>{{ $dataCategory['item_stock'] }}</td>
+                                <td class="">{{ $dataCategory['item_stocks'] }}</td>
                                 <td class="d-flex flex-row justify-content-end">
 
                                     <x-button.text-only-outlined text="Assign to Menu" id=""

@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //for structure DB
-        Schema::create("category_ingredients", function (Blueprint $table) {
-            $table->string("uuid_category")->primary();
-            $table->string("category_name");
-            $table->string("created_by");
+        Schema::create('category_pos', function (Blueprint $table) {
+            $table->string('uuid_category_pos')->primary();
+            $table->string('category_name')->unique();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -25,7 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //for rollback
-        Schema::dropIfExists("category_ingredients");
+        Schema::dropIfExists('category_pos');
     }
 };

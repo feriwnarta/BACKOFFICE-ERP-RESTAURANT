@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ingredient', function (Blueprint $table) {
-            $table->string('uuid_ingredient')->primary();
-            $table->string('name_ingredient');
-            $table->string('category_ingredient');
-            $table->integer('minimum_stock');
-            $table->integer('cost_unit')->nullable();
+        //
+        Schema::create('units', function (Blueprint $table) {
+            $table->string('uuid_unit')->primary();
             $table->string('unit');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -27,6 +25,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ingredient');
+        //
+        Schema::dropIfExists("units");
     }
 };

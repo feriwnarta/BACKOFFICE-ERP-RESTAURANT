@@ -3,7 +3,6 @@ $(window).on("load", function () {
     // saveIngredient();
 });
 
-
 // function saveMenu(){
 //     let itemName = $("#productName").val();
 //     let category = $("#categorySelect").val();
@@ -29,10 +28,6 @@ function saveIngredient() {
         let category = $("#categorySelect").val();
         let quantity = $("#idInputPriceQuantity").val();
         let unit = $("#unit").val();
-
-
-
-
 
         /**
          * data inventory
@@ -105,7 +100,7 @@ function saveIngredient() {
         //* data yang perlu dikirim ke db
         var token = $('meta[name="csrf-token"]').attr("content");
         let formatData = {
-            _token:token,
+            _token: token,
             itemName: itemName,
             category: category,
             quantity: quantity,
@@ -113,16 +108,17 @@ function saveIngredient() {
         };
 
         $.ajax({
-            url:"../library/store-ingredients",
-            method:"POST",
-            data:formatData,
-            success:function (response){
-                if(response == 1){
+            url: "../library/store-ingredients",
+            method: "POST",
+            data: formatData,
+            success: function (response) {
+                // console.log(response);
+                if (response == 1) {
                     alert("Add Ingredient Success!");
                     window.location.href = "../library";
                 }
-            }
-        })
+            },
+        });
 
         // console.log(formatData);
     });

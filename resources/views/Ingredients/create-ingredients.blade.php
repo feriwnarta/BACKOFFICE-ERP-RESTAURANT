@@ -38,7 +38,8 @@
                                 <x-button.select-button placeHolder="" label="Category" class="" optional="required"
                                     id="categorySelect">
                                     <option value="null">Select</option>
-                                    @if($datas !=null) @endif
+                                    @if ($datas != null)
+                                    @endif
                                     @foreach ($datas as $data)
                                         <option value="{{ $data['uuidCategory'] }}">{{ $data['category'] }}</option>
                                     @endforeach
@@ -58,8 +59,8 @@
                                 <div class="col">
                                     <div class="subtitle-3-medium">Unit</div>
                                     <div id="divider" class="margin-top-12"></div>
-                                    <x-button.select-button placeHolder="" label="" class="margin-top-12" id="unit"
-                                        optional="required">
+                                    <x-button.select-button placeHolder="" label="" class="margin-top-12"
+                                        id="unit" optional="required">
                                         <option value="ekor">Ekor</option>
                                         <option value="potong">Potong</option>
                                     </x-button.select-button>
@@ -68,35 +69,35 @@
                         </div>
 
                         {{-- Inventory --}}
-{{--                        <div id="inventoryMenu" class="margin-top-32">--}}
-{{--                            <div class="subtitle-3-medium">Inventory</div>--}}
-{{--                            <div id="divider" class="margin-top-12"></div>--}}
+                        {{--                        <div id="inventoryMenu" class="margin-top-32"> --}}
+                        {{--                            <div class="subtitle-3-medium">Inventory</div> --}}
+                        {{--                            <div id="divider" class="margin-top-12"></div> --}}
 
-{{--                            <div class="inventory-list">--}}
+                        {{--                            <div class="inventory-list"> --}}
 
-{{--                            </div>--}}
+                        {{--                            </div> --}}
 
-{{--                            <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"--}}
-{{--                                onClick="settingInventory()" text="Setting Inventory" toogle="modal"--}}
-{{--                                target="#manageInventoryModal">--}}
+                        {{--                            <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory" --}}
+                        {{--                                onClick="settingInventory()" text="Setting Inventory" toogle="modal" --}}
+                        {{--                                target="#manageInventoryModal"> --}}
 
-{{--                            </x-button.text-only-primary>--}}
-{{--                        </div>--}}
+                        {{--                            </x-button.text-only-primary> --}}
+                        {{--                        </div> --}}
 
                         {{-- COGS --}}
-{{--                        <div id="cogsMenu" class="margin-top-32">--}}
-{{--                            <div class="subtitle-3-medium">COGS</div>--}}
-{{--                            <div id="divider" class="margin-top-12"></div>--}}
+                        {{--                        <div id="cogsMenu" class="margin-top-32"> --}}
+                        {{--                            <div class="subtitle-3-medium">COGS</div> --}}
+                        {{--                            <div id="divider" class="margin-top-12"></div> --}}
 
-{{--                            <div class="cogs-list">--}}
+                        {{--                            <div class="cogs-list"> --}}
 
-{{--                            </div>--}}
+                        {{--                            </div> --}}
 
-{{--                            <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory"--}}
-{{--                                onClick="settingCogs()" text="Setting COGS" toogle="modal" target="#manageCogsModal">--}}
+                        {{--                            <x-button.text-only-primary class="container-fluid margin-top-8" id="btnSettingInventory" --}}
+                        {{--                                onClick="settingCogs()" text="Setting COGS" toogle="modal" target="#manageCogsModal"> --}}
 
-{{--                            </x-button.text-only-primary>--}}
-{{--                        </div>--}}
+                        {{--                            </x-button.text-only-primary> --}}
+                        {{--                        </div> --}}
 
 
                         {{-- CTA --}}

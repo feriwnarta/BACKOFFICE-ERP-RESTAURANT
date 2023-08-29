@@ -20,15 +20,18 @@
                 {{-- Title --}}
                 <div class="subtitle-2-medium">General Information</div>
 
+
                 <div class="content-information">
                     <x-form.input-default id="productName" class="" name="" placeHolder="" label="Product Name">
                     </x-form.input-default>
 
 
                     <x-button.select-button placeHolder="" label="Category" class="">
-                        <option value="chabihun1">Chabihun 1</option>
-                        <option value="chabihun2">Chabihun 2</option>
-                        <option value="chabihun3">Chabihun 3</option>
+                        <option value="null">Select</option>
+                        @foreach ($categories as $data)
+                            <option value="{{ $data['idCategory'] }}">{{ $data['categoryName'] }}</option>
+                        @endforeach
+
                     </x-button.select-button>
 
                     <x-form.text-area id="description" class="margin-top-16" label="Description" placeHolder="">
@@ -227,6 +230,8 @@
                     <div class="image-picker">
                         <img id="imagePos" src="{{ asset('img/image-pos.png') }}" alt="" srcset=""
                             class="img-fluid">
+
+                        {{-- <input type="file" name="" id="imageInput"> --}}
                     </div>
                 </div>
             </div>

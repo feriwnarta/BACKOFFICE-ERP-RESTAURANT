@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('main');
 });
@@ -26,9 +25,10 @@ Route::controller(\App\Http\Controllers\PosController::class)->group(function ()
     Route::get('pos/menu', 'menu');
     Route::get('pos/category', 'category');
     Route::get('pos/menu/create-menu', 'createMenu');
+    Route::post('pos/menu/submit-menu', 'submitMenu');
     Route::get('pos/category/create-category', 'createCategory');
+    Route::post('pos/category/submit-category', 'submitCategory');
 });
-
 // Routes Untuk Menu Ingredients
 Route::controller(\App\Http\Controllers\IngredientsController::class)->group(function () {
     Route::get('ingredients/library', 'library');

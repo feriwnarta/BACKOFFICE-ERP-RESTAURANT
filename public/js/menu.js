@@ -30,7 +30,7 @@ $(window).on("load", function () {
 function changeImagePos() {
     $(".image-picker").click(function () {
         $(
-            "<input type='file' accept='image/jpg, image/png, image/jpeg' style='display:none;'>"
+            "<input type='file' accept='image/jpg, image/png, image/jpeg' style='display:none;' id='imageInput'>"
         )
             .change(function () {
                 let file = this.files[0];
@@ -368,11 +368,9 @@ function confirmCogs() {
         resetModal();
     }
 }
-
 function moveSelectedItems() {
     console.log("click");
 }
-
 // mereset isi modal, saat di dismiss
 function resetModal() {
     $(".modal").on("hidden.bs.modal", function () {
@@ -385,7 +383,6 @@ function resetModal() {
             .end();
     });
 }
-
 // id product name
 // id category
 // description
@@ -401,4 +398,34 @@ function saveMenu() {
     let variantNameModal = $("#inputVariantNameModal").val();
     let priceVariantModal = $("#inputPriceVariantModal").val();
     let skuVariantModal = $("#inputSkuVariantModal").val();
+    let imageInput = document.getElementById("imagePos");
+    let imageSrc = imageInput.getAttribute("src");
+    let data = {
+        productName: productName,
+        productName: productName,
+        productName: productName,
+        productName: productName,
+        productName: productName,
+        productName: productName,
+        productName: productName,
+    };
+    if (validateImage(imageSrc) == 0) {
+        alert("Maximum Image Size is 2 Mb!");
+    } else {
+        // Submit Form Into Laravel!
+    }
+}
+
+function validateImage(imageSrc) {
+    const base64Data = imageSrc.split(",")[1];
+    const decodedData = atob(base64Data);
+    const imageSizeInBytes = decodedData.length;
+    const maxSizeImage = 2 * 1024 * 1024;
+    var result;
+    if (imageSizeInBytes <= maxSizeImage) {
+        result = 1; // 1 for true
+    } else {
+        result = 0; // 0 for false
+    }
+    return result;
 }
