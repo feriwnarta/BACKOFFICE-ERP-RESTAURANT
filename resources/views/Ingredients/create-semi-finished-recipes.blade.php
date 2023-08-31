@@ -28,7 +28,7 @@
                     <div class="row align-items-start">
                         <div class="col-sm-2">
                             <div class="image-picker">
-                                <img id="" src="{{ asset('img/image-pos.png') }}" alt="" srcset=""
+                                <img id="imageSemiRecipe" src="{{ asset('img/image-pos.png') }}" alt="" srcset=""
                                     class="img-fluid">
                             </div>
                         </div>

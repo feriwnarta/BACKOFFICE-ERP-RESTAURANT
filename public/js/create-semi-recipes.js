@@ -1,7 +1,3 @@
-$(function () {
-    btnManageRecipeOnClick();
-});
-
 const semiFinishedRowData = `
 <tr class="row-semi-recipe">
 <td>
@@ -94,6 +90,30 @@ let totalAvgAndLastCost = `
 </tr>
 `;
 
+$(function () {
+    btnManageRecipeOnClick();
+    changeImagePos();
+});
+
+function changeImagePos() {
+    $(".image-picker").click(function () {
+        $(
+            "<input type='file' accept='image/jpg, image/png, image/jpeg' style='display:none;'>"
+        )
+            .change(function () {
+                let file = this.files[0];
+
+                let reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function () {
+                    var imageDataUrl = reader.result;
+                    $("#imageSemiRecipe").attr("src", imageDataUrl);
+                };
+            })
+            .click();
+    });
+}
+
 function btnAddIngredientsOnClick() {
     $("#addIngredients").click(function () {
         $(semiFinishedRowData).insertBefore("#divideContent");
@@ -116,8 +136,13 @@ function btnManageRecipeOnClick() {
         if (isTtableShow) {
             $(".recipe-table").append(semiFinishedRecipeTable);
             btnAddIngredientsOnClick();
+            hideButtonManageRecipe();
         }
     });
+}
+
+function hideButtonManageRecipe() {
+    $("#btnManageRecipe").remove();
 }
 
 function deleteRow(element) {
