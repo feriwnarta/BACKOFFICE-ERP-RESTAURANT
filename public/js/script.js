@@ -216,6 +216,7 @@ function convertInputToRupiah(tag) {
     });
 }
 
+
 function mustNumber(tag) {
     $(`.${tag}`).on("input", function () {
         let rs = $(this).val();

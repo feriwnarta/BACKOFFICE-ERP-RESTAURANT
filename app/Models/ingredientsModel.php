@@ -12,19 +12,20 @@ class ingredientsModel extends Model
 {
     use HasFactory;
 
-    public function storeCategory($data){
-        $this->fillable=['uuid_category','category_name','created_by'];
-        $this->table="category_ingredients";
+    public function storeCategory($data)
+    {
+        $this->fillable = ['uuid_category', 'category_name', 'created_by'];
+        $this->table = "category_ingredients";
         $this->uuid_category = Str::uuid();
         $this->category_name = $data['categoryName'];
         $this->created_by = $data['createdBy'];
-        $result = ($this->save()==true)?true:false;
+        $result = ($this->save() == true) ? true : false;
         return $result;
-//        try {
-//            $this->save();
-//        }catch (QueryException $exception){
-//            return $exception->getMessage();
-//        }
+        //        try {
+        //            $this->save();
+        //        }catch (QueryException $exception){
+        //            return $exception->getMessage();
+        //        }
 
 
 

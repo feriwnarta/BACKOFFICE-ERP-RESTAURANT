@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'v10.0.4',
-        'version' => '10.0.4.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'bbba8f3978fab38bbc52862154d8ad9f2429f2c2',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -371,9 +371,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'v10.0.4',
-            'version' => '10.0.4.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'bbba8f3978fab38bbc52862154d8ad9f2429f2c2',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -457,6 +457,15 @@
             'reference' => 'ff6248ea87a9f116e78edd6002e39e5128a0d4dd',
             'type' => 'library',
             'install_path' => __DIR__ . '/../league/mime-type-detection',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'livewire/livewire' => array(
+            'pretty_version' => 'v3.0.7',
+            'version' => '3.0.7.0',
+            'reference' => 'a2fc40f6121362581e72d5da5d820a6af00f62b0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../livewire/livewire',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -715,8 +724,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
