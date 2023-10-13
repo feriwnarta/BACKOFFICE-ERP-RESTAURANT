@@ -16,9 +16,7 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get('test1', function () {
-    return 'test1';
-});
+Route::get('pos/menu', \App\Livewire\PointOfSales\PosMenu::class);
 
 // Routes Untuk Menu POS
 Route::controller(\App\Http\Controllers\PosController::class)->group(function () {

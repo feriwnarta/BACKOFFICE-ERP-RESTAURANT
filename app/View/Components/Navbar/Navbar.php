@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class navbar extends Component
+class Navbar extends Component
 {
 
     public string $search;
@@ -18,7 +18,6 @@ class navbar extends Component
     {
         $this->search = $search;
     }
-
 
     /**
      * Get the view / contents that represent the component.
